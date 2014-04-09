@@ -1,16 +1,16 @@
 DoctorJ
 =======
 
-DoctorJ est un logiciel d'apprentissage par storyline personnalisable sur le langage Java.
+DoctorJ is a learning software using customizables storylines on Java.
 
-## Gestion des branches
-Dans leur ordre d'importance par rapport aux autres :
+## Branches management
+In the order of priority:
 
-* [MASTER] contient la documentation finale et la dernière version "release" stable, maintient le versionning
-* [RELEASE] contient les dernières sources du projet en vue de la sortie d'une nouvelle version (validation, test et debug)
-* [DEVELOP] contient les sources du projet (en cours de développement)
-* [FEATURE BRANCH] contient les sources d'une fonctionnalité avant son implémentation dans DEVELOP
-* [DOC] contient la documentation du projet (en cours d'écriture, validation) 
+* [MASTER] Final documentation and the last stable release
+* [RELEASE] Last sources in order to release the stable version (validation, test and debug)
+* [DEVELOP] Last sources (in development)
+* [FEATURE BRANCH] Features in development before implementation in DEVELOP
+* [DOC] Project documentation 
 
 ```
 DoctorJ is developped by a team of 4 students from IN'TECH INFO (Paris, France).
