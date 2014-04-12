@@ -10,7 +10,6 @@ Dans leur ordre d'importance par rapport aux autres :
 * [RELEASE] contient les dernières sources du projet en vue de la sortie d'une nouvelle version (validation, test et debug)
 * [DEVELOP] contient les sources du projet (en cours de développement)
 * [FEATURE BRANCH] contient les sources d'une fonctionnalité avant son implémentation dans DEVELOP
-* [DOC] contient la documentation du projet (en cours d'écriture, validation) 
 
 ```
 DoctorJ is developped by a team of 4 students from IN'TECH INFO (Paris, France).
