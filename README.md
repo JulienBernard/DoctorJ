@@ -10,7 +10,6 @@ In the order of priority:
 * [RELEASE] Last sources in order to release the stable version (validation, test and debug)
 * [DEVELOP] Last sources (in development)
 * [FEATURE BRANCH] Features in development before implementation in DEVELOP
-* [DOC] Project documentation 
 
 ```
 DoctorJ is developped by a team of 4 students from IN'TECH INFO (Paris, France).
