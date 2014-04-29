@@ -8,7 +8,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
-import fr.doctorj.models.jsonReader;
 
 import java.io.IOException;
 
@@ -28,7 +27,7 @@ public class MainController {
             //hide this current window
             ((Node)(event.getSource())).getScene().getWindow().hide();
 
-            new Generator();
+            new GeneratorController();
 
         } catch (IOException e) {
             e.printStackTrace();

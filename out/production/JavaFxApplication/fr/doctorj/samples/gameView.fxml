@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.GridPane?>
 
-<GridPane alignment="CENTER" hgap="10.0" prefHeight="768.0" prefWidth="1024.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="fr.doctorj.controllers.Main">
+<GridPane alignment="CENTER" hgap="10.0" prefHeight="768.0" prefWidth="1024.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="fr.doctorj.controllers.MainController">
     <children>
         <BorderPane prefHeight="731.0" prefWidth="1024.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
             <left>
@@ -38,7 +38,7 @@
                         <Label minHeight="13.999900817871094" prefHeight="14.0" prefWidth="84.0" text="Niveau - " HBox.hgrow="ALWAYS" />
                         <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                             <image>
-                                <Image url="@../../images/save.png" />
+                                <Image url="@../images/save.png" />
                             </image>
                         </ImageView>
                         <MenuButton mnemonicParsing="false" rotate="0.0" scaleX="1.0" scaleZ="1.0" text="Niveaux" translateX="820.0" translateY="0.0" HBox.hgrow="ALWAYS">
