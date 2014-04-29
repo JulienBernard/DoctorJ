@@ -1,0 +1,46 @@
+{
+	"presentationName" : "Ma présentation",
+	"presentationDescription" : "Cette présentation à pour sujet un slider JSON",
+	"presentationDate" : "Généré le 16 Septembre 2013",
+	"presentationAutor" : "Julien Bernard",
+	"presentationSlides" : [
+	{
+		
+		"title" : "Slide 1",
+		"paragraphs" : [
+		{
+			"value" : "Ceci est mon premier paragraphe."
+		},
+		{
+			"value" : "Ceci est mon deuxième paragraphe."
+		}
+		]
+	},
+	{
+		"title" : "Slide 2",
+		"paragraphs" : [
+		{
+			"value" : "Ceci est mon premier paragraphe.",
+			"image" : "example.jpg"
+		},
+		{
+			"value" : "Ceci est mon deuxième paragraphe."
+		},
+		{
+			"value" : "Ceci est mon troisième paragraphe."
+		}
+		]
+	},
+	{
+		"title" : "Slide 3",
+		"paragraphs" : [
+		{
+			"value" : "Ceci est mon premier paragraphe.",
+			"image" : "example.jpg"
+		}
+		]
+
+	}
+	]
+
+}
