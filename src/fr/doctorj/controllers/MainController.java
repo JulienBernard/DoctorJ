@@ -12,7 +12,7 @@ import fr.doctorj.models.jsonReader;
 
 import java.io.IOException;
 
-public class Main {
+public class MainController {
     @FXML
     private Button generatorButton;
 
