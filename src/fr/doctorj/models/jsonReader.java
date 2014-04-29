@@ -29,32 +29,31 @@ public class jsonReader {
 
             JSONObject jsonObject = (JSONObject) obj;
 
-            String name = (String) jsonObject.get("presentationName");
-            String desc = (String) jsonObject.get("presentationDescription");
-            String date = (String) jsonObject.get("presentationDate");
-            String autor = (String) jsonObject.get("presentationAutor");
-            str += "Name: "+name+"\n";
-            str += "Description: "+desc+"\n";
-            str += "Date: "+date+"\n";
-            str += "Autor: "+autor+"\n";
+            String storyName = (String) jsonObject.get("storyName");
+            String storyDescription = (String) jsonObject.get("chapterDescription");
+            str += "Story name: "+storyName+"\n";
+            str += "Story description: "+storyDescription+"\n";
 
-            JSONArray slideContent = (JSONArray) jsonObject.get("presentationSlides");
+            JSONArray slideContent = (JSONArray) jsonObject.get("storyChapters");
             Iterator i = slideContent.iterator();
 
             while (i.hasNext()) {
                 JSONObject slide = (JSONObject) i.next();
-                String title = (String)slide.get("title");
-                str += "-> "+ title+"\n";
+                String chapterName = (String)slide.get("chapterName");
+                String chapterDescription = (String)slide.get("chapterDescription");
+                str += "-> "+ chapterName+"\n";
+                str += "-> "+ chapterDescription+"\n";
 
-                JSONArray paragraphContent = (JSONArray) slide.get("paragraphs");
+                JSONArray paragraphContent = (JSONArray) slide.get("chapterSteps");
                 Iterator j = paragraphContent.iterator();
                 while (j.hasNext()) {
                     JSONObject paragraph = (JSONObject) j.next();
-                    String value = (String)paragraph.get("value");
-                    String image = (String)paragraph.get("image");
-                    str += " |-> "+ value+"\n";
-                    if( image != null )
-                        str += " |-> "+ image+"\n";
+                    String stepTitle = (String)paragraph.get("stepTitle");
+                    String stepHint = (String)paragraph.get("stepHint");
+                    String stepFunction = (String)paragraph.get("stepFunction");
+                    str += " |-> "+ stepTitle+"\n";
+                    str += " |-> "+ stepHint+"\n";
+                    str += " |-> "+ stepFunction+"\n";
                 }
             }
             str += "\n";

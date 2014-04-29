@@ -33,7 +33,7 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-        <Label alignment="CENTER" style="&#10;" text="Selectionnez une option ..." textAlignment="CENTER" textFill="#9f9f9f" wrapText="false" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="216.0" AnchorPane.rightAnchor="215.0" AnchorPane.topAnchor="177.0">
+        <Label fx:id="str" alignment="CENTER" style="&#10;" text="Selectionnez une option ..." textAlignment="CENTER" textFill="#9f9f9f" wrapText="false" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="216.0" AnchorPane.rightAnchor="215.0" AnchorPane.topAnchor="177.0">
           <font>
             <Font size="18.0" />
           </font>

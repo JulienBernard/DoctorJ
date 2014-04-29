@@ -1,46 +1,39 @@
 {
-	"presentationName" : "Ma présentation",
-	"presentationDescription" : "Cette présentation à pour sujet un slider JSON",
-	"presentationDate" : "Généré le 16 Septembre 2013",
-	"presentationAutor" : "Julien Bernard",
-	"presentationSlides" : [
-	{
-		
-		"title" : "Slide 1",
-		"paragraphs" : [
-		{
-			"value" : "Ceci est mon premier paragraphe."
-		},
-		{
-			"value" : "Ceci est mon deuxième paragraphe."
-		}
-		]
-	},
-	{
-		"title" : "Slide 2",
-		"paragraphs" : [
-		{
-			"value" : "Ceci est mon premier paragraphe.",
-			"image" : "example.jpg"
-		},
-		{
-			"value" : "Ceci est mon deuxième paragraphe."
-		},
-		{
-			"value" : "Ceci est mon troisième paragraphe."
-		}
-		]
-	},
-	{
-		"title" : "Slide 3",
-		"paragraphs" : [
-		{
-			"value" : "Ceci est mon premier paragraphe.",
-			"image" : "example.jpg"
-		}
-		]
-
-	}
+	"storyName" : "Story name",
+	"storyPitch" : "Story pitch",
+	"storyChapters" : [
+        {
+            "chapterName" : "Chapter 1 name",
+            "chapterDescription" : "Chapter 1 description",
+            "chapterSteps" : [
+            {
+                "stepTitle" : "Step 1.1 title",
+                "stepHint" : "Step 1.1 hint",
+                "stepFunction" : "Step 1.1 function"
+            },
+            {
+                "stepTitle" : "Step 1.2 title",
+                "stepHint" : "Step 1.2 hint",
+                "stepFunction" : "Step 1.2 function"
+            }
+            ]
+        },
+        {
+            "chapterName" : "Chapter 2 name",
+            "chapterDescription" : "Chapter 2 description",
+            "chapterSteps" : [
+                {
+                    "stepTitle" : "Step 2.1 title",
+                    "stepHint" : "Step 2.1 hint",
+                    "stepFunction" : "Step 2.1 function"
+                },
+                {
+                    "stepTitle" : "Step 2.2 title",
+                    "stepHint" : "Step 2.2 hint",
+                    "stepFunction" : "Step 2.2 function"
+                }
+            ]
+        }
 	]
 
 }
