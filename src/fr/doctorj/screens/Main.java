@@ -1,4 +1,4 @@
-package fr.doctorj.samples;
+package fr.doctorj.screens;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;

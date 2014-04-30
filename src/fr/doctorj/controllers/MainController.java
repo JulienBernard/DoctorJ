@@ -18,7 +18,7 @@ public class MainController {
     @FXML protected void handleGeneratorButton(ActionEvent event) {
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource("../samples/generator.fxml"));
+            root = FXMLLoader.load(getClass().getResource("../screens/generator.fxml"));
             Stage stage = new Stage();
             stage.setTitle("DoctorJ - Imaginez votre propre histoire");
             stage.setScene(new Scene(root));
@@ -34,7 +34,7 @@ public class MainController {
     @FXML protected void handlePlayButton(ActionEvent event) {
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource("../samples/gameView.fxml"));
+            root = FXMLLoader.load(getClass().getResource("../screens/gameView.fxml"));
             Stage stage = new Stage();
             stage.setTitle("DoctorJ - TITLE STORY");
             stage.setScene(new Scene(root));
