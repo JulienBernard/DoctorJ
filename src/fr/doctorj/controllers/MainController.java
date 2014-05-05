@@ -18,9 +18,8 @@ import java.io.IOException;
 public class MainController {
     @FXML
     private Button generatorButton;
-    private Button btnRun;
-    private ImageView chat;
-    private Button btnHome;
+    @FXML private Button btnRun;
+    @FXML private ImageView chat;
 
     @FXML protected void handleGeneratorButton(ActionEvent event) {
         Parent root;
@@ -61,14 +60,13 @@ public class MainController {
         TranslateTransition transition = createTransition(chat);
 
         transition.play();
-        btnHome.setText("coucou");
     }
 
 
     TranslateTransition createTransition(ImageView image) {
-        TranslateTransition transition = new TranslateTransition(Duration.millis(5000));
-        transition.setToX(0.5);
-        transition.setCycleCount(3);
+        TranslateTransition transition = new TranslateTransition(Duration.millis(100), image);
+        transition.setToX(5);
+        transition.setCycleCount(6);
         transition.setAutoReverse(true);
         return transition;
     }

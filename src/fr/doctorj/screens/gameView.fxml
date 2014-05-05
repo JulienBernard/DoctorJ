@@ -19,7 +19,7 @@
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="357.0" prefWidth="458.0">
 <children><Pane fx:id="gameViewPane" layoutX="141.0" layoutY="42.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-<children><ImageView fitHeight="287.0" fitWidth="556.0" pickOnBounds="true" preserveRatio="true">
+<children><ImageView fx:id="chat" fitHeight="287.0" fitWidth="556.0" pickOnBounds="true" preserveRatio="true">
 <image>
 <Image url="@../images/Chat.jpg" />
 </image></ImageView>
