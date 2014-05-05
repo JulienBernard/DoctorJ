@@ -20,6 +20,7 @@ public class MainController {
     private Button generatorButton;
     private Button btnRun;
     private ImageView chat;
+    private Button btnHome;
 
     @FXML protected void handleGeneratorButton(ActionEvent event) {
         Parent root;
@@ -51,19 +52,18 @@ public class MainController {
             //hide this current window
             ((Node)(event.getSource())).getScene().getWindow().hide();
 
-            TranslateTransition transition = createTransition(chat);
-
-            btnRun.setOnAction(new EventHandler<ActionEvent>() {
-                @Override
-                public void handle(ActionEvent event) {
-                    transition.play();
-                }
-            });
-
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+    @FXML protected void handleExecuteButton(ActionEvent event) {
+        TranslateTransition transition = createTransition(chat);
+
+        transition.play();
+        btnHome.setText("coucou");
+    }
+
 
     TranslateTransition createTransition(ImageView image) {
         TranslateTransition transition = new TranslateTransition(Duration.millis(5000));
