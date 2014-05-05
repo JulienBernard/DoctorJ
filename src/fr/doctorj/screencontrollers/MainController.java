@@ -1,4 +1,4 @@
-package fr.doctorj.controllers;
+package fr.doctorj.screencontrollers;
 
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
