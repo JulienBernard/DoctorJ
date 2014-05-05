@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="fr.doctorj.controllers.GeneratorController">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="Fichier">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Nouveau" />
+            <MenuItem mnemonicParsing="false" text="Ouvrir ..." />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Fermer" />
+            <MenuItem mnemonicParsing="false" text="Sauvegarder en tant que ..." />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quitter" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Aide">
+          <items>
+            <MenuItem mnemonicParsing="false" text="FAQ" />
+            <MenuItem mnemonicParsing="false" text="A propos" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+        <Label alignment="CENTER" style="&#10;" text="Selectionnez une option ..." textAlignment="CENTER" textFill="#9f9f9f" wrapText="false" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="216.0" AnchorPane.rightAnchor="215.0" AnchorPane.topAnchor="177.0">
+          <font>
+            <Font size="18.0" />
+          </font>
+        </Label>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>

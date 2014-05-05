@@ -33,7 +33,6 @@ public class MainController {
             //hide this current window
             ((Node)(event.getSource())).getScene().getWindow().hide();
 
-            new GeneratorController();
 
         } catch (IOException e) {
             e.printStackTrace();
