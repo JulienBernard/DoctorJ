@@ -4,7 +4,7 @@
 	"storyChapters" : [
         {
             "chapterName" : "Chapter 1 name",
-            "chapterDescription" : "Chapter 1 description",
+            "chapterPitch" : "Chapter 1 description",
             "chapterSteps" : [
             {
                 "stepTitle" : "Step 1.1 title",

@@ -3,7 +3,7 @@ package fr.doctorj.models;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Iterator;
+import java.util.*;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -20,9 +20,27 @@ public class jsonReader {
         this._pathFile = pathFile;
     }
 
-    public String readFile( JSONParser parser )
+    /**
+     * Create or save a Json file with the data from the user.
+     * @return
+     */
+    public boolean saveFile() {
+        return false;
+    }
+
+    /**
+     * Put on a Map all the data included on the JSon file.
+     * @param parser
+     * @return
+     */
+    public List<Map<String, String>> readFile( JSONParser parser )
     {
+        // A supr
         String str = "";
+
+        List<Map<String, String>> map = new ArrayList<>();
+        Map<String, String> story = new HashMap<String, String>();
+        Map<String, String> chapters = new HashMap<String, String>();
 
         try {
             Object obj = parser.parse(new FileReader( this._pathFile));
@@ -30,9 +48,9 @@ public class jsonReader {
             JSONObject jsonObject = (JSONObject) obj;
 
             String storyName = (String) jsonObject.get("storyName");
-            String storyDescription = (String) jsonObject.get("chapterDescription");
-            str += "Story name: "+storyName+"\n";
-            str += "Story description: "+storyDescription+"\n";
+            String storyPitch = (String) jsonObject.get("storyPitch");
+            story.put("storyName", storyName);
+            story.put("storyPitch", storyPitch);
 
             JSONArray slideContent = (JSONArray) jsonObject.get("storyChapters");
             Iterator i = slideContent.iterator();
@@ -40,9 +58,9 @@ public class jsonReader {
             while (i.hasNext()) {
                 JSONObject slide = (JSONObject) i.next();
                 String chapterName = (String)slide.get("chapterName");
-                String chapterDescription = (String)slide.get("chapterDescription");
-                str += "-> "+ chapterName+"\n";
-                str += "-> "+ chapterDescription+"\n";
+                String chapterPitch = (String)slide.get("chapterPitch");
+                chapters.put("chapterName", chapterName);
+                chapters.put("chapterPitch", chapterPitch);
 
                 JSONArray paragraphContent = (JSONArray) slide.get("chapterSteps");
                 Iterator j = paragraphContent.iterator();
@@ -67,6 +85,8 @@ public class jsonReader {
             str = "Your file need to be in UTF-8 WITHOUT BOM encodage!";
         }
 
-        return str;
+        map.add(story);
+        map.add(chapters);
+        return map;
     }
 }

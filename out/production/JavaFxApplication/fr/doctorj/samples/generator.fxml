@@ -1,26 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import java.util.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.paint.*?>
 <?import javafx.scene.text.*?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="fr.doctorj.controllers.GeneratorController">
+<VBox fx:id="generatorWindow" prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.doctorj.controllers.GeneratorController">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
         <Menu mnemonicParsing="false" text="Fichier">
           <items>
-            <MenuItem mnemonicParsing="false" text="Nouveau" />
-            <MenuItem mnemonicParsing="false" text="Ouvrir ..." />
+            <MenuItem id="newFile" mnemonicParsing="false" onAction="#newFile" text="Nouveau" />
+            <MenuItem id="loadFile" mnemonicParsing="false" onAction="#loadFile" text="Ouvrir ..." />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Fermer" />
-            <MenuItem mnemonicParsing="false" text="Sauvegarder en tant que ..." />
+            <MenuItem mnemonicParsing="false" onAction="#closeFile" text="Fermer" />
+            <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Sauvegarder en tant que ..." />
             <SeparatorMenuItem mnemonicParsing="false" />
             <SeparatorMenuItem mnemonicParsing="false" />
-            <MenuItem mnemonicParsing="false" text="Quitter" />
+            <MenuItem mnemonicParsing="false" onAction="#quit" text="Quitter" />
           </items>
         </Menu>
         <Menu mnemonicParsing="false" text="Aide">
@@ -38,6 +36,25 @@
             <Font size="18.0" />
           </font>
         </Label>
+    <AnchorPane fx:id="storyStep" layoutX="-1.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="640.0" visible="false">
+      <children>
+        <TextField fx:id="storyNameField" layoutX="220.0" layoutY="31.0" prefWidth="200.0" />
+        <Label layoutX="274.0" layoutY="14.0" text="Nom de l'histoire" />
+        <Label layoutX="257.0" layoutY="62.0" text="Description de l'histoire" />
+        <TextArea fx:id="storyPitchField" layoutX="170.0" layoutY="79.0" prefHeight="100.0" prefWidth="300.0" wrapText="true" />
+        <Button onAction="#toChapter" layoutX="510.0" layoutY="347.0" mnemonicParsing="false" text="Suivant (Chapitres)" />
+      </children>
+    </AnchorPane>
+    <AnchorPane fx:id="chapterStep" layoutX="-1.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="640.0" visible="false">
+      <children>
+        <TextField fx:id="chapterNameField" layoutX="220.0" layoutY="31.0" prefWidth="200.0" />
+        <Label layoutX="274.0" layoutY="14.0" text="Nom du chapitre" />
+        <Label layoutX="257.0" layoutY="62.0" text="Description du chapitre" />
+        <TextArea fx:id="chapterPitchField" layoutX="170.0" layoutY="79.0" prefHeight="100.0" prefWidth="300.0" wrapText="true" />
+        <Button layoutX="462.0" layoutY="347.0" mnemonicParsing="false" text="Suivant (Etapes du chapitre)" />
+        <Button onAction="#toStory" layoutX="14.0" layoutY="347.0" mnemonicParsing="false" text="Précédent (Histoire)" />
+      </children>
+</AnchorPane>
       </children>
     </AnchorPane>
   </children>

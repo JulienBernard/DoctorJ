@@ -13,14 +13,12 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 public class MainController {
-    @FXML
-    private Button generatorButton;
-    private Button playButton;
-    private Label str;
+    @FXML private Button generatorButton;
+    @FXML private Button playButton;
+    @FXML private Label str;
 
     @FXML protected void handleGeneratorButton(ActionEvent event) {
         Parent root;
-
         try {
             root = FXMLLoader.load(getClass().getResource("../samples/generator.fxml"));
             Stage stage = new Stage();
@@ -30,10 +28,6 @@ public class MainController {
 
             //hide this current window
             ((Node)(event.getSource())).getScene().getWindow().hide();
-
-            new GeneratorController();
-            str.setText("lol");
-
         } catch (IOException e) {
             e.printStackTrace();
         }
