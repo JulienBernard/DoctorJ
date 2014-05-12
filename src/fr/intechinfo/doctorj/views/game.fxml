@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="482.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.intechinfo.doctorj.controllers.Game">
+    <top><ToolBar fx:id="toolbar" nodeOrientation="RIGHT_TO_LEFT" prefWidth="200.0" BorderPane.alignment="CENTER_RIGHT">
+        <items><ComboBox fx:id="btnSelectLevel" prefHeight="25.0" prefWidth="175.0" promptText="Sélectionnez un niveau..." /><Button fx:id="btnHome" mnemonicParsing="false" text="Accueil" />
+        </items>
+    </ToolBar>
+    </top>
+    <center><SplitPane dividerPositions="0.6871069182389937" focusTraversable="true" prefHeight="160.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+        <items>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                <children><SplitPane dividerPositions="0.690744920993228" focusTraversable="true" layoutX="168.0" layoutY="112.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <items>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="357.0" prefWidth="458.0">
+                            <children><Pane fx:id="gameViewPane" layoutX="141.0" layoutY="42.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <children>
+                                </children></Pane>
+                            </children></AnchorPane>
+                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="108.0" prefWidth="458.0">
+                            <children><VBox fx:id="helpArea" layoutX="116.0" layoutY="-86.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                <children><Label fx:id="lblHelp" text="..." wrapText="true" VBox.vgrow="ALWAYS">
+                                    <VBox.margin>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                    </VBox.margin></Label><Button fx:id="btnSwitch" mnemonicParsing="false" text="Aide">
+                                    <VBox.margin>
+                                        <Insets left="10.0" />
+                                    </VBox.margin></Button>
+                                </children></VBox>
+                            </children></AnchorPane>
+                    </items>
+                </SplitPane>
+                </children></AnchorPane>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="160.0" prefWidth="100.0">
+                <children><VBox layoutX="29.0" layoutY="53.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                    <children><HBox fx:id="debugArea" alignment="CENTER" prefHeight="41.0" prefWidth="170.0" spacing="10.0">
+                        <children><Button fx:id="btnRun" alignment="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="56.0" text="Lancer" /><Button fx:id="btnReset" mnemonicParsing="false" text="Reset" />
+                        </children>
+                        <opaqueInsets>
+                            <Insets />
+                        </opaqueInsets>
+                        <VBox.margin>
+                            <Insets />
+                        </VBox.margin></HBox><TextArea fx:id="codeArea" prefHeight="200.0" prefWidth="200.0" promptText="Code..." VBox.vgrow="ALWAYS" />
+                    </children></VBox>
+                </children></AnchorPane>
+        </items>
+        <BorderPane.margin>
+            <Insets />
+        </BorderPane.margin>
+    </SplitPane>
+    </center></BorderPane>
