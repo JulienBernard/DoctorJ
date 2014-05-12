@@ -21,14 +21,6 @@ public class jsonReader {
     }
 
     /**
-     * Create or save a Json file with the data from the user.
-     * @return
-     */
-    public boolean saveFile() {
-        return false;
-    }
-
-    /**
      * Put on a Map all the data included on the JSon file.
      * @param parser
      * @return
@@ -39,6 +31,7 @@ public class jsonReader {
         String str = "";
 
         List<Map<String, String>> map = new ArrayList<>();
+        Map<String, String> error = new HashMap<String, String>();
         Map<String, String> story = new HashMap<String, String>();
         Map<String, String> chapters = new HashMap<String, String>();
 
@@ -78,13 +71,17 @@ public class jsonReader {
 
         } catch (FileNotFoundException e) {
             System.err.println("File not found!");
+            error.put("error", "Le fichier n'a pas pu être récupéré.");
         } catch (IOException e) {
             System.err.println("IO Exception was detected!");
+            error.put("error", "Un exception entrée/sortie a été détectée.");
         } catch (org.json.simple.parser.ParseException e) {
             System.err.println("An exception was detected!");
+            error.put("error", "Une exception a été détectée :\n- votre fichier doit être encodé en UTF-8 Sans BOM\n- votre fichier n'est pas au format .json");
             str = "Your file need to be in UTF-8 WITHOUT BOM encodage!";
         }
 
+        map.add(error);
         map.add(story);
         map.add(chapters);
         return map;

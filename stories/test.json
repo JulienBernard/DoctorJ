@@ -1,0 +1,9 @@
+{"storyName":"La médecine",
+    "storyChapters":[{
+        "chapterSteps":[{
+            "stepHint":"Step",
+            "stepFunction":"bla bla name",
+            "stepTitle":"bla bla name"}],
+        "chapterName":"Chapitre 1",
+        "chapterPitch":"Découvrons les variables"}],
+    "storyPitch":"Le monde de la médecine s'ouvre à toi !"}

@@ -31,30 +31,30 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
-        <Label fx:id="str" alignment="CENTER" style="&#10;" text="Selectionnez une option ..." textAlignment="CENTER" textFill="#9f9f9f" wrapText="false" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="216.0" AnchorPane.rightAnchor="215.0" AnchorPane.topAnchor="177.0">
+        <Label fx:id="str" alignment="CENTER" layoutX="73.0" layoutY="138.0" prefHeight="85.0" prefWidth="300.0" style="&#10;" text="Selectionnez une option ..." textAlignment="CENTER" textFill="#9f9f9f" wrapText="false" AnchorPane.bottomAnchor="175.0" AnchorPane.leftAnchor="124.0" AnchorPane.rightAnchor="124.0" AnchorPane.topAnchor="133.0">
           <font>
-            <Font size="18.0" />
+            <Font size="17.0" />
           </font>
         </Label>
-    <AnchorPane fx:id="storyStep" layoutX="-1.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="640.0" visible="false">
-      <children>
-        <TextField fx:id="storyNameField" layoutX="220.0" layoutY="31.0" prefWidth="200.0" />
-        <Label layoutX="274.0" layoutY="14.0" text="Nom de l'histoire" />
-        <Label layoutX="257.0" layoutY="62.0" text="Description de l'histoire" />
-        <TextArea fx:id="storyPitchField" layoutX="170.0" layoutY="79.0" prefHeight="100.0" prefWidth="300.0" wrapText="true" />
-        <Button onAction="#toChapter" layoutX="510.0" layoutY="347.0" mnemonicParsing="false" text="Suivant (Chapitres)" />
-      </children>
-    </AnchorPane>
-    <AnchorPane fx:id="chapterStep" layoutX="-1.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="640.0" visible="false">
-      <children>
-        <TextField fx:id="chapterNameField" layoutX="220.0" layoutY="31.0" prefWidth="200.0" />
-        <Label layoutX="274.0" layoutY="14.0" text="Nom du chapitre" />
-        <Label layoutX="257.0" layoutY="62.0" text="Description du chapitre" />
-        <TextArea fx:id="chapterPitchField" layoutX="170.0" layoutY="79.0" prefHeight="100.0" prefWidth="300.0" wrapText="true" />
-        <Button layoutX="462.0" layoutY="347.0" mnemonicParsing="false" text="Suivant (Etapes du chapitre)" />
-        <Button onAction="#toStory" layoutX="14.0" layoutY="347.0" mnemonicParsing="false" text="Précédent (Histoire)" />
-      </children>
-</AnchorPane>
+        <AnchorPane fx:id="storyStep" layoutX="-1.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="640.0" visible="false">
+          <children>
+            <TextField fx:id="storyNameField" layoutX="220.0" layoutY="31.0" prefWidth="200.0" />
+            <Label layoutX="274.0" layoutY="14.0" text="Nom de l'histoire" />
+            <Label layoutX="257.0" layoutY="62.0" text="Description de l'histoire" />
+            <TextArea fx:id="storyPitchField" layoutX="170.0" layoutY="79.0" prefHeight="100.0" prefWidth="300.0" wrapText="true" />
+            <Button layoutX="510.0" layoutY="347.0" mnemonicParsing="false" onAction="#toChapter" text="Suivant (Chapitres)" />
+          </children>
+        </AnchorPane>
+        <AnchorPane fx:id="chapterStep" layoutX="-1.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="640.0" visible="false">
+          <children>
+            <TextField fx:id="chapterNameField" layoutX="220.0" layoutY="31.0" prefWidth="200.0" />
+            <Label layoutX="274.0" layoutY="14.0" text="Nom du chapitre" />
+            <Label layoutX="257.0" layoutY="62.0" text="Description du chapitre" />
+            <TextArea fx:id="chapterPitchField" layoutX="170.0" layoutY="79.0" prefHeight="100.0" prefWidth="300.0" wrapText="true" />
+            <Button layoutX="462.0" layoutY="347.0" mnemonicParsing="false" text="Suivant (Etapes du chapitre)" />
+            <Button layoutX="14.0" layoutY="347.0" mnemonicParsing="false" onAction="#toStory" text="Précédent (Histoire)" />
+          </children>
+        </AnchorPane>
       </children>
     </AnchorPane>
   </children>

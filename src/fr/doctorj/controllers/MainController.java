@@ -20,7 +20,7 @@ public class MainController {
     @FXML protected void handleGeneratorButton(ActionEvent event) {
         Parent root;
         try {
-            root = FXMLLoader.load(getClass().getResource("../samples/generator.fxml"));
+            root = FXMLLoader.load(getClass().getResource("../samples/test.fxml"));
             Stage stage = new Stage();
             stage.setTitle("DoctorJ - Imaginez votre propre histoire");
             stage.setScene(new Scene(root));

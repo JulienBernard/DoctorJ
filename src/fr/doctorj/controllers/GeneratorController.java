@@ -17,8 +17,12 @@ import javafx.stage.Stage;
 import org.json.simple.parser.JSONParser;
 import fr.doctorj.models.*;
 
+import javax.swing.*;
 import java.awt.*;
+import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.Map;
 import java.util.List;
@@ -39,17 +43,17 @@ public class GeneratorController implements Initializable {
     @FXML public TextArea chapterPitchField;
 
     public GeneratorController() {
-        jsonReader JsonReader = new jsonReader( "" );
-        listReturn = JsonReader.readFile(parser);
     }
 
     /**
      * Initialize the components from this view.
-     * @param url
-     * @param resourceBundle
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        storyStep.setVisible(false);
+        chapterStep.setVisible(false);
+        str.setVisible(true);
+        str.setText("Choissisez une option ...");
     }
 
     public void newFile(ActionEvent actionEvent) {
@@ -68,10 +72,34 @@ public class GeneratorController implements Initializable {
         chapterStep.setVisible(false);
         str.setVisible(false);
 
-        storyNameField.setText(listReturn.get(0).get("storyName"));
-        storyPitchField.setText(listReturn.get(0).get("storyPitch"));
-        chapterNameField.setText(listReturn.get(1).get("chapterName"));
-        chapterPitchField.setText(listReturn.get(1).get("chapterPitch"));
+        JFileChooser dialogue = new JFileChooser(new File("."));
+        PrintWriter sortie;
+        File file;
+
+        if (dialogue.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            try {
+                file = dialogue.getSelectedFile();
+                jsonReader JsonReader = new jsonReader( file.getPath() );
+                listReturn = JsonReader.readFile(parser);
+
+                if( listReturn.get(0).get("error") != null ) {
+                    storyStep.setVisible(false);
+                    chapterStep.setVisible(false);
+                    str.setVisible(true);
+                    str.setText(listReturn.get(0).get("error"));
+                }
+                else {
+                    storyNameField.setText(listReturn.get(1).get("storyName"));
+                    storyPitchField.setText(listReturn.get(1).get("storyPitch"));
+                    chapterNameField.setText(listReturn.get(2).get("chapterName"));
+                    chapterPitchField.setText(listReturn.get(2).get("chapterPitch"));
+                }
+            } catch (NullPointerException e) {
+                System.out.println(e);
+                System.out.println(e.getMessage());
+            }
+            return;
+        }
     }
 
     public void toChapter(ActionEvent actionEvent) {
@@ -87,8 +115,30 @@ public class GeneratorController implements Initializable {
     }
 
     public void saveFile(ActionEvent actionEvent) {
-        /* Create Json file */
-        System.out.println("Fonctionnalité à venir");
+        storyStep.setVisible(true);
+        chapterStep.setVisible(false);
+        str.setVisible(false);
+
+        JFileChooser dialogue = new JFileChooser(new File("."));
+        PrintWriter sortie;
+        File file;
+
+        if (dialogue.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            try {
+                file = dialogue.getSelectedFile();
+                jsonWriter JsonWriter = new jsonWriter( file.getPath() );
+
+                if( JsonWriter.saveFile() ) {
+                    System.out.println("Save done.");
+                }
+                else {
+                    System.out.println("Wait, an error was catch: good location?");
+                }
+            } catch (NullPointerException e) {
+                System.out.println(e);
+            }
+            return;
+        }
     }
 
     public void closeFile(ActionEvent actionEvent) {

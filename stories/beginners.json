@@ -20,7 +20,7 @@
         },
         {
             "chapterName" : "Chapter 2 name",
-            "chapterDescription" : "Chapter 2 description",
+            "chapterPitch" : "Chapter 2 description",
             "chapterSteps" : [
                 {
                     "stepTitle" : "Step 2.1 title",
