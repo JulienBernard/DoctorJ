@@ -1,6 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<BorderPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.intechinfo.doctorj.controllers.Generator">
+    <top>
+        <MenuBar VBox.vgrow="NEVER" >
+            <menus>
+                <Menu mnemonicParsing="false" text="Fichier">
+                    <items>
+                        <MenuItem id="newFile" mnemonicParsing="false" onAction="#newFile" text="Nouveau" />
+                        <MenuItem id="loadFile" mnemonicParsing="false" onAction="#loadFile" text="Ouvrir ..." />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#closeFile" text="Fermer" />
+                        <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Sauvegarder" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" text="Quitter" />
+                        <MenuItem mnemonicParsing="false" onAction="#quit" text="Quitter" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Aide">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="FAQ" />
+                        <MenuItem mnemonicParsing="false" text="A propos" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.intechinfo.doctorj.controllers.Generator" />
+    <center>
+        <VBox fx:id="generatorAnchor" layoutX="-1.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="640.0">
+            <children>
+                <TextField fx:id="gameNameField" layoutX="220.0" layoutY="31.0" prefWidth="200.0" />
+                <Label layoutX="274.0" layoutY="14.0" text="Nom de la partie" />
+                <Label layoutX="257.0" layoutY="62.0" text="Description de la partie" />
+                <TextArea fx:id="gamePitchField" layoutX="170.0" layoutY="79.0" prefHeight="100.0" prefWidth="300.0" wrapText="true" />
+                <Button layoutX="510.0" layoutY="347.0" onAction="#toChapter" mnemonicParsing="false" text="Suivant (Chapitres)" />
+            </children>
+        </VBox>
+    </center>
+
+    <bottom>
+        <VBox alignment="BOTTOM_RIGHT">
+            <Button layoutX="0" onAction="#addStep" mnemonicParsing="false" text="Ajouter une étape" visible="false" fx:id="addStep"/>
+            <Button layoutX="200.0" onAction="#toStep" mnemonicParsing="false" text="Continuer" visible="false" fx:id="toStep"/>
+            <Button layoutX="200.0" onAction="#toChapter" mnemonicParsing="false" text="Continuer" visible="true" fx:id="toChapter"/>
+        </VBox>
+    </bottom>
+</BorderPane>

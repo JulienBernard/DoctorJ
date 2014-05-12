@@ -1,0 +1,10 @@
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Button?>
+<fx:root type="javafx.scene.layout.VBox" xmlns:fx="http://javafx.com/fxml" fx:id="generatorAnchor" layoutX="-1.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="640.0">
+    <TextField fx:id="gameNameField" layoutX="220.0" layoutY="31.0" prefWidth="200.0" />
+    <Label layoutX="274.0" layoutY="14.0" text="Nom de la partie" />
+    <Label layoutX="257.0" layoutY="62.0" text="Description de la partie" />
+    <TextArea fx:id="gamePitchField" layoutX="170.0" layoutY="79.0" prefHeight="100.0" prefWidth="300.0" wrapText="true" />
+</fx:root>
