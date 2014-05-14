@@ -3,7 +3,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.Button?>
-<fx:root type="javafx.scene.layout.VBox" xmlns:fx="http://javafx.com/fxml" fx:id="generatorAnchor">
+<fx:root type="javafx.scene.layout.VBox" xmlns:fx="http://javafx.com/fxml" fx:id="generatorAnchor" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
     <TextField fx:id="chapterNameField" layoutX="220.0" layoutY="31.0" prefWidth="200.0" />
     <Label layoutX="274.0" layoutY="14.0" text="Nom de l'étape" />
     <Label layoutX="257.0" layoutY="62.0" text="Description de l'étape" />

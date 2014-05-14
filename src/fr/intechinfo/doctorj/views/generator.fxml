@@ -9,6 +9,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.ScrollPane?>
 <BorderPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.intechinfo.doctorj.controllers.Generator">
     <top>
         <MenuBar VBox.vgrow="NEVER" >
@@ -37,15 +38,19 @@
     </top>
 
     <center>
-        <VBox fx:id="generatorAnchor" layoutX="-1.0" layoutY="1.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="640.0">
-            <children>
-                <TextField fx:id="gameNameField" layoutX="220.0" layoutY="31.0" prefWidth="200.0" />
-                <Label layoutX="274.0" layoutY="14.0" text="Nom de la partie" />
-                <Label layoutX="257.0" layoutY="62.0" text="Description de la partie" />
-                <TextArea fx:id="gamePitchField" layoutX="170.0" layoutY="79.0" prefHeight="100.0" prefWidth="300.0" wrapText="true" />
-                <Button layoutX="510.0" layoutY="347.0" onAction="#toChapter" mnemonicParsing="false" text="Suivant (Chapitres)" />
-            </children>
-        </VBox>
+        <ScrollPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <content>
+                <VBox fx:id="generatorAnchor" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                    <children>
+                        <TextField fx:id="gameNameField" layoutX="220.0" layoutY="31.0" prefWidth="200.0" />
+                        <Label layoutX="274.0" layoutY="14.0" text="Nom de la partie" />
+                        <Label layoutX="257.0" layoutY="62.0" text="Description de la partie" />
+                        <TextArea fx:id="gamePitchField" layoutX="170.0" layoutY="79.0" prefHeight="100.0" prefWidth="300.0" wrapText="true" />
+                        <Button layoutX="510.0" layoutY="347.0" onAction="#toChapter" mnemonicParsing="false" text="Suivant (Chapitres)" />
+                    </children>
+                </VBox>
+            </content>
+        </ScrollPane>
     </center>
 
     <bottom>
