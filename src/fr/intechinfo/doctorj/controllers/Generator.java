@@ -1,16 +1,22 @@
 package fr.intechinfo.doctorj.controllers;
 
+import javafx.beans.property.StringProperty;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.*;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -21,6 +27,10 @@ public class Generator extends VBox implements Initializable {
     @FXML private Button toChapter;
     @FXML private Button toStep;
     @FXML private Button addStep;
+    @FXML private Button addChapter;
+
+    public List<String> listChapter = new ArrayList<String>();
+    @FXML private TextField chapterNameField;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -48,6 +58,7 @@ public class Generator extends VBox implements Initializable {
         toChapter.setVisible(false);
         toStep.setVisible(true);
         addStep.setVisible(false);
+        addChapter.setVisible(true);
     }
 
     public void toStep(ActionEvent actionEvent) {
@@ -57,10 +68,17 @@ public class Generator extends VBox implements Initializable {
         toChapter.setVisible(false);
         toStep.setVisible(false);
         addStep.setVisible(true);
+        addChapter.setVisible(false);
     }
 
     public void addStep(ActionEvent actionEvent) {
         generatorAnchor.getChildren().add(new Generator("../views/generatorStep.fxml"));
+    }
+
+
+    public void addChapter(ActionEvent actionEvent) {
+        listChapter.add(chapterNameField.getText());
+        generatorAnchor.getChildren().add(new Generator("../views/generatorChapter.fxml"));
     }
 
     public void newFile(ActionEvent actionEvent) {
@@ -70,6 +88,7 @@ public class Generator extends VBox implements Initializable {
         toChapter.setVisible(true);
         toStep.setVisible(false);
         addStep.setVisible(false);
+        addChapter.setVisible(false);
     }
 
     public void loadFile(ActionEvent actionEvent) {
