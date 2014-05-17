@@ -1,8 +1,16 @@
 package fr.intechinfo.doctorj.controllers;
 
+import fr.intechinfo.doctorj.model.SyntaxValidator;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
+import org.apache.commons.io.FileUtils;
 
+import java.io.*;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -13,4 +21,24 @@ public class Game implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
+
+    @FXML private Button btnRun;
+    @FXML private TextArea codeArea;
+    @FXML private TextArea errorArea;
+
+    @FXML protected void handleExecuteButton(ActionEvent event) throws IOException {
+
+        String data = codeArea.getText();
+        FileUtils.writeStringToFile(new File("HelloBuggyWorld.java"), data);
+
+        SyntaxValidator syntaxValidator;
+        List<String> errorList = SyntaxValidator.check("HelloBuggyWorld.java");
+        String errors = "";
+
+        for (String anErrorList : errorList) {
+            errors += anErrorList;
+        }
+        errorArea.setText(errors);
+    }
+
 }
