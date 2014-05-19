@@ -1,5 +1,6 @@
 package fr.intechinfo.doctorj;
 
+import fr.intechinfo.doctorj.model.Storyline;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -47,6 +48,33 @@ public class DoctorJ extends Application {
      * @param height The height of the window.
      */
     public void changeScene(String view, String title, double width, double height) {
+        BorderPane root = null;
+        try {
+            root = FXMLLoader.load(getClass().getResource("views/" + view + ".fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        Scene scene = new Scene(root, width, height);
+
+        scene.getStylesheets().add(getClass().getResource("views/styles/global.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("views/styles/" + view + ".css").toExternalForm());
+
+        primaryStage.setTitle(title);
+        primaryStage.setScene(scene);
+
+        primaryStage.show();
+    }
+
+    /**
+     * Changes the current scene of the primary stage.
+     * @param view The name of the view, without the extension .fxml (e.g. : "home").
+     * @param title The title of the window.
+     * @param width The width of the window.
+     * @param height The height of the window.
+     * @param story The story loaded.
+     */
+    public void changeScene(String view, String title, double width, double height, Storyline story) {
         BorderPane root = null;
         try {
             root = FXMLLoader.load(getClass().getResource("views/" + view + ".fxml"));
