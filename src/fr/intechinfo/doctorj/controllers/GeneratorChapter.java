@@ -21,11 +21,30 @@ public class GeneratorChapter implements Initializable {
         System.out.println("load generator chapter");
     }
 
-    public TextField getChapterNameField() {
-        return chapterNameField;
+    public void newFile(ActionEvent actionEvent) {
     }
 
-    public void setChapterNameField(TextField chapterNameField) {
-        this.chapterNameField = chapterNameField;
+    public void loadFile(ActionEvent actionEvent) {
+    }
+
+    public void closeFile(ActionEvent actionEvent) {
+    }
+
+    public void saveFile(ActionEvent actionEvent) {
+    }
+
+    public void quit(ActionEvent actionEvent) {
+    }
+
+    public void addChapter(ActionEvent actionEvent) {
+    }
+
+    public void addStep(ActionEvent actionEvent) {
+    }
+
+    public void toStep(ActionEvent actionEvent) {
+    }
+
+    public void toChapter(ActionEvent actionEvent) {
     }
 }
