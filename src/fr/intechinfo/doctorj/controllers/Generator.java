@@ -29,8 +29,9 @@ public class Generator extends VBox implements Initializable {
     @FXML private Button addStep;
     @FXML private Button addChapter;
 
+    @FXML private GeneratorChapter GeneratorChapter;
     public List<String> listChapter = new ArrayList<String>();
-    @FXML private TextField chapterNameField;
+//    @FXML private TextField chapterNameField;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -77,7 +78,18 @@ public class Generator extends VBox implements Initializable {
 
 
     public void addChapter(ActionEvent actionEvent) {
-        listChapter.add(chapterNameField.getText());
+        FXMLLoader fxmlLoader2 = new FXMLLoader(getClass().getResource("../views/generatorChapter.fxml"));
+        fxmlLoader2.setRoot(this);
+        fxmlLoader2.setController("GeneratorChapter");
+
+        try {
+            fxmlLoader2.load();
+        } catch (IOException exception) {
+            throw new RuntimeException(exception);
+        }
+
+        TextField txt = (TextField) GeneratorChapter.getChapterNameField();
+        listChapter.add(txt.getText());
         generatorAnchor.getChildren().add(new Generator("../views/generatorChapter.fxml"));
     }
 

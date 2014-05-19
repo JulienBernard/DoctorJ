@@ -1,8 +1,6 @@
 package fr.intechinfo.doctorj.tests;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 /**
  * Created by Alexandre on 11/05/2014.
