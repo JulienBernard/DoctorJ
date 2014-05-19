@@ -45,11 +45,11 @@
                         <Label layoutX="274.0" layoutY="14.0" text="Titre du l'étape" />
                         <TextField fx:id="stepTitleField" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                         <Label layoutX="257.0" layoutY="62.0" text="Aide" />
-                        <TextArea fx:id="stepHelpField" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" wrapText="true" />
+                        <TextArea fx:id="stepHelpField" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" wrapText="true" prefRowCount="4" />
                         <Label layoutX="257.0" layoutY="62.0" text="Instructions" />
-                        <TextArea fx:id="stepDirectionField" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" wrapText="true" />
+                        <TextArea fx:id="stepDirectionField" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" wrapText="true" prefRowCount="4"/>
                         <Label layoutX="257.0" layoutY="62.0" text="Astuces" />
-                        <TextArea fx:id="stepHintField" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" wrapText="true" />
+                        <TextArea fx:id="stepHintField" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" wrapText="true" prefRowCount="3"/>
                         <Label layoutX="257.0" layoutY="62.0" text="Image" />
                         <TextField fx:id="stepImageField" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                         <Label layoutX="257.0" layoutY="62.0" text="Fonction de test" />

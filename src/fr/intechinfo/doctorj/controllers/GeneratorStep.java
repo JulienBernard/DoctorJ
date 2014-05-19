@@ -75,12 +75,11 @@ public class GeneratorStep extends Generator implements Initializable {
 
 
     public void saveFile(ActionEvent actionEvent) {
-        int sizeChap = DoctorJ.getInstance().getStory().getChapters().size();
         int idChap = DoctorJ.getInstance().getStory().getCurrentChapter();
         int idStep = DoctorJ.getInstance().getStory().getChapters().get(idChap).getCurrentStep();
         int sizeStep = DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().size();
 
-        if( sizeChap != 0 ) {
+        if( sizeStep == 0 ) {
             DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().add(new Step(this.stepTitleField.getText(), this.stepHelpField.getText(), this.stepDirectionField.getText(), this.stepHintField.getText(), this.stepImageField.getText(), this.stepTestField.getText(), sizeStep));
         } else if( DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().get(sizeStep - 1).getId() == idStep ) {
             DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().get(idStep).setTitle(this.stepTitleField.getText());
@@ -95,12 +94,11 @@ public class GeneratorStep extends Generator implements Initializable {
     }
 
     public void saveFile() {
-        int sizeChap = DoctorJ.getInstance().getStory().getChapters().size();
         int idChap = DoctorJ.getInstance().getStory().getCurrentChapter();
         int idStep = DoctorJ.getInstance().getStory().getChapters().get(idChap).getCurrentStep();
         int sizeStep = DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().size();
 
-        if( sizeChap != 0 ) {
+        if( sizeStep == 0 ) {
             DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().add(new Step(this.stepTitleField.getText(), this.stepHelpField.getText(), this.stepDirectionField.getText(), this.stepHintField.getText(), this.stepImageField.getText(), this.stepTestField.getText(), sizeStep));
         } else if( DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().get(sizeStep - 1).getId() == idStep ) {
             DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().get(idStep).setTitle(this.stepTitleField.getText());
