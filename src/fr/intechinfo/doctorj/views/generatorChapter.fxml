@@ -52,12 +52,11 @@
         </ScrollPane>
     </center>
 
+
     <bottom>
         <VBox alignment="BOTTOM_RIGHT">
-            <Button layoutX="0" onAction="#addChapter" mnemonicParsing="false" text="Ajouter un chapitre" visible="false" fx:id="addChapter"/>
-            <Button layoutX="0" onAction="#addStep" mnemonicParsing="false" text="Ajouter une étape" visible="false" fx:id="addStep"/>
-            <Button layoutX="200.0" onAction="#toStep" mnemonicParsing="false" text="Continuer" visible="false" fx:id="toStep"/>
-            <Button layoutX="200.0" onAction="#toChapter" mnemonicParsing="false" text="Continuer" visible="true" fx:id="toChapter" />
+            <Button text="Précédent" onAction="#previous" />
+            <Button text="Continuer" onAction="#next" />
         </VBox>
     </bottom>
 </BorderPane>

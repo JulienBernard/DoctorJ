@@ -51,4 +51,10 @@
             </content>
         </ScrollPane>
     </center>
+
+    <bottom>
+        <VBox alignment="BOTTOM_RIGHT">
+            <Button text="Continuer" onAction="#next" />
+        </VBox>
+    </bottom>
 </BorderPane>

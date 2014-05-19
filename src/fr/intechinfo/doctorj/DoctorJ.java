@@ -17,6 +17,7 @@ public class DoctorJ extends Application {
 
     private static DoctorJ instance;
     private Stage primaryStage;
+    private Storyline story;
 
     public static void main(String[] args) {
         launch(args);
@@ -67,37 +68,18 @@ public class DoctorJ extends Application {
     }
 
     /**
-     * Changes the current scene of the primary stage.
-     * @param view The name of the view, without the extension .fxml (e.g. : "home").
-     * @param title The title of the window.
-     * @param width The width of the window.
-     * @param height The height of the window.
-     * @param story The story loaded.
-     */
-    public void changeScene(String view, String title, double width, double height, Storyline story) {
-        BorderPane root = null;
-        try {
-            root = FXMLLoader.load(getClass().getResource("views/" + view + ".fxml"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        Scene scene = new Scene(root, width, height);
-
-        scene.getStylesheets().add(getClass().getResource("views/styles/global.css").toExternalForm());
-        scene.getStylesheets().add(getClass().getResource("views/styles/" + view + ".css").toExternalForm());
-
-        primaryStage.setTitle(title);
-        primaryStage.setScene(scene);
-
-        primaryStage.show();
-    }
-
-    /**
      * Gets the current instance of the application.
      * @return A DoctorJ object, the current instance of the application.
      */
     public static DoctorJ getInstance() {
         return instance;
+    }
+
+    public Storyline getStory() {
+        return story;
+    }
+
+    public void setStory(Storyline story) {
+        this.story = story;
     }
 }

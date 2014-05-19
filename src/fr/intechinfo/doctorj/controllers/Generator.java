@@ -16,13 +16,13 @@ import fr.intechinfo.doctorj.DoctorJ;
  * Controller for the Generator view
  */
 public class Generator implements Initializable {
-    private Storyline story = new Storyline();
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
     }
 
     public void newFile(ActionEvent actionEvent) {
+        DoctorJ.getInstance().setStory(new Storyline());
         DoctorJ.getInstance().changeScene("generatorGame", "Doctor J - Nouvelle histoire", 800, 600);
     }
 
@@ -36,9 +36,5 @@ public class Generator implements Initializable {
     }
 
     public void quit(ActionEvent actionEvent) {
-    }
-
-    public Storyline getStory() {
-        return this.story;
     }
 }

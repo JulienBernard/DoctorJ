@@ -1,5 +1,6 @@
 package fr.intechinfo.doctorj.controllers;
 
+import fr.intechinfo.doctorj.DoctorJ;
 import fr.intechinfo.doctorj.model.Storyline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -19,37 +20,38 @@ public class GeneratorGame extends Generator implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        this.gameNameField.setText(DoctorJ.getInstance().getStory().getName());
+        this.gamePitchField.setText(DoctorJ.getInstance().getStory().getPitch());
     }
 
     public void newFile(ActionEvent actionEvent) {
+        DoctorJ.getInstance().setStory(new Storyline());
+        DoctorJ.getInstance().changeScene("generatorGame", "Doctor J - Nouvelle histoire", 800, 600);
     }
 
     public void loadFile(ActionEvent actionEvent) {
-        System.out.println(getStory().getName());
-        System.out.println(getStory().getPitch());
+        this.gameNameField.setText(DoctorJ.getInstance().getStory().getName());
+        this.gamePitchField.setText(DoctorJ.getInstance().getStory().getPitch());
     }
 
     public void closeFile(ActionEvent actionEvent) {
     }
 
     public void saveFile(ActionEvent actionEvent) {
-        getStory().setName(this.gameNameField.getText());
-        getStory().setPitch(this.gamePitchField.getText());
-        System.out.println(getStory().getName());
+        DoctorJ.getInstance().getStory().setName(this.gameNameField.getText());
+        DoctorJ.getInstance().getStory().setPitch(this.gamePitchField.getText());
+    }
+
+    public void saveFile() {
+        DoctorJ.getInstance().getStory().setName(this.gameNameField.getText());
+        DoctorJ.getInstance().getStory().setPitch(this.gamePitchField.getText());
     }
 
     public void quit(ActionEvent actionEvent) {
     }
 
-    public void addChapter(ActionEvent actionEvent) {
-    }
-
-    public void addStep(ActionEvent actionEvent) {
-    }
-
-    public void toStep(ActionEvent actionEvent) {
-    }
-
-    public void toChapter(ActionEvent actionEvent) {
+    public void next(ActionEvent actionEvent) {
+        saveFile();
+        DoctorJ.getInstance().changeScene("generatorChapter", "Doctor J - Ajouter un chapitre", 800, 600);
     }
 }
