@@ -10,7 +10,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.ScrollPane?>
-<BorderPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.intechinfo.doctorj.controllers.GeneratorChapter">
+<BorderPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.intechinfo.doctorj.controllers.GeneratorStep">
     <top>
         <MenuBar VBox.vgrow="NEVER" >
             <menus>
@@ -42,10 +42,18 @@
             <content>
                 <VBox fx:id="generatorAnchor" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <children>
-                        <Label layoutX="274.0" layoutY="14.0" text="Nom du chapitre" />
-                        <TextField fx:id="chapterTitleField" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                        <Label layoutX="257.0" layoutY="62.0" text="Description du chapitre" />
-                        <TextArea fx:id="chapterDescriptionField" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" wrapText="true" />
+                        <Label layoutX="274.0" layoutY="14.0" text="Titre du l'étape" />
+                        <TextField fx:id="stepTitleField" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <Label layoutX="257.0" layoutY="62.0" text="Aide" />
+                        <TextArea fx:id="stepHelpField" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" wrapText="true" />
+                        <Label layoutX="257.0" layoutY="62.0" text="Instructions" />
+                        <TextArea fx:id="stepDirectionField" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" wrapText="true" />
+                        <Label layoutX="257.0" layoutY="62.0" text="Astuces" />
+                        <TextArea fx:id="stepHintField" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" wrapText="true" />
+                        <Label layoutX="257.0" layoutY="62.0" text="Image" />
+                        <TextField fx:id="stepImageField" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <Label layoutX="257.0" layoutY="62.0" text="Fonction de test" />
+                        <TextField fx:id="stepTestField" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                     </children>
                 </VBox>
             </content>
@@ -55,7 +63,7 @@
     <bottom>
         <VBox alignment="BOTTOM_RIGHT">
             <Button text="Précédent" onAction="#previous" />
-            <Button text="Continuer" onAction="#next" />
+            <!-- <Button text="Continuer" onAction="#next" /> -->
         </VBox>
     </bottom>
 </BorderPane>

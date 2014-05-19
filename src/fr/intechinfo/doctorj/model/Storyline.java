@@ -11,11 +11,13 @@ public class Storyline {
     private List<Chapter> chapters;
     private String name;
     private String pitch;
+    private int currentChapter;
 
     public Storyline() {
         this.chapters = new ArrayList<Chapter>();
         this.name = "";
         this.pitch = "";
+        this.currentChapter = 0;
     }
 
     public List<Chapter> getChapters() {
@@ -29,4 +31,8 @@ public class Storyline {
     public String getPitch() { return pitch; }
 
     public void setPitch(String pitch) { this.pitch = pitch; }
+
+    public int getCurrentChapter() { return currentChapter; }
+
+    public void setCurrentChapter(int currentChapter1) { this.currentChapter = currentChapter; }
 }
