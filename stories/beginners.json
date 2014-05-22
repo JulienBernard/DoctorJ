@@ -8,12 +8,18 @@
             "chapterSteps" : [
             {
                 "stepTitle" : "Step 1.1 title",
+                "stepHelp" : "Step 1.1 help",
+                "stepDirection" : "Step 1.1 direction",
                 "stepHint" : "Step 1.1 hint",
+                "stepImage" : "Step 1.1 image",
                 "stepFunction" : "Step 1.1 function"
             },
             {
                 "stepTitle" : "Step 1.2 title",
+                "stepHelp" : "Step 1.2 help",
+                "stepDirection" : "Step 1.2 direction",
                 "stepHint" : "Step 1.2 hint",
+                "stepImage" : "Step 1.2 image",
                 "stepFunction" : "Step 1.2 function"
             }
             ]
@@ -24,16 +30,13 @@
             "chapterSteps" : [
                 {
                     "stepTitle" : "Step 2.1 title",
+                    "stepHelp" : "Step 2.1 help",
+                    "stepDirection" : "Step 2.1 direction",
                     "stepHint" : "Step 2.1 hint",
+                    "stepImage" : "Step 2.1 image",
                     "stepFunction" : "Step 2.1 function"
-                },
-                {
-                    "stepTitle" : "Step 2.2 title",
-                    "stepHint" : "Step 2.2 hint",
-                    "stepFunction" : "Step 2.2 function"
                 }
             ]
         }
 	]
-
 }
