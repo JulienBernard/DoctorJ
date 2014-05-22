@@ -43,7 +43,7 @@
                 <VBox alignment="CENTER" fx:id="generatorAnchor" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <children>
                         <Button text="Ajouter un chapitre" onAction="#addChapter" />
-                        <Button text="Sauvegarder et tester mon histoire" onAction="#end" />
+                        <Button text="Sauvegarder mon histoire !" onAction="#saveQuit" />
                     </children>
                 </VBox>
             </content>

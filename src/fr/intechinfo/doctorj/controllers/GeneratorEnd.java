@@ -4,9 +4,13 @@ import fr.intechinfo.doctorj.DoctorJ;
 import fr.intechinfo.doctorj.model.Chapter;
 import fr.intechinfo.doctorj.model.Step;
 import fr.intechinfo.doctorj.model.Storyline;
+import fr.intechinfo.doctorj.model.jsonWriter;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
+import javax.swing.*;
+import java.io.File;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -48,7 +52,28 @@ public class GeneratorEnd implements Initializable {
         DoctorJ.getInstance().changeScene("generatorChapter", "Doctor J - Ajouter une chapitre (Chapitre " + (str.getCurrentChapter() + 1) + ", Étape 1)", 800, 600);
     }
 
-    public void end(ActionEvent actionEvent) {
+    public void saveQuit(ActionEvent actionEvent) {
+        JFileChooser dialogue = new JFileChooser(new File("."));
+        PrintWriter sortie;
+        File file;
+
+        System.out.println("Save ...");
+
+        if (dialogue.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            try {
+                file = dialogue.getSelectedFile();
+                jsonWriter JsonWriter = new jsonWriter( file.getPath() );
+
+                if( JsonWriter.saveFile(str) ) {
+                    System.out.println("Save done.");
+                }
+                else {
+                    System.out.println("Wait, an error was catch: good location?");
+                }
+            } catch (NullPointerException e) {
+                System.out.println(e);
+            }
+        }
     }
 
     public void previous(ActionEvent actionEvent) {
