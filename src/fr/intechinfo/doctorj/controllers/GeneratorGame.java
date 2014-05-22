@@ -1,6 +1,8 @@
 package fr.intechinfo.doctorj.controllers;
 
 import fr.intechinfo.doctorj.DoctorJ;
+import fr.intechinfo.doctorj.model.Chapter;
+import fr.intechinfo.doctorj.model.Step;
 import fr.intechinfo.doctorj.model.Storyline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -52,6 +54,10 @@ public class GeneratorGame extends Generator implements Initializable {
 
     public void next(ActionEvent actionEvent) {
         saveFile();
+
+        if( DoctorJ.getInstance().getStory().getChapters().size() == 0) {
+            DoctorJ.getInstance().getStory().getChapters().add(new Chapter());
+        }
         DoctorJ.getInstance().changeScene("generatorChapter", "Doctor J - Ajouter un chapitre", 800, 600);
     }
 }

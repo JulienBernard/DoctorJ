@@ -10,7 +10,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.ScrollPane?>
-<BorderPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.intechinfo.doctorj.controllers.GeneratorChapter">
+<BorderPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.intechinfo.doctorj.controllers.GeneratorEnd">
     <top>
         <MenuBar VBox.vgrow="NEVER" >
             <menus>
@@ -40,12 +40,10 @@
     <center>
         <ScrollPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <content>
-                <VBox fx:id="generatorAnchor" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                <VBox alignment="CENTER" fx:id="generatorAnchor" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <children>
-                        <Label layoutX="274.0" layoutY="14.0" text="Nom du chapitre" />
-                        <TextField fx:id="chapterTitleField" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
-                        <Label layoutX="257.0" layoutY="62.0" text="Description du chapitre" />
-                        <TextArea fx:id="chapterDescriptionField" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" wrapText="true" />
+                        <Button text="Ajouter un chapitre" onAction="#addChapter" />
+                        <Button text="Sauvegarder et tester mon histoire" onAction="#end" />
                     </children>
                 </VBox>
             </content>
@@ -55,7 +53,6 @@
     <bottom>
         <StackPane alignment="BOTTOM_RIGHT">
             <Button text="Précédent" onAction="#previous" StackPane.alignment="BOTTOM_LEFT" />
-            <Button text="Continuer" onAction="#next" StackPane.alignment="BOTTOM_RIGHT" />
         </StackPane>
     </bottom>
 </BorderPane>

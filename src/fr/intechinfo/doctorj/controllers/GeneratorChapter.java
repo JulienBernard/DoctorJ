@@ -1,6 +1,7 @@
 package fr.intechinfo.doctorj.controllers;
 
 import fr.intechinfo.doctorj.DoctorJ;
+import fr.intechinfo.doctorj.model.Step;
 import fr.intechinfo.doctorj.model.Storyline;
 import fr.intechinfo.doctorj.model.Chapter;
 import javafx.event.ActionEvent;
@@ -20,13 +21,15 @@ public class GeneratorChapter extends Generator implements Initializable {
     @FXML private TextField chapterTitleField;
     @FXML private TextArea chapterDescriptionField;
 
+    private Storyline str = DoctorJ.getInstance().getStory();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        int size = DoctorJ.getInstance().getStory().getChapters().size();
-        int id = DoctorJ.getInstance().getStory().getCurrentChapter();
-        if( size != 0 )
+        int size = str.getChapters().size();
+        int id = str.getCurrentChapter();
+        if( size != 0 && id < size )
         {
-            Chapter chap = DoctorJ.getInstance().getStory().getChapters().get(id);
+            Chapter chap = str.getChapters().get(id);
             this.chapterTitleField.setText(chap.getTitle());
             this.chapterDescriptionField.setText(chap.getDescription());
         }
@@ -38,11 +41,11 @@ public class GeneratorChapter extends Generator implements Initializable {
     }
 
     public void loadFile(ActionEvent actionEvent) {
-        int size = DoctorJ.getInstance().getStory().getChapters().size();
-        int id = DoctorJ.getInstance().getStory().getCurrentChapter();
+        int size = str.getChapters().size();
+        int id = str.getCurrentChapter();
         if( size != 0 )
         {
-            Chapter chap = DoctorJ.getInstance().getStory().getChapters().get(id);
+            Chapter chap = str.getChapters().get(id);
             this.chapterTitleField.setText(chap.getTitle());
             this.chapterDescriptionField.setText(chap.getDescription());
         }
@@ -52,31 +55,23 @@ public class GeneratorChapter extends Generator implements Initializable {
     }
 
     public void saveFile(ActionEvent actionEvent) {
-        int id = DoctorJ.getInstance().getStory().getCurrentChapter();
-        int size = DoctorJ.getInstance().getStory().getChapters().size();
+        int id = str.getCurrentChapter();
+        int size = str.getChapters().size();
 
         if( size == 0 ) {
-            DoctorJ.getInstance().getStory().getChapters().add(new Chapter(this.chapterTitleField.getText(), this.chapterDescriptionField.getText(), size));
-        } else if( DoctorJ.getInstance().getStory().getChapters().get(size - 1).getId() == id ) {
-            DoctorJ.getInstance().getStory().getChapters().get(id).setTitle(this.chapterTitleField.getText());
-            DoctorJ.getInstance().getStory().getChapters().get(id).setDescription(this.chapterDescriptionField.getText());
+            str.getChapters().add(new Chapter(this.chapterTitleField.getText(), this.chapterDescriptionField.getText(), size));
+        } else if( str.getChapters().get(size - 1).getId() == id ) {
+            str.getChapters().get(id).setTitle(this.chapterTitleField.getText());
+            str.getChapters().get(id).setDescription(this.chapterDescriptionField.getText());
         } else {
-            DoctorJ.getInstance().getStory().getChapters().add(new Chapter(this.chapterTitleField.getText(), this.chapterDescriptionField.getText(), size));
+            str.getChapters().add(new Chapter(this.chapterTitleField.getText(), this.chapterDescriptionField.getText(), size));
         }
     }
 
     public void saveFile() {
-        int id = DoctorJ.getInstance().getStory().getCurrentChapter();
-        int size = DoctorJ.getInstance().getStory().getChapters().size();
-
-        if( size == 0 ) {
-            DoctorJ.getInstance().getStory().getChapters().add(new Chapter(this.chapterTitleField.getText(), this.chapterDescriptionField.getText(), size));
-        } else if( DoctorJ.getInstance().getStory().getChapters().get(size - 1).getId() == id ) {
-            DoctorJ.getInstance().getStory().getChapters().get(id).setTitle(this.chapterTitleField.getText());
-            DoctorJ.getInstance().getStory().getChapters().get(id).setDescription(this.chapterDescriptionField.getText());
-        } else {
-            DoctorJ.getInstance().getStory().getChapters().add(new Chapter(this.chapterTitleField.getText(), this.chapterDescriptionField.getText(), size));
-        }
+        int id = str.getCurrentChapter();
+        str.getChapters().get(id).setTitle(this.chapterTitleField.getText());
+        str.getChapters().get(id).setDescription(this.chapterDescriptionField.getText());
     }
 
     public void quit(ActionEvent actionEvent) {
@@ -84,11 +79,25 @@ public class GeneratorChapter extends Generator implements Initializable {
 
     public void previous(ActionEvent actionEvent) {
         saveFile();
-        DoctorJ.getInstance().changeScene("generatorGame", "Doctor J - Ajouter un chapitre", 800, 600);
+
+        int chapterSize = str.getChapters().size();
+        if( str.getCurrentChapter() == 0 )
+        {
+            DoctorJ.getInstance().changeScene("generatorGame", "Doctor J - Nouvelle histoire", 800, 600);
+        } else {
+            str.setCurrentChapter(str.getCurrentChapter() - 1);
+            DoctorJ.getInstance().changeScene("generatorChapter", "Doctor J - Ajouter un chapitre (Chapitre " + (str.getCurrentChapter() + 1) + ", Étape 1))", 800, 600);
+        }
     }
 
     public void next(ActionEvent actionEvent) {
         saveFile();
-        DoctorJ.getInstance().changeScene("generatorStep", "Doctor J - Ajouter une étape", 800, 600);
+
+        int idChap = str.getCurrentChapter();
+        str.getChapters().get(idChap).setCurrentStep(0);
+        if( str.getChapters().get(idChap).getSteps().size() == 0) {
+            str.getChapters().get(idChap).getSteps().add(new Step());
+        }
+        DoctorJ.getInstance().changeScene("generatorStep", "Doctor J - Ajouter une étape (Chapitre " + (str.getCurrentChapter() + 1) + ", Étape 1)", 800, 600);
     }
 }

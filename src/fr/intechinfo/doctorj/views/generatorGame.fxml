@@ -53,8 +53,8 @@
     </center>
 
     <bottom>
-        <VBox alignment="BOTTOM_RIGHT">
-            <Button text="Continuer" onAction="#next" />
-        </VBox>
+        <StackPane alignment="BOTTOM_RIGHT">
+            <Button text="Continuer" onAction="#next" StackPane.alignment="BOTTOM_RIGHT" />
+        </StackPane>
     </bottom>
 </BorderPane>

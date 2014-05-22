@@ -34,5 +34,5 @@ public class Storyline {
 
     public int getCurrentChapter() { return currentChapter; }
 
-    public void setCurrentChapter(int currentChapter1) { this.currentChapter = currentChapter; }
+    public void setCurrentChapter(int setChapter) { this.currentChapter = setChapter; }
 }

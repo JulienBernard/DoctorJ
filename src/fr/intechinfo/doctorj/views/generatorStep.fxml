@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.lang.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.collections.*?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -10,6 +12,8 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
 <BorderPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.intechinfo.doctorj.controllers.GeneratorStep">
     <top>
         <MenuBar VBox.vgrow="NEVER" >
@@ -61,9 +65,17 @@
     </center>
 
     <bottom>
-        <VBox alignment="BOTTOM_RIGHT">
-            <Button text="Précédent" onAction="#previous" />
-            <!-- <Button text="Continuer" onAction="#next" /> -->
-        </VBox>
+        <StackPane alignment="BOTTOM_RIGHT">
+            <Button text="Précédent" onAction="#previous" StackPane.alignment="BOTTOM_LEFT" />
+            <Button text="Continuer" onAction="#next" StackPane.alignment="BOTTOM_RIGHT" />
+            <ComboBox StackPane.alignment="BOTTOM_CENTER" onAction="#stepSelected" fx:id="stepsBox">
+                <items>
+                    <FXCollections fx:factory="observableArrayList">
+                        <String fx:value="Ajouter une étape" />
+                        <String fx:value="Supprimer cette étape" />
+                    </FXCollections>
+                </items>
+            </ComboBox>
+        </StackPane>
     </bottom>
 </BorderPane>
