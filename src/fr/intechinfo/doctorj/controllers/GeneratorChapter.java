@@ -1,16 +1,27 @@
 package fr.intechinfo.doctorj.controllers;
 
+import com.sun.java.swing.plaf.windows.resources.windows;
 import fr.intechinfo.doctorj.DoctorJ;
 import fr.intechinfo.doctorj.model.Step;
 import fr.intechinfo.doctorj.model.Storyline;
 import fr.intechinfo.doctorj.model.Chapter;
+import fr.intechinfo.doctorj.model.jsonWriter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Group;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 
+import javax.swing.*;
+import java.io.File;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -52,6 +63,10 @@ public class GeneratorChapter extends Generator implements Initializable {
     }
 
     public void closeFile(ActionEvent actionEvent) {
+        Stage popUp = new Stage();
+        popUp.initModality(Modality.WINDOW_MODAL);
+        popUp.setScene(new Scene(new Group(new Label("toto"))));
+        popUp.show();
     }
 
     public void saveFile(ActionEvent actionEvent) {
@@ -70,8 +85,42 @@ public class GeneratorChapter extends Generator implements Initializable {
 
     public void saveFile() {
         int id = str.getCurrentChapter();
-        str.getChapters().get(id).setTitle(this.chapterTitleField.getText());
-        str.getChapters().get(id).setDescription(this.chapterDescriptionField.getText());
+        int size = str.getChapters().size();
+
+        if( size == 0 ) {
+            str.getChapters().add(new Chapter(this.chapterTitleField.getText(), this.chapterDescriptionField.getText(), size));
+        } else if( str.getChapters().get(size - 1).getId() == id ) {
+            str.getChapters().get(id).setTitle(this.chapterTitleField.getText());
+            str.getChapters().get(id).setDescription(this.chapterDescriptionField.getText());
+        } else {
+            str.getChapters().add(new Chapter(this.chapterTitleField.getText(), this.chapterDescriptionField.getText(), size));
+        }
+    }
+
+    public void saveFullFile(ActionEvent actionEvent) {
+        saveFile();
+
+        JFileChooser dialogue = new JFileChooser(new File("."));
+        PrintWriter sortie;
+        File file;
+
+        System.out.println("... Saving file ...");
+
+        if (dialogue.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            try {
+                file = dialogue.getSelectedFile();
+                jsonWriter JsonWriter = new jsonWriter( file.getPath() );
+
+                if( JsonWriter.saveFile(str) ) {
+                    System.out.println("Save done.");
+                }
+                else {
+                    System.out.println("Wait, an error was catch: good location?");
+                }
+            } catch (NullPointerException e) {
+                System.out.println(e);
+            }
+        }
     }
 
     public void quit(ActionEvent actionEvent) {

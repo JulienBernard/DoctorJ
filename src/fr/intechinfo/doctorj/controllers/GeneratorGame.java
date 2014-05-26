@@ -20,6 +20,8 @@ public class GeneratorGame extends Generator implements Initializable {
     @FXML private TextField gameNameField;
     @FXML private TextArea gamePitchField;
 
+    private Storyline str = DoctorJ.getInstance().getStory();
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         this.gameNameField.setText(DoctorJ.getInstance().getStory().getName());
