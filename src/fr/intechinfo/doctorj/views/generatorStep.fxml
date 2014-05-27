@@ -23,11 +23,9 @@
                         <MenuItem id="newFile" mnemonicParsing="false" onAction="#newFile" text="Nouveau" />
                         <MenuItem id="loadFile" mnemonicParsing="false" onAction="#loadFile" text="Ouvrir ..." />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" onAction="#closeFile" text="Fermer" />
-                        <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Sauvegarder" />
+                        <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Sauvegarde rapide" />
+                        <MenuItem mnemonicParsing="false" onAction="#saveFullFile" text="Sauvegarder en tant que ..." />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" text="Quitter" />
                         <MenuItem mnemonicParsing="false" onAction="#quit" text="Quitter" />
                     </items>
                 </Menu>

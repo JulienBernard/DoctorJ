@@ -4,6 +4,7 @@ import fr.intechinfo.doctorj.DoctorJ;
 import fr.intechinfo.doctorj.model.Chapter;
 import fr.intechinfo.doctorj.model.Step;
 import fr.intechinfo.doctorj.model.Storyline;
+import fr.intechinfo.doctorj.model.jsonWriter;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,6 +12,10 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -87,10 +92,6 @@ public class GeneratorStep extends Generator implements Initializable {
         }
     }
 
-    public void closeFile(ActionEvent actionEvent) {
-    }
-
-
     public void saveFile(ActionEvent actionEvent) {
         int idChap = str.getCurrentChapter();
         int idStep = str.getChapters().get(idChap).getCurrentStep();
@@ -116,6 +117,9 @@ public class GeneratorStep extends Generator implements Initializable {
     }
 
     public void quit(ActionEvent actionEvent) {
+        int result = JOptionPane.showConfirmDialog(new Frame(), "Retourner au menu ?");
+        if( result == 0 )
+            DoctorJ.getInstance().changeScene("home", "Doctor J - Menu", 800, 600);
     }
 
     public void previous(ActionEvent actionEvent) {
@@ -124,9 +128,12 @@ public class GeneratorStep extends Generator implements Initializable {
         int chapterSize = str.getChapters().size();
         int stepSize = str.getChapters().get(str.getCurrentChapter()).getSteps().size();
 
-        if( str.getChapters().get(str.getCurrentChapter()).getCurrentStep() == 0 )
+        int idChap = str.getCurrentChapter();
+        int idStep = str.getChapters().get(idChap).getCurrentStep();
+
+        if( idStep == 0 )
         {
-            DoctorJ.getInstance().changeScene("generatorChapter", "Doctor J - Ajouter un chapitre (Chapitre " + (str.getCurrentChapter() + 1) + ", Étape 1))", 800, 600);
+            DoctorJ.getInstance().changeScene("generatorChapter", "Doctor J - Ajouter un chapitre (Chapitre " + (idChap + 1) + ", Étape 1))", 800, 600);
         } else {
             str.getChapters().get(str.getCurrentChapter()).setCurrentStep(str.getChapters().get(str.getCurrentChapter()).getCurrentStep() - 1);
             DoctorJ.getInstance().changeScene("generatorStep", "Doctor J - Ajouter une étape ("+ (str.getChapters().get(str.getCurrentChapter()).getCurrentStep() + 1) +")", 800, 600);
@@ -139,17 +146,20 @@ public class GeneratorStep extends Generator implements Initializable {
         int chapterSize = str.getChapters().size();
         int stepSize = str.getChapters().get(str.getCurrentChapter()).getSteps().size();
 
-        if( str.getChapters().get(str.getCurrentChapter()).getCurrentStep() == (stepSize - 1) )
+        int idChap = str.getCurrentChapter();
+        int idStep = str.getChapters().get(idChap).getCurrentStep();
+
+        if( idStep == (stepSize - 1) )
         {
-            if( str.getCurrentChapter() < (chapterSize - 1) ) {
-                str.setCurrentChapter(str.getCurrentChapter() + 1);
-                DoctorJ.getInstance().changeScene("generatorChapter", "Doctor J - Ajouter un chapitre (Chapitre " + (str.getCurrentChapter() + 1) + ", Étape 1))", 800, 600);
+            if( idChap < (chapterSize - 1) ) {
+                str.setCurrentChapter(idChap + 1);
+                DoctorJ.getInstance().changeScene("generatorChapter", "Doctor J - Ajouter un chapitre (Chapitre " + (idChap + 1) + ", Étape 1))", 800, 600);
             } else {
                 DoctorJ.getInstance().changeScene("generatorEnd", "Doctor J - Valider mon histoire", 800, 600);
             }
         } else {
-            str.getChapters().get(str.getCurrentChapter()).setCurrentStep(str.getChapters().get(str.getCurrentChapter()).getCurrentStep() + 1);
-            DoctorJ.getInstance().changeScene("generatorStep", "Doctor J - Ajouter une étape (Chapitre " + (str.getCurrentChapter() + 1) + ", Étape "+ (str.getChapters().get(str.getCurrentChapter()).getCurrentStep() + 1) +")", 800, 600);
+            str.getChapters().get(idChap).setCurrentStep(idStep + 1);
+            DoctorJ.getInstance().changeScene("generatorStep", "Doctor J - Ajouter une étape (Chapitre " + (idChap + 1) + ", Étape "+ (idStep + 1) +")", 800, 600);
         }
     }
 
@@ -178,5 +188,37 @@ public class GeneratorStep extends Generator implements Initializable {
         } else {
             System.out.println("l");
         }
+    }
+
+    public void saveFullFile(ActionEvent actionEvent) {
+        JFileChooser dialogue = new JFileChooser(new File("."));
+        PrintWriter sortie;
+        File file;
+
+        System.out.println("Save ...");
+
+        if (dialogue.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            try {
+                file = dialogue.getSelectedFile();
+                jsonWriter JsonWriter = new jsonWriter( file.getPath() );
+
+                if( JsonWriter.saveFile(str) ) {
+                    System.out.println("Save done.");
+                }
+                else {
+                    System.out.println("Wait, an error was catch: good location?");
+                }
+            } catch (NullPointerException e) {
+                System.out.println(e);
+            }
+        }
+    }
+
+    public void about(ActionEvent actionEvent) {
+        JOptionPane.showMessageDialog(new Frame(), "Fonctionnalité à venir.");
+    }
+
+    public void faq(ActionEvent actionEvent) {
+        JOptionPane.showMessageDialog(new Frame(), "Fonctionnalité à venir.");
     }
 }

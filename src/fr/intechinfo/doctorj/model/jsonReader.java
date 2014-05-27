@@ -1,13 +1,17 @@
 package fr.intechinfo.doctorj.model;
 
+import java.awt.*;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.*;
+import java.util.List;
 
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+
+import javax.swing.*;
 
 public class jsonReader {
 
@@ -111,10 +115,13 @@ public class jsonReader {
             }
         } catch (FileNotFoundException e) {
             System.err.println("File not found!");
+            JOptionPane.showMessageDialog(new Frame(), "Impossible de trouver le fichier correspondant.");
         } catch (IOException e) {
             System.err.println("IO Exception was detected!");
+            JOptionPane.showMessageDialog(new Frame(), "Une erreur est survenu à l'ouverture du fichier, veuillez réessayer. Si le problème persiste, merci de prendre contact avec l'équipe de développement.");
         } catch (org.json.simple.parser.ParseException e) {
             System.err.println("An exception was detected!");
+            JOptionPane.showMessageDialog(new Frame(), "L'extension du fichier doit être de forme \".json\".");
         }
         return allSteps;
     }

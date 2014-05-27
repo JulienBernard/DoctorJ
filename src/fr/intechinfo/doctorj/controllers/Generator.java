@@ -84,15 +84,10 @@ public class Generator implements Initializable {
                 System.out.println(e.getStackTrace());
             }
         }
-        DoctorJ.getInstance().changeScene("generatorGame", "Doctor J - Nouvelle histoire", 800, 600);
-    }
-
-    public void closeFile(ActionEvent actionEvent) {
-        JOptionPane.showMessageDialog(new Frame(), "Fermeture impossible : il faut créer un nouveau fichier !");
-    }
-
-    public void saveFile(ActionEvent actionEvent) {
-        JOptionPane.showMessageDialog(new Frame(), "Sauvegarde impossible : il faut créer un nouveau fichier !");
+        if( str.getName() != null )
+        {
+            DoctorJ.getInstance().changeScene("generatorGame", "Doctor J - Nouvelle histoire", 800, 600);
+        }
     }
 
     public void quit(ActionEvent actionEvent) {
@@ -101,7 +96,11 @@ public class Generator implements Initializable {
             DoctorJ.getInstance().changeScene("home", "Doctor J - Menu", 800, 600);
     }
 
-    public void saveFullFile(ActionEvent actionEvent) {
-        JOptionPane.showMessageDialog(new Frame(), "Sauvegarde impossible : il faut créer un nouveau fichier !");
+    public void about(ActionEvent actionEvent) {
+        JOptionPane.showMessageDialog(new Frame(), "Fonctionnalité à venir.");
+    }
+
+    public void faq(ActionEvent actionEvent) {
+        JOptionPane.showMessageDialog(new Frame(), "Fonctionnalité à venir.");
     }
 }

@@ -19,17 +19,13 @@
                         <MenuItem id="newFile" mnemonicParsing="false" onAction="#newFile" text="Nouveau" />
                         <MenuItem id="loadFile" mnemonicParsing="false" onAction="#loadFile" text="Ouvrir ..." />
                         <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" onAction="#closeFile" text="Fermer" />
-                        <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Sauvegarde rapide" />
-                        <MenuItem mnemonicParsing="false" onAction="#saveFullFile" text="Sauvegarder en tant que ..." />
-                        <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem mnemonicParsing="false" onAction="#quit" text="Quitter" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Aide">
                     <items>
-                        <MenuItem mnemonicParsing="false" text="FAQ" />
-                        <MenuItem mnemonicParsing="false" text="A propos" />
+                        <MenuItem mnemonicParsing="false" onAction="#faq" text="FAQ" />
+                        <MenuItem mnemonicParsing="false" onAction="#about" text="A propos" />
                     </items>
                 </Menu>
             </menus>
