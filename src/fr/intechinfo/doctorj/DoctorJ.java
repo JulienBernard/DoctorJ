@@ -17,7 +17,6 @@ public class DoctorJ extends Application {
 
     private static DoctorJ instance;
     private Stage primaryStage;
-    private Storyline story;
 
     public static void main(String[] args) {
         launch(args);
@@ -73,13 +72,5 @@ public class DoctorJ extends Application {
      */
     public static DoctorJ getInstance() {
         return instance;
-    }
-
-    public Storyline getStory() {
-        return story;
-    }
-
-    public void setStory(Storyline story) {
-        this.story = story;
     }
 }

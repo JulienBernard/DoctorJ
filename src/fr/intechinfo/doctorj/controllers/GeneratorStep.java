@@ -27,20 +27,22 @@ public class GeneratorStep extends Generator implements Initializable {
     @FXML private TextField stepTestField;
     @FXML private ComboBox stepsBox;
 
-    private Storyline str = DoctorJ.getInstance().getStory();
+    private Storyline str;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        int sizeChap = DoctorJ.getInstance().getStory().getChapters().size();
-        int idChap = DoctorJ.getInstance().getStory().getCurrentChapter();
-        int idStep = DoctorJ.getInstance().getStory().getChapters().get(idChap).getCurrentStep();
+        str = Storyline.getInstance();
+
+        int sizeChap = str.getChapters().size();
+        int idChap = str.getCurrentChapter();
+        int idStep = str.getChapters().get(idChap).getCurrentStep();
 
         if( sizeChap != 0 )
         {
-            int sizeStep = DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().size();
+            int sizeStep = str.getChapters().get(idChap).getSteps().size();
             if( sizeStep != 0 )
             {
-                Step step = DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().get(idStep);
+                Step step = str.getChapters().get(idChap).getSteps().get(idStep);
                 this.stepTitleField.setText(step.getTitle());
                 this.stepHelpField.setText(step.getHelp());
                 this.stepDirectionField.setText(step.getDirection());
@@ -61,20 +63,20 @@ public class GeneratorStep extends Generator implements Initializable {
     }
 
     public void newFile(ActionEvent actionEvent) {
-        DoctorJ.getInstance().setStory(new Storyline());
+        str.resetStoryline();
         DoctorJ.getInstance().changeScene("generatorGame", "Doctor J - Nouvelle histoire", 800, 600);
     }
 
     public void loadFile(ActionEvent actionEvent) {
-        int sizeChap = DoctorJ.getInstance().getStory().getChapters().size();
-        int idChap = DoctorJ.getInstance().getStory().getCurrentChapter();
-        int idStep = DoctorJ.getInstance().getStory().getChapters().get(idChap).getCurrentStep();
+        int sizeChap = str.getChapters().size();
+        int idChap = str.getCurrentChapter();
+        int idStep = str.getChapters().get(idChap).getCurrentStep();
         if( sizeChap != 0 )
         {
-            int sizeStep = DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().size();
+            int sizeStep = str.getChapters().get(idChap).getSteps().size();
             if( sizeStep != 0 )
             {
-                Step step = DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().get(idStep);
+                Step step = str.getChapters().get(idChap).getSteps().get(idStep);
                 this.stepTitleField.setText(step.getTitle());
                 this.stepHelpField.setText(step.getHelp());
                 this.stepDirectionField.setText(step.getDirection());
@@ -90,27 +92,27 @@ public class GeneratorStep extends Generator implements Initializable {
 
 
     public void saveFile(ActionEvent actionEvent) {
-        int idChap = DoctorJ.getInstance().getStory().getCurrentChapter();
-        int idStep = DoctorJ.getInstance().getStory().getChapters().get(idChap).getCurrentStep();
+        int idChap = str.getCurrentChapter();
+        int idStep = str.getChapters().get(idChap).getCurrentStep();
 
-        DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().get(idStep).setTitle(this.stepTitleField.getText());
-        DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().get(idStep).setHelp(this.stepHelpField.getText());
-        DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().get(idStep).setDirection(this.stepDirectionField.getText());
-        DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().get(idStep).setHint(this.stepHintField.getText());
-        DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().get(idStep).setImage(this.stepImageField.getText());
-        DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().get(idStep).setFunction(this.stepTestField.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setTitle(this.stepTitleField.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setHelp(this.stepHelpField.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setDirection(this.stepDirectionField.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setHint(this.stepHintField.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setImage(this.stepImageField.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setFunction(this.stepTestField.getText());
     }
 
     public void saveFile() {
-        int idChap = DoctorJ.getInstance().getStory().getCurrentChapter();
-        int idStep = DoctorJ.getInstance().getStory().getChapters().get(idChap).getCurrentStep();
+        int idChap = str.getCurrentChapter();
+        int idStep = str.getChapters().get(idChap).getCurrentStep();
 
-        DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().get(idStep).setTitle(this.stepTitleField.getText());
-        DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().get(idStep).setHelp(this.stepHelpField.getText());
-        DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().get(idStep).setDirection(this.stepDirectionField.getText());
-        DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().get(idStep).setHint(this.stepHintField.getText());
-        DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().get(idStep).setImage(this.stepImageField.getText());
-        DoctorJ.getInstance().getStory().getChapters().get(idChap).getSteps().get(idStep).setFunction(this.stepTestField.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setTitle(this.stepTitleField.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setHelp(this.stepHelpField.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setDirection(this.stepDirectionField.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setHint(this.stepHintField.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setImage(this.stepImageField.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setFunction(this.stepTestField.getText());
     }
 
     public void quit(ActionEvent actionEvent) {

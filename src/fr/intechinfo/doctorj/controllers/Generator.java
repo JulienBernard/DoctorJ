@@ -32,14 +32,15 @@ import javax.swing.*;
  * Controller for the Generator view
  */
 public class Generator implements Initializable {
-    private Storyline str = DoctorJ.getInstance().getStory();
+    private Storyline str;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        str = Storyline.getInstance();
     }
 
     public void newFile(ActionEvent actionEvent) {
-        DoctorJ.getInstance().setStory(new Storyline());
+        str.resetStoryline();
         DoctorJ.getInstance().changeScene("generatorGame", "Doctor J - Nouvelle histoire", 800, 600);
     }
 
@@ -48,8 +49,7 @@ public class Generator implements Initializable {
         PrintWriter sortie;
         File file;
 
-        DoctorJ.getInstance().setStory(new Storyline());
-        this.str = DoctorJ.getInstance().getStory();
+        str.resetStoryline();
         if (dialogue.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             try {
                 JSONParser parser = new JSONParser();

@@ -20,14 +20,15 @@ import java.util.ResourceBundle;
  */
 public class GeneratorEnd implements Initializable {
 
-    private Storyline str = DoctorJ.getInstance().getStory();
+    private Storyline str;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        str = Storyline.getInstance();
     }
 
     public void newFile(ActionEvent actionEvent) {
-        DoctorJ.getInstance().setStory(new Storyline());
+        str.resetStoryline();
         DoctorJ.getInstance().changeScene("generatorGame", "Doctor J - Nouvelle histoire", 800, 600);
     }
 

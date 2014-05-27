@@ -20,35 +20,37 @@ public class GeneratorGame extends Generator implements Initializable {
     @FXML private TextField gameNameField;
     @FXML private TextArea gamePitchField;
 
-    private Storyline str = DoctorJ.getInstance().getStory();
+    private Storyline str;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        this.gameNameField.setText(DoctorJ.getInstance().getStory().getName());
-        this.gamePitchField.setText(DoctorJ.getInstance().getStory().getPitch());
+        str = Storyline.getInstance();
+
+        this.gameNameField.setText(str.getName());
+        this.gamePitchField.setText(str.getPitch());
     }
 
     public void newFile(ActionEvent actionEvent) {
-        DoctorJ.getInstance().setStory(new Storyline());
+        str.resetStoryline();
         DoctorJ.getInstance().changeScene("generatorGame", "Doctor J - Nouvelle histoire", 800, 600);
     }
 
     public void loadFile(ActionEvent actionEvent) {
-        this.gameNameField.setText(DoctorJ.getInstance().getStory().getName());
-        this.gamePitchField.setText(DoctorJ.getInstance().getStory().getPitch());
+        this.gameNameField.setText(str.getName());
+        this.gamePitchField.setText(str.getPitch());
     }
 
     public void closeFile(ActionEvent actionEvent) {
     }
 
     public void saveFile(ActionEvent actionEvent) {
-        DoctorJ.getInstance().getStory().setName(this.gameNameField.getText());
-        DoctorJ.getInstance().getStory().setPitch(this.gamePitchField.getText());
+        str.setName(this.gameNameField.getText());
+        str.setPitch(this.gamePitchField.getText());
     }
 
     public void saveFile() {
-        DoctorJ.getInstance().getStory().setName(this.gameNameField.getText());
-        DoctorJ.getInstance().getStory().setPitch(this.gamePitchField.getText());
+        str.setName(this.gameNameField.getText());
+        str.setPitch(this.gamePitchField.getText());
     }
 
     public void quit(ActionEvent actionEvent) {
@@ -57,8 +59,8 @@ public class GeneratorGame extends Generator implements Initializable {
     public void next(ActionEvent actionEvent) {
         saveFile();
 
-        if( DoctorJ.getInstance().getStory().getChapters().size() == 0) {
-            DoctorJ.getInstance().getStory().getChapters().add(new Chapter());
+        if( str.getChapters().size() == 0) {
+            str.getChapters().add(new Chapter());
         }
         DoctorJ.getInstance().changeScene("generatorChapter", "Doctor J - Ajouter un chapitre", 800, 600);
     }

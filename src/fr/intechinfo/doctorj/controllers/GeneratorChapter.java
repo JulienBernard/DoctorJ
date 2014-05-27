@@ -32,10 +32,12 @@ public class GeneratorChapter extends Generator implements Initializable {
     @FXML private TextField chapterTitleField;
     @FXML private TextArea chapterDescriptionField;
 
-    private Storyline str = DoctorJ.getInstance().getStory();
+    private Storyline str;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        str = Storyline.getInstance();
+
         int size = str.getChapters().size();
         int id = str.getCurrentChapter();
         if( size != 0 && id < size )
@@ -47,7 +49,7 @@ public class GeneratorChapter extends Generator implements Initializable {
     }
 
     public void newFile(ActionEvent actionEvent) {
-        DoctorJ.getInstance().setStory(new Storyline());
+        str.resetStoryline();
         DoctorJ.getInstance().changeScene("generatorGame", "Doctor J - Nouvelle histoire", 800, 600);
     }
 

@@ -7,6 +7,12 @@ import java.util.List;
  * Contains the different chapters of the game.
  */
 public class Storyline {
+    // Global Storyline then we can access to the story from anywhere.
+    private final static Storyline instance = new Storyline();
+
+    public static Storyline getInstance() {
+        return instance;
+    }
 
     private List<Chapter> chapters;
     private String name;
@@ -35,4 +41,11 @@ public class Storyline {
     public int getCurrentChapter() { return currentChapter; }
 
     public void setCurrentChapter(int setChapter) { this.currentChapter = setChapter; }
+
+    public void resetStoryline() {
+        this.chapters = new ArrayList<Chapter>();
+        this.name = "";
+        this.pitch = "";
+        this.currentChapter = 0;
+    }
 }

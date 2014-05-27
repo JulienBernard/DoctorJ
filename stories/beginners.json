@@ -28,14 +28,14 @@
             "chapterName" : "Chapter 2 name",
             "chapterPitch" : "Chapter 2 description",
             "chapterSteps" : [
-                {
-                    "stepTitle" : "Step 2.1 title",
-                    "stepHelp" : "Step 2.1 help",
-                    "stepDirection" : "Step 2.1 direction",
-                    "stepHint" : "Step 2.1 hint",
-                    "stepImage" : "Step 2.1 image",
-                    "stepFunction" : "Step 2.1 function"
-                }
+            {
+                "stepTitle" : "Step 2.1 title",
+                "stepHelp" : "Step 2.1 help",
+                "stepDirection" : "Step 2.1 direction",
+                "stepHint" : "Step 2.1 hint",
+                "stepImage" : "Step 2.1 image",
+                "stepFunction" : "Step 2.1 function"
+            }
             ]
         }
 	]
