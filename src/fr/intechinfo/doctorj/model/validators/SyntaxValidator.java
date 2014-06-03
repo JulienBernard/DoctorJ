@@ -1,4 +1,4 @@
-package fr.intechinfo.doctorj.model;
+package fr.intechinfo.doctorj.model.validators;
 
 /**
  * Verifies the syntax of a given source code

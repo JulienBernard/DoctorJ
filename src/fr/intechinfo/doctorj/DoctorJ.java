@@ -1,5 +1,6 @@
 package fr.intechinfo.doctorj;
 
+import fr.intechinfo.doctorj.model.validators.TestValidator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -63,6 +64,8 @@ public class DoctorJ extends Application {
         primaryStage.setScene(scene);
 
         primaryStage.show();
+
+        TestValidator.check("C:\\Users\\Alexandre\\IdeaProjects\\DoctorJTestExample\\out\\production\\DoctorJTestExample\\", "UserCodeTest");
     }
 
     /**
