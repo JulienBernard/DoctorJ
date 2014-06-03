@@ -35,14 +35,14 @@ public abstract class TestCase {
         });
     }
 
-    protected static final void setTestClassName(String name) {
-        File file = new File("C:\\INTECH\\S4\\DoctorJ\\stories\\story1\\");
+    protected static final void setStepToTest(String storyName, String stepName) {
+        File file = new File("./stories/" + storyName);
 
         try {
             ClassLoader cl = new URLClassLoader(new URL[]{file.toURI().toURL()});
 
             try {
-                testClass = cl.loadClass(name);
+                testClass = cl.loadClass(stepName);
             }
             catch(ClassNotFoundException e) {
                 e.printStackTrace();

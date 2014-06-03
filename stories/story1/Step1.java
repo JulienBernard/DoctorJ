@@ -6,7 +6,7 @@ public class Step1 {
 	}
 	
 	public void setToto(String s) {
-		toto = s;
+		toto = "b";
 	}
 	
 	public String getToto() {

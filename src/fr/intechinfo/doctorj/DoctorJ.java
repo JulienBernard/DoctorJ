@@ -65,7 +65,7 @@ public class DoctorJ extends Application {
 
         primaryStage.show();
 
-        TestValidator.check("C:\\Users\\Alexandre\\IdeaProjects\\DoctorJTestExample\\out\\production\\DoctorJTestExample\\", "UserCodeTest");
+        System.out.println(TestValidator.check("story1", "Step1").getMessage());
     }
 
     /**
