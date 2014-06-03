@@ -21,7 +21,7 @@
       <content>
         <VBox fx:id="generatorAnchor" alignment="CENTER" fillWidth="true">
           <children>
-            <Button onAction="#addChapter" rotate="1.0" text="Ajouter un chapitre">
+            <Button onAction="#addChapter" text="Ajouter un chapitre">
               <font>
                 <Font size="16.0" />
               </font>
@@ -29,7 +29,7 @@
                 <Insets bottom="5.0" />
               </VBox.margin>
             </Button>
-            <Button onAction="#saveQuit" rotate="359.0" text="Sauvegarder mon histoire !">
+            <Button onAction="#saveQuit" text="Sauvegarder mon histoire !">
               <font>
                 <Font size="18.0" />
               </font>
