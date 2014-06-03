@@ -22,8 +22,19 @@
           <children>
             <Label text="Nom de la partie" />
             <TextField fx:id="gameNameField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefWidth="359.0" promptText="Spécifier le nom de votre histoire." />
+            <Label text="Nom du fichier de test" />
+            <Button alignment="CENTER_RIGHT" focusTraversable="false" mnemonicParsing="false" text="Où ?" textAlignment="CENTER" onAction="#findFile">
+              <VBox.margin>
+                <Insets left="300.0" />
+              </VBox.margin>
+            </Button>
+            <TextField fx:id="gameTestField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefWidth="300.0" promptText="Fichier compilé et disponible dans le dossier de votre histoire.">
+              <VBox.margin>
+                <Insets right="50.0" top="-24.0" />
+              </VBox.margin>
+            </TextField>
             <Label text="Description de la partie" />
-            <TextArea fx:id="gamePitchField" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefHeight="100.0" prefRowCount="0" prefWidth="463.0" promptText="Spécifier la description de votre histoire." wrapText="true" />
+            <TextArea fx:id="gamePitchField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefHeight="100.0" prefRowCount="0" prefWidth="463.0" promptText="Spécifier la description de votre histoire." wrapText="true" />
             <StackPane alignment="BOTTOM_RIGHT" prefHeight="59.0" prefWidth="638.0" VBox.vgrow="ALWAYS">
               <Button onAction="#next" text="Continuer" StackPane.alignment="BOTTOM_RIGHT" />
             </StackPane>

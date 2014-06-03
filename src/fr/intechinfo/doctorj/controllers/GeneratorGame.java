@@ -22,6 +22,7 @@ import java.util.*;
  */
 public class GeneratorGame extends Generator implements Initializable {
     @FXML private TextField gameNameField;
+    @FXML private TextField gameTestField;
     @FXML private TextArea gamePitchField;
 
     private Storyline str;
@@ -32,6 +33,7 @@ public class GeneratorGame extends Generator implements Initializable {
 
         this.gameNameField.setText(str.getName());
         this.gamePitchField.setText(str.getPitch());
+        this.gameTestField.setText(str.getTestFile());
     }
 
     public void newFile(ActionEvent actionEvent) {
@@ -52,10 +54,11 @@ public class GeneratorGame extends Generator implements Initializable {
                 file = dialogue.getSelectedFile();
                 jsonReader reader = new jsonReader( file.getPath() );
 
-                /* Il y a que'seule story */
+                /* Il y a qu'une seule story */
                 Map<String, String> story = reader.readStory(parser);
                 str.setName(story.get("storyName"));
                 str.setPitch(story.get("storyPitch"));
+                str.setTestFile(story.get("storyTestFile"));
 
                 /* Il y a plusieurs chapitres par story */
                 java.util.List<Map<String, String>> chapters = reader.readChapters(parser);
@@ -88,11 +91,13 @@ public class GeneratorGame extends Generator implements Initializable {
     public void saveFile(ActionEvent actionEvent) {
         str.setName(this.gameNameField.getText());
         str.setPitch(this.gamePitchField.getText());
+        str.setTestFile(this.gameTestField.getText());
     }
 
     public void saveFile() {
         str.setName(this.gameNameField.getText());
         str.setPitch(this.gamePitchField.getText());
+        str.setTestFile(this.gameTestField.getText());
     }
 
     public void quit(ActionEvent actionEvent) {
@@ -140,5 +145,21 @@ public class GeneratorGame extends Generator implements Initializable {
 
     public void faq(ActionEvent actionEvent) {
         JOptionPane.showMessageDialog(new Frame(), "Fonctionnalité à venir.");
+    }
+
+    public void findFile(ActionEvent actionEvent) {
+        JFileChooser dialogue = new JFileChooser(new File("."));
+        File file;
+
+        str.resetStoryline();
+        if (dialogue.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            try {
+                file = dialogue.getSelectedFile();
+                gameTestField.setText(file.getName());
+            } catch (NullPointerException e) {
+                System.out.println(e);
+                System.out.println(e.getStackTrace());
+            }
+        }
     }
 }

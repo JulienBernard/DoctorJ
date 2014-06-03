@@ -34,7 +34,9 @@ public class jsonReader {
 
             String storyName = (String) jsonObject.get("storyName");
             String storyPitch = (String) jsonObject.get("storyPitch");
+            String storyTestFile = (String) jsonObject.get("storyTestFile");
             story.put("storyName", storyName);
+            story.put("storyTestFile", storyTestFile);
             story.put("storyPitch", storyPitch);
         } catch (FileNotFoundException e) {
             System.err.println("File not found!");
