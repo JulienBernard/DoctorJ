@@ -1,4 +1,4 @@
-package fr.intechinfo.doctorj.model;
+package fr.intechinfo.doctorj.model.validators;
 
 /**
  * Created by Alexandre on 10/05/2014.

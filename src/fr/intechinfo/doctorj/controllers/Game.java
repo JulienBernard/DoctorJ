@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
 public class Game implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+         
     }
 
     @FXML private TextArea codeArea;

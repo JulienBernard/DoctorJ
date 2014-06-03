@@ -1,4 +1,4 @@
-package fr.intechinfo.doctorj.model;
+package fr.intechinfo.doctorj.model.validators;
 
 import javax.tools.*;
 import java.util.*;
