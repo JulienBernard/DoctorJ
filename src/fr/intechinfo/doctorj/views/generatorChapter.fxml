@@ -10,7 +10,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.ScrollPane?>
-<BorderPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.intechinfo.doctorj.controllers.Generator">
+<BorderPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.intechinfo.doctorj.controllers.GeneratorChapter">
     <top>
         <MenuBar VBox.vgrow="NEVER" >
             <menus>
@@ -19,13 +19,16 @@
                         <MenuItem id="newFile" mnemonicParsing="false" onAction="#newFile" text="Nouveau" />
                         <MenuItem id="loadFile" mnemonicParsing="false" onAction="#loadFile" text="Ouvrir ..." />
                         <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Sauvegarde rapide" />
+                        <MenuItem mnemonicParsing="false" onAction="#saveFullFile" text="Sauvegarder en tant que ..." />
+                        <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem mnemonicParsing="false" onAction="#quit" text="Quitter" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Aide">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#faq" text="FAQ" />
-                        <MenuItem mnemonicParsing="false" onAction="#about" text="A propos" />
+                        <MenuItem mnemonicParsing="false" text="FAQ" />
+                        <MenuItem mnemonicParsing="false" text="A propos" />
                     </items>
                 </Menu>
             </menus>
@@ -37,10 +40,20 @@
             <content>
                 <VBox fx:id="generatorAnchor" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <children>
-                        <Label text="Choissisez une action dans le menu." />
+                        <Label layoutX="274.0" layoutY="14.0" text="Nom du chapitre" />
+                        <TextField fx:id="chapterTitleField" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+                        <Label layoutX="257.0" layoutY="62.0" text="Description du chapitre" />
+                        <TextArea fx:id="chapterDescriptionField" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" wrapText="true" />
                     </children>
                 </VBox>
             </content>
         </ScrollPane>
     </center>
+
+    <bottom>
+        <StackPane alignment="BOTTOM_RIGHT">
+            <Button text="Précédent" onAction="#previous" StackPane.alignment="BOTTOM_LEFT" />
+            <Button text="Continuer" onAction="#next" StackPane.alignment="BOTTOM_RIGHT" />
+        </StackPane>
+    </bottom>
 </BorderPane>

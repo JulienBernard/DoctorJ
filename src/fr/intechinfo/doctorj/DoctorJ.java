@@ -1,6 +1,6 @@
 package fr.intechinfo.doctorj;
 
-import fr.intechinfo.doctorj.model.validators.TestValidator;
+import fr.intechinfo.doctorj.model.Storyline;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -64,8 +64,6 @@ public class DoctorJ extends Application {
         primaryStage.setScene(scene);
 
         primaryStage.show();
-
-        System.out.println(TestValidator.check("story1", "Step1").getMessage());
     }
 
     /**

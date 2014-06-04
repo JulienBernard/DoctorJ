@@ -10,7 +10,7 @@
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.ScrollPane?>
-<BorderPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.intechinfo.doctorj.controllers.Generator">
+<BorderPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.intechinfo.doctorj.controllers.GeneratorEnd">
     <top>
         <MenuBar VBox.vgrow="NEVER" >
             <menus>
@@ -19,13 +19,16 @@
                         <MenuItem id="newFile" mnemonicParsing="false" onAction="#newFile" text="Nouveau" />
                         <MenuItem id="loadFile" mnemonicParsing="false" onAction="#loadFile" text="Ouvrir ..." />
                         <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Sauvegarde rapide" />
+                        <MenuItem mnemonicParsing="false" onAction="#saveFullFile" text="Sauvegarder en tant que ..." />
+                        <SeparatorMenuItem mnemonicParsing="false" />
                         <MenuItem mnemonicParsing="false" onAction="#quit" text="Quitter" />
                     </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Aide">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#faq" text="FAQ" />
-                        <MenuItem mnemonicParsing="false" onAction="#about" text="A propos" />
+                        <MenuItem mnemonicParsing="false" text="FAQ" />
+                        <MenuItem mnemonicParsing="false" text="A propos" />
                     </items>
                 </Menu>
             </menus>
@@ -35,12 +38,19 @@
     <center>
         <ScrollPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
             <content>
-                <VBox fx:id="generatorAnchor" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+                <VBox alignment="CENTER" fx:id="generatorAnchor" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                     <children>
-                        <Label text="Choissisez une action dans le menu." />
+                        <Button text="Ajouter un chapitre" onAction="#addChapter" />
+                        <Button text="Sauvegarder mon histoire !" onAction="#saveQuit" />
                     </children>
                 </VBox>
             </content>
         </ScrollPane>
     </center>
+
+    <bottom>
+        <StackPane alignment="BOTTOM_RIGHT">
+            <Button text="Précédent" onAction="#previous" StackPane.alignment="BOTTOM_LEFT" />
+        </StackPane>
+    </bottom>
 </BorderPane>
