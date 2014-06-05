@@ -1,0 +1,51 @@
+{
+	"storyName" : "Sauvons Annie !",
+    "storyPitch" : "Bonjour, jeune interne !/nAujourd’hui, vous êtes assigné aux urgences : combien de vie allez-vous sauver ?",
+    "storyTestFile" : "annie",
+	"storyChapters" : [
+        {
+            "chapterName" : "Une nouvelle patiente est arrivée",
+            "chapterPitch" : "Une nouvelle patiente dénommée Annie vient d’arriver, essayons de trouver ce qu’il lui arrive !",
+            "chapterSteps" : [
+            {
+                "stepTitle" : "Découvrons les classes",
+                "stepHelp" : "Une classe est ...",
+                "stepDirection" : "Commençons par encadrer la patiente. Créer une classe nommée \"Patient\".",
+                "stepHint" : "Votre classe doit être accessible par tous. N'oubliez pas de la déclarer en \"public\".",
+                "stepImage" : "image",
+                "stepFunction" : "step1"
+            },
+            {
+                "stepTitle" : "Découvrons les variables",
+                "stepHelp" : "Une variable est ...",
+                "stepDirection" : "Nous savons que notre patiente s'appelle Annie, définisez une variable nommée \"name\" et donner lui la valeur \"Annie\".",
+                "stepHint" : "De même que la classe, cette variable doit être déclarer en \"public\". De plus c'est une chaine de caractère que nous souhaitons rentrer, c'est donc une variable de type \"String\".",
+                "stepImage" : "image",
+                "stepFunction" : "step2"
+            },
+            {
+                "stepTitle" : "Découvrons les méthodes",
+                "stepHelp" : "Une méthode, ou function, est ...",
+                "stepDirection" : "Nous allons devoir demander des informations à Annie, par exemple son age. Cependant nous n'avons pas l'information en ce moment même. Passons par une méthode qui pourra modifier la variable \"age\" (nombre), nous pourrons ainsi modifier facilement sa valeur !",
+                "stepHint" : "Cette fonction publique doit attribuer la valeur, donner en paramètre de la fonction, à la variable \"age\". Il faut donc déclarer une variable et une fonction avec un paramètre, fonction qui attribue le paramètre donner à la variable déclarer.",
+                "stepImage" : "image",
+                "stepFunction" : "step3"
+            }
+            ]
+        },
+        {
+            "chapterName" : "Chapter 2 name",
+            "chapterPitch" : "Chapter 2 description",
+            "chapterSteps" : [
+            {
+                "stepTitle" : "Step 2.1 title",
+                "stepHelp" : "Step 2.1 help",
+                "stepDirection" : "Step 2.1 direction",
+                "stepHint" : "Step 2.1 hint",
+                "stepImage" : "Step 2.1 image",
+                "stepFunction" : "Step 2.1 function"
+            }
+            ]
+        }
+	]
+}
