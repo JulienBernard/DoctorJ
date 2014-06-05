@@ -20,7 +20,7 @@ public class jsonReader {
     public jsonReader( String pathFile )
     {
         if( pathFile.isEmpty() )
-            pathFile = "./stories/beginners.json";
+            pathFile = "./stories/TestStory/story.json";
         this._pathFile = pathFile;
     }
 

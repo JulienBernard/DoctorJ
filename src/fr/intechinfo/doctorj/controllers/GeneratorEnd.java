@@ -166,13 +166,12 @@ public class GeneratorEnd implements Initializable {
         if( str.getTestFile().isEmpty() )
             result += "Champ vide : Le nom du fichier de test de votre histoire n'est pas renseigné !\n";
         else {
-            File file = new File(str.getTestFile());
+            File file = new File("./stories/"+str.getName()+"/");
             try {
                 ClassLoader cl = new URLClassLoader(new URL[]{file.toURI().toURL()});
                 try {
-                    Class cls = cl.loadClass(str.getTestFile());
-                }
-                catch(ClassNotFoundException e) {
+                    Class cls = cl.loadClass("Step1Test");
+                } catch(ClassNotFoundException e) {
                     e.printStackTrace();
                 }
             } catch (MalformedURLException e) {

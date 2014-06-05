@@ -15,7 +15,7 @@ public class jsonWriter {
     public jsonWriter( String pathFile )
     {
         if( pathFile.isEmpty() )
-            pathFile = "./stories/test.json";
+            pathFile = "./stories/TestStory/test.json";
         this._pathFile = pathFile;
     }
 
