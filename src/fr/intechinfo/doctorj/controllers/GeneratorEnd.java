@@ -171,6 +171,7 @@ public class GeneratorEnd implements Initializable {
                 ClassLoader cl = new URLClassLoader(new URL[]{file.toURI().toURL()});
                 try {
                     Class cls = cl.loadClass("Step1Test");
+                    // TO DO need to check if methods exist.
                 } catch(ClassNotFoundException e) {
                     e.printStackTrace();
                 }
