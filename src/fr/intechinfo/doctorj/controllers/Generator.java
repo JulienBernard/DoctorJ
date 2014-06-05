@@ -61,6 +61,7 @@ public class Generator implements Initializable {
                 Map<String, String> story = reader.readStory(parser);
                 str.setName(story.get("storyName"));
                 str.setPitch(story.get("storyPitch"));
+                str.setTestFile(story.get("storyTestFile"));
 
                 /* Il y a plusieurs chapitres par story */
                 List<Map<String, String>> chapters = reader.readChapters(parser);

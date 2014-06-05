@@ -1,56 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.Label ?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.ScrollPane?>
-<BorderPane prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.intechinfo.doctorj.controllers.GeneratorEnd">
-    <top>
-        <MenuBar VBox.vgrow="NEVER" >
-            <menus>
-                <Menu mnemonicParsing="false" text="Fichier">
-                    <items>
-                        <MenuItem id="newFile" mnemonicParsing="false" onAction="#newFile" text="Nouveau" />
-                        <MenuItem id="loadFile" mnemonicParsing="false" onAction="#loadFile" text="Ouvrir ..." />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Sauvegarde rapide" />
-                        <MenuItem mnemonicParsing="false" onAction="#saveFullFile" text="Sauvegarder en tant que ..." />
-                        <SeparatorMenuItem mnemonicParsing="false" />
-                        <MenuItem mnemonicParsing="false" onAction="#quit" text="Quitter" />
-                    </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="Aide">
-                    <items>
-                        <MenuItem mnemonicParsing="false" text="FAQ" />
-                        <MenuItem mnemonicParsing="false" text="A propos" />
-                    </items>
-                </Menu>
-            </menus>
-        </MenuBar>
-    </top>
+<?import javafx.scene.text.*?>
 
-    <center>
-        <ScrollPane AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-            <content>
-                <VBox alignment="CENTER" fx:id="generatorAnchor" AnchorPane.topAnchor="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-                    <children>
-                        <Button text="Ajouter un chapitre" onAction="#addChapter" />
-                        <Button text="Sauvegarder mon histoire !" onAction="#saveQuit" />
-                    </children>
-                </VBox>
-            </content>
-        </ScrollPane>
-    </center>
-
-    <bottom>
-        <StackPane alignment="BOTTOM_RIGHT">
-            <Button text="Précédent" onAction="#previous" StackPane.alignment="BOTTOM_LEFT" />
-        </StackPane>
-    </bottom>
+<BorderPane prefHeight="400.0" prefWidth="640.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="fr.intechinfo.doctorj.controllers.GeneratorEnd">
+  <center>
+    <ScrollPane fitToHeight="true" fitToWidth="true" pannable="false" BorderPane.alignment="CENTER">
+      <content>
+        <VBox fx:id="generatorAnchor" alignment="CENTER" fillWidth="true">
+          <children>
+            <Button onAction="#addChapter" text="Ajouter un chapitre">
+              <font>
+                <Font size="16.0" />
+              </font>
+              <VBox.margin>
+                <Insets bottom="5.0" />
+              </VBox.margin>
+            </Button>
+            <Button onAction="#saveQuit" text="Sauvegarder mon histoire !">
+              <font>
+                <Font size="18.0" />
+              </font>
+              <VBox.margin>
+                <Insets top="5.0" />
+              </VBox.margin>
+            </Button>
+            <Button onAction="#checkStory" text="Tout est bon ?">
+              <font>
+                  <Font size="14.0" />
+              </font>
+              <VBox.margin>
+                  <Insets top="5.0" />
+              </VBox.margin>
+            </Button>
+            <Label text="" fx:id="resultCheck" />
+            <StackPane alignment="BOTTOM_RIGHT" prefHeight="59.0" prefWidth="638.0" VBox.vgrow="ALWAYS">
+              <Button onAction="#previous" text="Précédent" StackPane.alignment="BOTTOM_LEFT" />
+              <VBox.margin>
+                <Insets top="25.0" />
+              </VBox.margin>
+            </StackPane>
+          </children>
+          <padding>
+            <Insets bottom="25.0" left="50.0" right="50.0" top="150.0" />
+          </padding>
+        </VBox>
+      </content>
+    </ScrollPane>
+  </center>
+  <top>
+    <MenuBar>
+      <menus>
+        <Menu mnemonicParsing="false" text="Fichier">
+          <items>
+            <MenuItem id="newFile" mnemonicParsing="false" onAction="#newFile" text="Nouveau" />
+            <MenuItem id="loadFile" mnemonicParsing="false" onAction="#loadFile" text="Ouvrir ..." />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" onAction="#saveFullFile" text="Sauvegarder en tant que ..." />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" onAction="#quit" text="Quitter" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Aide">
+          <items>
+            <MenuItem mnemonicParsing="false" text="FAQ" />
+            <MenuItem mnemonicParsing="false" text="A propos" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+  </top>
 </BorderPane>

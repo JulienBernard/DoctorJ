@@ -3,24 +3,28 @@ package fr.intechinfo.doctorj.controllers;
 import fr.intechinfo.doctorj.DoctorJ;
 import fr.intechinfo.doctorj.model.*;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 import org.json.simple.parser.JSONParser;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.List;
 import java.io.File;
 import java.io.PrintWriter;
+import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.*;
+import java.util.List;
 
 
 /**
  * Controller for the Generator view
  */
 public class GeneratorEnd implements Initializable {
-
     private Storyline str;
+    @FXML private Label resultCheck;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -49,6 +53,7 @@ public class GeneratorEnd implements Initializable {
                 Map<String, String> story = reader.readStory(parser);
                 str.setName(story.get("storyName"));
                 str.setPitch(story.get("storyPitch"));
+                str.setTestFile(story.get("storyTestFile"));
 
                 /* Il y a plusieurs chapitres par story */
                 java.util.List<Map<String, String>> chapters = reader.readChapters(parser);
@@ -150,5 +155,60 @@ public class GeneratorEnd implements Initializable {
 
     public void faq(ActionEvent actionEvent) {
         JOptionPane.showMessageDialog(new Frame(), "Fonctionnalité à venir.");
+    }
+
+    public void checkStory(ActionEvent actionEvent) {
+        String result = "";
+        if( str.getName().isEmpty() )
+            result += "Champ vide : Le nom de votre histoire n'est pas renseigné !\n";
+        if( str.getPitch().isEmpty() )
+            result += "Champ vide : La description de votre histoire n'est pas renseignée !\n";
+        if( str.getTestFile().isEmpty() )
+            result += "Champ vide : Le nom du fichier de test de votre histoire n'est pas renseigné !\n";
+        else {
+            File file = new File("./stories/"+str.getName()+"/");
+            try {
+                ClassLoader cl = new URLClassLoader(new URL[]{file.toURI().toURL()});
+                try {
+                    Class cls = cl.loadClass("Step1Test");
+                } catch(ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        }
+        if( str.getChapters().isEmpty() )
+            result += "Pas de chapitre : Il n'y a aucun chapitre à votre histoire !\n";
+
+        for( int i = 0 ; i < str.getChapters().size() ; i++ )
+        {
+            if( str.getChapters().get(i).getTitle().isEmpty() )
+                result += "Champ vide : Le titre d'un des chapitres ("+i+1+") n'est pas renseigné !\n";
+            if( str.getChapters().get(i).getDescription().isEmpty() )
+                result += "Champ vide : La description d'un des chapitres ("+i+1+") n'est pas renseignée !\n";
+
+            for( int j = 0 ; j < str.getChapters().get(i).getSteps().size() ; j++ )
+            {
+                if( str.getChapters().get(i).getSteps().get(j).getTitle().isEmpty() )
+                    result += "Champ vide : Le titre d'une des étapes ("+j+1+") de l'un de vos chapitres ("+i+1+") n'est pas renseigné !\n";
+                if( str.getChapters().get(i).getSteps().get(j).getHelp().isEmpty() )
+                    result += "Champ vide : L'aide d'une des étapes ("+j+1+") de l'un de vos chapitres ("+i+1+") n'est pas renseignée !\n";
+                if( str.getChapters().get(i).getSteps().get(j).getHint().isEmpty() )
+                    result += "Champ vide : Les astuces d'une des étapes ("+j+1+") de l'un de vos chapitres ("+i+1+") ne sont pas renseignées !\n";
+                if( str.getChapters().get(i).getSteps().get(j).getDirection().isEmpty() )
+                    result += "Champ vide : Les instructions d'une des étapes ("+j+1+") de l'un de vos chapitres ("+i+1+") ne sont pas renseignées !\n";
+                if( str.getChapters().get(i).getSteps().get(j).getFunction().isEmpty() )
+                    result += "Champ vide : Le nom de la fonction de test d'une des étapes ("+j+1+") de l'un de vos chapitres ("+i+1+") n'est pas renseigné !\n";
+                else {
+
+                }
+                if( str.getChapters().get(i).getSteps().get(j).getImage().isEmpty() )
+                    result += "Champ vide : L'image d'une des étapes ("+j+1+") de l'un de vos chapitres ("+i+1+") n'est pas renseignée !\n";
+            }
+        }
+        if( result.isEmpty() )
+            result = "Votre histoire semble correct. Retournez au menu pour y jouer des maintenant !\n";
+        resultCheck.setText(result);
     }
 }

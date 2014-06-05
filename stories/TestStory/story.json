@@ -1,6 +1,7 @@
 {
 	"storyName" : "Story name",
-	"storyPitch" : "Story pitch",
+    "storyPitch" : "Story pitch",
+    "storyTestFile" : "story.json",
 	"storyChapters" : [
         {
             "chapterName" : "Chapter 1 name",

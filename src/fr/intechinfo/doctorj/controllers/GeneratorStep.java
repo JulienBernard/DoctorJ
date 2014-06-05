@@ -1,16 +1,14 @@
 package fr.intechinfo.doctorj.controllers;
 
 import fr.intechinfo.doctorj.DoctorJ;
-import fr.intechinfo.doctorj.model.Chapter;
-import fr.intechinfo.doctorj.model.Step;
-import fr.intechinfo.doctorj.model.Storyline;
-import fr.intechinfo.doctorj.model.jsonWriter;
+import fr.intechinfo.doctorj.model.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import org.json.simple.parser.JSONParser;
 
 import javax.swing.*;
 import java.awt.*;
@@ -18,6 +16,7 @@ import java.io.File;
 import java.io.PrintWriter;
 import java.net.URL;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 
 /**
@@ -72,23 +71,51 @@ public class GeneratorStep extends Generator implements Initializable {
         DoctorJ.getInstance().changeScene("generatorGame", "Doctor J - Nouvelle histoire", 800, 600);
     }
 
+
     public void loadFile(ActionEvent actionEvent) {
-        int sizeChap = str.getChapters().size();
-        int idChap = str.getCurrentChapter();
-        int idStep = str.getChapters().get(idChap).getCurrentStep();
-        if( sizeChap != 0 )
-        {
-            int sizeStep = str.getChapters().get(idChap).getSteps().size();
-            if( sizeStep != 0 )
-            {
-                Step step = str.getChapters().get(idChap).getSteps().get(idStep);
-                this.stepTitleField.setText(step.getTitle());
-                this.stepHelpField.setText(step.getHelp());
-                this.stepDirectionField.setText(step.getDirection());
-                this.stepHintField.setText(step.getHint());
-                this.stepImageField.setText(step.getImage());
-                this.stepTestField.setText(step.getFunction());
+        JFileChooser dialogue = new JFileChooser(new File("."));
+        PrintWriter sortie;
+        File file;
+
+        str.resetStoryline();
+        if (dialogue.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            try {
+                JSONParser parser = new JSONParser();
+
+                file = dialogue.getSelectedFile();
+                jsonReader reader = new jsonReader( file.getPath() );
+
+                /* Il y a qu'une seule story */
+                Map<String, String> story = reader.readStory(parser);
+                str.setName(story.get("storyName"));
+                str.setPitch(story.get("storyPitch"));
+                str.setTestFile(story.get("storyTestFile"));
+
+                /* Il y a plusieurs chapitres par story */
+                java.util.List<Map<String, String>> chapters = reader.readChapters(parser);
+                java.util.List<java.util.List<Map<String, String>>> steps = reader.readSteps(parser);
+                for( int i = 0 ; i < chapters.size() ; i++ ) {
+                    str.getChapters().add(new Chapter(chapters.get(i).get("chapterName"), chapters.get(i).get("chapterPitch"), i));
+
+                    /* Il y a plusieurs steps par chapitres */
+                    for( int j = 0 ; j < steps.size() ; j++ ) {
+                        str.getChapters().get(i).getSteps().add(new Step(steps.get(i).get(j).get("stepTitle"),
+                                steps.get(i).get(j).get("stepHelp"),
+                                steps.get(i).get(j).get("stepDirection"),
+                                steps.get(i).get(j).get("stepHint"),
+                                steps.get(i).get(j).get("stepImage"),
+                                steps.get(i).get(j).get("stepFunction"),
+                                j));
+                    }
+                }
+            } catch (NullPointerException e) {
+                System.out.println(e);
+                System.out.println(e.getStackTrace());
             }
+        }
+        if( str.getName() != null )
+        {
+            DoctorJ.getInstance().changeScene("generatorGame", "Doctor J - Nouvelle histoire", 800, 600);
         }
     }
 

@@ -17,12 +17,14 @@ public class Storyline {
     private List<Chapter> chapters;
     private String name;
     private String pitch;
+    private String testFile;
     private int currentChapter;
 
     public Storyline() {
         this.chapters = new ArrayList<Chapter>();
         this.name = "";
         this.pitch = "";
+        this.testFile = "";
         this.currentChapter = 0;
     }
 
@@ -38,6 +40,10 @@ public class Storyline {
 
     public void setPitch(String pitch) { this.pitch = pitch; }
 
+    public String getTestFile() { return testFile; }
+
+    public void setTestFile(String testFile) { this.testFile = testFile; }
+
     public int getCurrentChapter() { return currentChapter; }
 
     public void setCurrentChapter(int setChapter) { this.currentChapter = setChapter; }
@@ -46,6 +52,7 @@ public class Storyline {
         this.chapters = new ArrayList<Chapter>();
         this.name = "";
         this.pitch = "";
+        this.testFile = "";
         this.currentChapter = 0;
     }
 }

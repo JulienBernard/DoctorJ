@@ -15,7 +15,7 @@ public class jsonWriter {
     public jsonWriter( String pathFile )
     {
         if( pathFile.isEmpty() )
-            pathFile = "./stories/test.json";
+            pathFile = "./stories/TestStory/test.json";
         this._pathFile = pathFile;
     }
 
@@ -28,6 +28,7 @@ public class jsonWriter {
 
         jsonObject.put("storyName", story.getName());
         jsonObject.put("storyPitch", story.getPitch());
+        jsonObject.put("storyTestFile", story.getTestFile());
 
         JSONArray storyChapters = new JSONArray();
         for( int i = 0 ; i < story.getChapters().size() ; i++ )
