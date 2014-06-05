@@ -1,6 +1,8 @@
 package fr.intechinfo.doctorj;
 
 import fr.intechinfo.doctorj.model.Storyline;
+import fr.intechinfo.doctorj.model.validators.SyntaxValidator;
+import fr.intechinfo.doctorj.model.validators.TestValidator;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
