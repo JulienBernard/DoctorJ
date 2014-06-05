@@ -1,6 +1,6 @@
 package fr.intechinfo.doctorj.controllers;
 
-import fr.intechinfo.doctorj.model.SyntaxValidator;
+import fr.intechinfo.doctorj.model.validators.SyntaxValidator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -21,7 +21,7 @@ import java.util.regex.Pattern;
 public class Game implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+         
     }
 
     @FXML private TextArea codeArea;
