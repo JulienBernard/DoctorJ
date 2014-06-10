@@ -34,17 +34,55 @@
             ]
         },
         {
-            "chapterName" : "Chapter 2 name",
-            "chapterPitch" : "Chapter 2 description",
+            "chapterName" : "Annie a un problème, sauvez-là !",
+            "chapterPitch" : "Notre patiente, Annie, est tombée dans les pommes !",
             "chapterSteps" : [
-            {
-                "stepTitle" : "Step 2.1 title",
-                "stepHelp" : "Step 2.1 help",
-                "stepDirection" : "Step 2.1 direction",
-                "stepHint" : "Step 2.1 hint",
-                "stepImage" : "Step 2.1 image",
-                "stepFunction" : "Step 2.1 function"
-            }
+                {
+                    "stepTitle" : "Compléter la classe Annie",
+                    "stepHelp" : "..",
+                    "stepDirection" : "Annie a besoin d'une perfusion, créé une nouvelle méthode \"giveBlood\" qui ajoute 1 à une variable \"blood\" que vous initialiserez à 4 (litres).",
+                    "stepHint" : "Cette fonction peut être privée puisqu'elle ne peux être appellée théoriquement que pour Annie.",
+                    "stepImage" : "image",
+                    "stepFunction" : "step4"
+                },
+                {
+                    "stepTitle" : "Aidez le docteur à perfusez Annie !",
+                    "stepHelp" : "..",
+                    "stepDirection" : "De temps en temps nous aurons besoin d'activer ou non la perfusion. Ecrivez une fonction \"setBlood\" qui permet d'activer une, deux ou x fois la fonction \"giveBlood\".",
+                    "stepHint" : "La fonction \"setBlood\" devra être composée d'un paramètre et d'une boucle, permettant ainsi d'appeler la fonction \"giveBlood\" autant de fois que nécessaire.",
+                    "stepImage" : "image",
+                    "stepFunction" : "step5"
+                }
+            ]
+        },
+        {
+            "chapterName" : "Votre patiente est stabilisée.",
+            "chapterPitch" : "Bien, notre patiente à l'air d'aller mieux. Nous pouvons la laisser partir, mais avant cela il faut prendre son identité.",
+            "chapterSteps" : [
+                {
+                    "stepTitle" : "Annie nous donne son age",
+                    "stepHelp" : "..",
+                    "stepDirection" : "Notre patiente à finalement pu nous donner son age : 24 ans. Compléter la variable \"age\" avec cette information.",
+                    "stepHint" : "Appeler la fonction créer précédement pour inclure cette valeur.",
+                    "stepImage" : "image",
+                    "stepFunction" : "step6"
+                },
+                {
+                    "stepTitle" : "Annie nous donne son nom de famille",
+                    "stepHelp" : "..",
+                    "stepDirection" : "Créer une nouvelle variable \"lastName\" qui contiendra le nom de Annie : Durand.",
+                    "stepHint" : "Partez du principe que nous ne connaissions pas son nom au début, il faut garder la même structure que pour la variable \"name\" et donc avoir une fonction pour modifier la valeur de cette variable.",
+                    "stepImage" : "image",
+                    "stepFunction" : "step7"
+                },
+                {
+                    "stepTitle" : "Noter les informations",
+                    "stepHelp" : "On appelle ces fonctions des \"getters\".",
+                    "stepDirection" : "Il faut maintenant récupérer ces informations. Créez des fonctions permettant de récupérer ses valeurs.",
+                    "stepHint" : "Il faut donc créer différentes fonctions nommées \"getAge\", \"getName\" et \"getLastName\" qui retourneront la valeur demandée.",
+                    "stepImage" : "image",
+                    "stepFunction" : "step8"
+                }
             ]
         }
 	]
