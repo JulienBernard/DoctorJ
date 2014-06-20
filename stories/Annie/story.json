@@ -1,0 +1,89 @@
+{
+	"storyName" : "Sauvons Annie !",
+    "storyPitch" : "Bonjour, jeune interne !/nAujourd’hui, vous êtes assigné aux urgences : combien de vie allez-vous sauver ?",
+    "storyTestFile" : "annie",
+	"storyChapters" : [
+        {
+            "chapterName" : "Une nouvelle patiente est arrivée",
+            "chapterPitch" : "Une nouvelle patiente dénommée Annie vient d’arriver, essayons de trouver ce qu’il lui arrive !",
+            "chapterSteps" : [
+            {
+                "stepTitle" : "Découvrons les classes",
+                "stepHelp" : "Une classe est ...",
+                "stepDirection" : "Commençons par encadrer la patiente. Créer une classe nommée \"Patient\".",
+                "stepHint" : "Votre classe doit être accessible par tous. N'oubliez pas de la déclarer en \"public\".",
+                "stepImage" : "image",
+                "stepFunction" : "step1"
+            },
+            {
+                "stepTitle" : "Découvrons les variables",
+                "stepHelp" : "Une variable est ...",
+                "stepDirection" : "Nous savons que notre patiente s'appelle Annie, définisez une variable nommée \"name\" et donner lui la valeur \"Annie\".",
+                "stepHint" : "De même que la classe, cette variable doit être déclarer en \"public\". De plus c'est une chaine de caractère que nous souhaitons rentrer, c'est donc une variable de type \"String\".",
+                "stepImage" : "image",
+                "stepFunction" : "step2"
+            },
+            {
+                "stepTitle" : "Découvrons les méthodes",
+                "stepHelp" : "Une méthode, ou function, est ...",
+                "stepDirection" : "Nous allons devoir demander des informations à Annie, par exemple son age. Cependant nous n'avons pas l'information en ce moment même. Passons par une méthode qui pourra modifier la variable \"age\" (nombre), nous pourrons ainsi modifier facilement sa valeur !",
+                "stepHint" : "Cette fonction publique doit attribuer la valeur, donner en paramètre de la fonction, à la variable \"age\". Il faut donc déclarer une variable et une fonction avec un paramètre, fonction qui attribue le paramètre donner à la variable déclarer.",
+                "stepImage" : "image",
+                "stepFunction" : "step3"
+            }
+            ]
+        },
+        {
+            "chapterName" : "Annie a un problème, sauvez-là !",
+            "chapterPitch" : "Notre patiente, Annie, est tombée dans les pommes !",
+            "chapterSteps" : [
+                {
+                    "stepTitle" : "Compléter la classe Annie",
+                    "stepHelp" : "..",
+                    "stepDirection" : "Annie a besoin d'une perfusion, créé une nouvelle méthode \"giveBlood\" qui ajoute 1 à une variable \"blood\" que vous initialiserez à 4 (litres).",
+                    "stepHint" : "Cette fonction peut être privée puisqu'elle ne peux être appellée théoriquement que pour Annie.",
+                    "stepImage" : "image",
+                    "stepFunction" : "step4"
+                },
+                {
+                    "stepTitle" : "Aidez le docteur à perfusez Annie !",
+                    "stepHelp" : "..",
+                    "stepDirection" : "De temps en temps nous aurons besoin d'activer ou non la perfusion. Ecrivez une fonction \"setBlood\" qui permet d'activer une, deux ou x fois la fonction \"giveBlood\".",
+                    "stepHint" : "La fonction \"setBlood\" devra être composée d'un paramètre et d'une boucle, permettant ainsi d'appeler la fonction \"giveBlood\" autant de fois que nécessaire.",
+                    "stepImage" : "image",
+                    "stepFunction" : "step5"
+                }
+            ]
+        },
+        {
+            "chapterName" : "Votre patiente est stabilisée.",
+            "chapterPitch" : "Bien, notre patiente à l'air d'aller mieux. Nous pouvons la laisser partir, mais avant cela il faut prendre son identité.",
+            "chapterSteps" : [
+                {
+                    "stepTitle" : "Annie nous donne son age",
+                    "stepHelp" : "..",
+                    "stepDirection" : "Notre patiente à finalement pu nous donner son age : 24 ans. Compléter la variable \"age\" avec cette information.",
+                    "stepHint" : "Appeler la fonction créer précédement pour inclure cette valeur.",
+                    "stepImage" : "image",
+                    "stepFunction" : "step6"
+                },
+                {
+                    "stepTitle" : "Annie nous donne son nom de famille",
+                    "stepHelp" : "..",
+                    "stepDirection" : "Créer une nouvelle variable \"lastName\" qui contiendra le nom de Annie : Durand.",
+                    "stepHint" : "Partez du principe que nous ne connaissions pas son nom au début, il faut garder la même structure que pour la variable \"name\" et donc avoir une fonction pour modifier la valeur de cette variable.",
+                    "stepImage" : "image",
+                    "stepFunction" : "step7"
+                },
+                {
+                    "stepTitle" : "Noter les informations",
+                    "stepHelp" : "On appelle ces fonctions des \"getters\".",
+                    "stepDirection" : "Il faut maintenant récupérer ces informations. Créez des fonctions permettant de récupérer ses valeurs.",
+                    "stepHint" : "Il faut donc créer différentes fonctions nommées \"getAge\", \"getName\" et \"getLastName\" qui retourneront la valeur demandée.",
+                    "stepImage" : "image",
+                    "stepFunction" : "step8"
+                }
+            ]
+        }
+	]
+}

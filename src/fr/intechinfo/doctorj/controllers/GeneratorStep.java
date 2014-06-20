@@ -15,8 +15,6 @@ import java.awt.*;
 import java.io.File;
 import java.io.PrintWriter;
 import java.net.URL;
-import java.util.List;
-import java.util.Map;
 import java.util.ResourceBundle;
 
 /**
@@ -83,31 +81,13 @@ public class GeneratorStep extends Generator implements Initializable {
                 JSONParser parser = new JSONParser();
 
                 file = dialogue.getSelectedFile();
-                jsonReader reader = new jsonReader( file.getPath() );
+                fileReader reader = new fileReader( file.getPath() );
 
-                /* Il y a qu'une seule story */
-                Map<String, String> story = reader.readStory(parser);
-                str.setName(story.get("storyName"));
-                str.setPitch(story.get("storyPitch"));
-                str.setTestFile(story.get("storyTestFile"));
-
-                /* Il y a plusieurs chapitres par story */
-                java.util.List<Map<String, String>> chapters = reader.readChapters(parser);
-                java.util.List<java.util.List<Map<String, String>>> steps = reader.readSteps(parser);
-                for( int i = 0 ; i < chapters.size() ; i++ ) {
-                    str.getChapters().add(new Chapter(chapters.get(i).get("chapterName"), chapters.get(i).get("chapterPitch"), i));
-
-                    /* Il y a plusieurs steps par chapitres */
-                    for( int j = 0 ; j < steps.size() ; j++ ) {
-                        str.getChapters().get(i).getSteps().add(new Step(steps.get(i).get(j).get("stepTitle"),
-                                steps.get(i).get(j).get("stepHelp"),
-                                steps.get(i).get(j).get("stepDirection"),
-                                steps.get(i).get(j).get("stepHint"),
-                                steps.get(i).get(j).get("stepImage"),
-                                steps.get(i).get(j).get("stepFunction"),
-                                j));
-                    }
-                }
+                Storyline story = reader.readStory();
+                str.setName(story.getName());
+                str.setTestFile(story.getTestFile());
+                str.setPitch(story.getPitch());
+                str.setChapters(story.getChapters());
             } catch (NullPointerException e) {
                 System.out.println(e);
                 System.out.println(e.getStackTrace());
@@ -227,7 +207,7 @@ public class GeneratorStep extends Generator implements Initializable {
         if (dialogue.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             try {
                 file = dialogue.getSelectedFile();
-                jsonWriter JsonWriter = new jsonWriter( file.getPath() );
+                fileWriter JsonWriter = new fileWriter( file.getPath() );
 
                 if( JsonWriter.saveFile(str) ) {
                     System.out.println("Save done.");

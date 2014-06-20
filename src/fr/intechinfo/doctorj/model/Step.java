@@ -1,12 +1,13 @@
 package fr.intechinfo.doctorj.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Represents a step in the game.
  */
-public class Step {
+public class Step implements Serializable {
     private int id;
     private String title;
     private String help;

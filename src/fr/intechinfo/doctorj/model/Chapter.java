@@ -1,12 +1,13 @@
 package fr.intechinfo.doctorj.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Represents a chapter in the game. A Chapter contains a list of steps.
  */
-public class Chapter {
+public class Chapter implements Serializable {
     private int id;
     private String title;
     private String description;

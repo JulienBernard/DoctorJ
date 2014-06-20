@@ -1,6 +1,7 @@
 package fr.intechinfo.doctorj.controllers;
 
 import fr.intechinfo.doctorj.model.validators.SyntaxValidator;
+import fr.intechinfo.doctorj.model.validators.TestValidator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -27,30 +28,26 @@ public class Game implements Initializable {
     @FXML private TextArea codeArea;
     @FXML private TextArea errorArea;
 
-   /* private String getFilename(String text) {
-        String filename = "";
-        Pattern pattern = Pattern.compile("\\class(.*?)\\{");
-        Matcher matcher = pattern.matcher(text);
-        while (matcher.find()) {
-            filename = matcher.group();
-        }
-        return filename;
-    }*/
-
     @FXML protected void handleExecuteButton(ActionEvent event) throws IOException {
 
         String data = codeArea.getText();
 
-        FileUtils.writeStringToFile(new File("HelloBuggyWorld.java"), data);
+        FileUtils.writeStringToFile(new File("./stories/story1/Step1.java"), data);
 
         SyntaxValidator syntaxValidator;
-        List<String> errorList = SyntaxValidator.check("HelloBuggyWorld.java");
+        List<String> errorList = SyntaxValidator.check("./stories/story1/Step1.java");
         String errors = "";
 
         for (String anErrorList : errorList) {
             errors += anErrorList;
         }
         errorArea.setText(errors);
+
+        if(errors.length() < 10 && codeArea.getText().length() > 6) {
+            errors += TestValidator.check("story1", "Step1").getMessage();
+
+            errorArea.setText(errors);
+        }
     }
 
 }
