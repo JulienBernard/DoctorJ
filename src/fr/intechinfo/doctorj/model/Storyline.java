@@ -1,12 +1,13 @@
 package fr.intechinfo.doctorj.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Contains the different chapters of the game.
  */
-public class Storyline {
+public class Storyline implements Serializable {
     // Global Storyline then we can access to the story from anywhere.
     private final static Storyline instance = new Storyline();
 
@@ -47,6 +48,10 @@ public class Storyline {
     public int getCurrentChapter() { return currentChapter; }
 
     public void setCurrentChapter(int setChapter) { this.currentChapter = setChapter; }
+
+    public void setChapters(List<Chapter> chapters) {
+        this.chapters = chapters;
+    }
 
     public void resetStoryline() {
         this.chapters = new ArrayList<Chapter>();
