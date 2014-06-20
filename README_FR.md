@@ -1,4 +1,4 @@
-DoctorJ - Version 1.1
+DoctorJ - Version 1.2
 =======
 
 DoctorJ est un logiciel d'apprentissage par storyline personnalisable sur le langage Java.
