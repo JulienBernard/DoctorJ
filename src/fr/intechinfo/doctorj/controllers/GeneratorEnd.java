@@ -12,11 +12,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.PrintWriter;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLClassLoader;
 import java.util.*;
-import java.util.List;
 
 
 /**
@@ -47,31 +44,13 @@ public class GeneratorEnd implements Initializable {
                 JSONParser parser = new JSONParser();
 
                 file = dialogue.getSelectedFile();
-                jsonReader reader = new jsonReader( file.getPath() );
+                fileReader reader = new fileReader( file.getPath() );
 
-                /* Il y a que'seule story */
-                Map<String, String> story = reader.readStory(parser);
-                str.setName(story.get("storyName"));
-                str.setPitch(story.get("storyPitch"));
-                str.setTestFile(story.get("storyTestFile"));
-
-                /* Il y a plusieurs chapitres par story */
-                java.util.List<Map<String, String>> chapters = reader.readChapters(parser);
-                java.util.List<java.util.List<Map<String, String>>> steps = reader.readSteps(parser);
-                for( int i = 0 ; i < chapters.size() ; i++ ) {
-                    str.getChapters().add(new Chapter(chapters.get(i).get("chapterName"), chapters.get(i).get("chapterPitch"), i));
-
-                    /* Il y a plusieurs steps par chapitres */
-                    for( int j = 0 ; j < steps.size() ; j++ ) {
-                        str.getChapters().get(i).getSteps().add(new Step(steps.get(i).get(j).get("stepTitle"),
-                                steps.get(i).get(j).get("stepHelp"),
-                                steps.get(i).get(j).get("stepDirection"),
-                                steps.get(i).get(j).get("stepHint"),
-                                steps.get(i).get(j).get("stepImage"),
-                                steps.get(i).get(j).get("stepFunction"),
-                                j));
-                    }
-                }
+                Storyline story = reader.readStory();
+                str.setName(story.getName());
+                str.setTestFile(story.getTestFile());
+                str.setPitch(story.getPitch());
+                str.setChapters(story.getChapters());
             } catch (NullPointerException e) {
                 System.out.println(e);
                 System.out.println(e.getStackTrace());
@@ -106,7 +85,7 @@ public class GeneratorEnd implements Initializable {
         if (dialogue.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             try {
                 file = dialogue.getSelectedFile();
-                jsonWriter JsonWriter = new jsonWriter( file.getPath() );
+                fileWriter JsonWriter = new fileWriter( file.getPath() );
 
                 if( JsonWriter.saveFile(str) ) {
                     System.out.println("Save done.");
@@ -135,7 +114,7 @@ public class GeneratorEnd implements Initializable {
         if (dialogue.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             try {
                 file = dialogue.getSelectedFile();
-                jsonWriter JsonWriter = new jsonWriter( file.getPath() );
+                fileWriter JsonWriter = new fileWriter( file.getPath() );
 
                 if( JsonWriter.saveFile(str) ) {
                     System.out.println("Save done.");
@@ -165,19 +144,6 @@ public class GeneratorEnd implements Initializable {
             result += "Champ vide : La description de votre histoire n'est pas renseignée !\n";
         if( str.getTestFile().isEmpty() )
             result += "Champ vide : Le nom du fichier de test de votre histoire n'est pas renseigné !\n";
-        else {
-            File file = new File("./stories/"+str.getName()+"/");
-            try {
-                ClassLoader cl = new URLClassLoader(new URL[]{file.toURI().toURL()});
-                try {
-                    Class cls = cl.loadClass("Step1Test");
-                } catch(ClassNotFoundException e) {
-                    e.printStackTrace();
-                }
-            } catch (MalformedURLException e) {
-                e.printStackTrace();
-            }
-        }
         if( str.getChapters().isEmpty() )
             result += "Pas de chapitre : Il n'y a aucun chapitre à votre histoire !\n";
 
