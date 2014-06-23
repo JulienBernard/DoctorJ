@@ -22,6 +22,7 @@ import java.util.*;
 public class GeneratorGame extends Generator implements Initializable {
     @FXML private TextField gameNameField;
     @FXML private TextField gameTestField;
+    @FXML private TextField gameBackgroundField;
     @FXML private TextArea gamePitchField;
 
     private Storyline str;
@@ -33,6 +34,7 @@ public class GeneratorGame extends Generator implements Initializable {
         this.gameNameField.setText(str.getName());
         this.gamePitchField.setText(str.getPitch());
         this.gameTestField.setText(str.getTestFile());
+        this.gameBackgroundField.setText(str.getBackgroundFile());
     }
 
     public void newFile(ActionEvent actionEvent) {
@@ -56,6 +58,7 @@ public class GeneratorGame extends Generator implements Initializable {
                 Storyline story = reader.readStory();
                 str.setName(story.getName());
                 str.setTestFile(story.getTestFile());
+                str.setBackgroundFile(story.getBackgroundFile());
                 str.setPitch(story.getPitch());
                 str.setChapters(story.getChapters());
             } catch (NullPointerException e) {
@@ -73,12 +76,14 @@ public class GeneratorGame extends Generator implements Initializable {
         str.setName(this.gameNameField.getText());
         str.setPitch(this.gamePitchField.getText());
         str.setTestFile(this.gameTestField.getText());
+        str.setBackgroundFile(this.gameBackgroundField.getText());
     }
 
     public void saveFile() {
         str.setName(this.gameNameField.getText());
         str.setPitch(this.gamePitchField.getText());
         str.setTestFile(this.gameTestField.getText());
+        str.setBackgroundFile(this.gameBackgroundField.getText());
     }
 
     public void quit(ActionEvent actionEvent) {
@@ -106,9 +111,9 @@ public class GeneratorGame extends Generator implements Initializable {
         if (dialogue.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             try {
                 file = dialogue.getSelectedFile();
-                fileWriter JsonWriter = new fileWriter( file.getPath() );
+                fileWriter FileWriter = new fileWriter( file.getPath() );
 
-                if( JsonWriter.saveFile(str) ) {
+                if( FileWriter.saveFile(str) ) {
                     System.out.println("Save done.");
                 }
                 else {
@@ -137,6 +142,22 @@ public class GeneratorGame extends Generator implements Initializable {
             try {
                 file = dialogue.getSelectedFile();
                 gameTestField.setText(file.getName());
+            } catch (NullPointerException e) {
+                System.out.println(e);
+                System.out.println(e.getStackTrace());
+            }
+        }
+    }
+
+    public void findBackgroundFile(ActionEvent actionEvent) {
+        JFileChooser dialogue = new JFileChooser(new File("."));
+        File file;
+
+        str.resetStoryline();
+        if (dialogue.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            try {
+                file = dialogue.getSelectedFile();
+                gameBackgroundField.setText(file.getName());
             } catch (NullPointerException e) {
                 System.out.println(e);
                 System.out.println(e.getStackTrace());

@@ -19,6 +19,7 @@ public class Storyline implements Serializable {
     private String name;
     private String pitch;
     private String testFile;
+    private String backgroundFile;
     private int currentChapter;
 
     public Storyline() {
@@ -26,6 +27,7 @@ public class Storyline implements Serializable {
         this.name = "";
         this.pitch = "";
         this.testFile = "";
+        this.backgroundFile = "";
         this.currentChapter = 0;
     }
 
@@ -45,6 +47,10 @@ public class Storyline implements Serializable {
 
     public void setTestFile(String testFile) { this.testFile = testFile; }
 
+    public String getBackgroundFile() { return backgroundFile; }
+
+    public void setBackgroundFile(String backgroundFile) { this.backgroundFile = backgroundFile; }
+
     public int getCurrentChapter() { return currentChapter; }
 
     public void setCurrentChapter(int setChapter) { this.currentChapter = setChapter; }
@@ -58,6 +64,7 @@ public class Storyline implements Serializable {
         this.name = "";
         this.pitch = "";
         this.testFile = "";
+        this.backgroundFile = "";
         this.currentChapter = 0;
     }
 }

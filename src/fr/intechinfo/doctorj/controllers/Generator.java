@@ -48,6 +48,7 @@ public class Generator implements Initializable {
                 Storyline story = reader.readStory();
                 str.setName(story.getName());
                 str.setTestFile(story.getTestFile());
+                str.setBackgroundFile(story.getBackgroundFile());
                 str.setPitch(story.getPitch());
                 str.setChapters(story.getChapters());
             } catch (NullPointerException e) {

@@ -33,6 +33,17 @@
                 <Insets right="50.0" top="-24.0" />
               </VBox.margin>
             </TextField>
+            <Label text="Emplacement du fond de votre scène" />
+            <Button alignment="CENTER_RIGHT" focusTraversable="false" mnemonicParsing="false" text="Où ?" textAlignment="CENTER" onAction="#findBackgroundFile">
+              <VBox.margin>
+                  <Insets left="300.0" />
+              </VBox.margin>
+            </Button>
+            <TextField fx:id="gameBackgroundField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefWidth="300.0" promptText="Spécifier l'emplacement de l'image de fond de votre scène.">
+              <VBox.margin>
+                  <Insets right="50.0" top="-24.0" />
+              </VBox.margin>
+            </TextField>
             <Label text="Description de la partie" />
             <TextArea fx:id="gamePitchField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefHeight="100.0" prefRowCount="0" prefWidth="463.0" promptText="Spécifier la description de votre histoire." wrapText="true" />
             <StackPane alignment="BOTTOM_RIGHT" prefHeight="59.0" prefWidth="638.0" VBox.vgrow="ALWAYS">
