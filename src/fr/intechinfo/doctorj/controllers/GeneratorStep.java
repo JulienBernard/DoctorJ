@@ -25,7 +25,15 @@ public class GeneratorStep extends Generator implements Initializable {
     @FXML private TextArea stepHelpField;
     @FXML private TextArea stepDirectionField;
     @FXML private TextArea stepHintField;
-    @FXML private TextField stepImageField;
+    @FXML private ComboBox stepImageField;
+    @FXML private ComboBox stepImageField2;
+    @FXML private ComboBox stepImageField3;
+    @FXML private TextField imageX;
+    @FXML private TextField imageY;
+    @FXML private TextField image2X;
+    @FXML private TextField image2Y;
+    @FXML private TextField image3X;
+    @FXML private TextField image3Y;
     @FXML private TextField stepTestField;
     @FXML private ComboBox stepsBox;
 
@@ -49,7 +57,15 @@ public class GeneratorStep extends Generator implements Initializable {
                 this.stepHelpField.setText(step.getHelp());
                 this.stepDirectionField.setText(step.getDirection());
                 this.stepHintField.setText(step.getHint());
-                this.stepImageField.setText(step.getImage());
+                this.stepImageField.setValue(step.getImage());
+                this.stepImageField2.setValue(step.getImage2());
+                this.stepImageField3.setValue(step.getImage3());
+                this.imageX.setText(step.getImageX());
+                this.imageY.setText(step.getImageY());
+                this.image2X.setText(step.getImage2X());
+                this.image2Y.setText(step.getImage2Y());
+                this.image3X.setText(step.getImage3X());
+                this.image3Y.setText(step.getImage3Y());
                 this.stepTestField.setText(step.getFunction());
             }
             else
@@ -58,7 +74,15 @@ public class GeneratorStep extends Generator implements Initializable {
                 this.stepHelpField.setText("");
                 this.stepDirectionField.setText("");
                 this.stepHintField.setText("");
-                this.stepImageField.setText("");
+                this.stepImageField.setValue(null);
+                this.stepImageField2.setValue(null);
+                this.stepImageField3.setValue(null);
+                this.imageX.setText(null);
+                this.imageY.setText(null);
+                this.image2X.setText(null);
+                this.image2Y.setText(null);
+                this.image3X.setText(null);
+                this.image3Y.setText(null);
                 this.stepTestField.setText("");
             }
         }
@@ -108,7 +132,15 @@ public class GeneratorStep extends Generator implements Initializable {
         str.getChapters().get(idChap).getSteps().get(idStep).setHelp(this.stepHelpField.getText());
         str.getChapters().get(idChap).getSteps().get(idStep).setDirection(this.stepDirectionField.getText());
         str.getChapters().get(idChap).getSteps().get(idStep).setHint(this.stepHintField.getText());
-        str.getChapters().get(idChap).getSteps().get(idStep).setImage(this.stepImageField.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setImage(this.stepImageField.getValue().toString());
+        str.getChapters().get(idChap).getSteps().get(idStep).setImage2(this.stepImageField2.getValue().toString());
+        str.getChapters().get(idChap).getSteps().get(idStep).setImage3(this.stepImageField3.getValue().toString());
+        str.getChapters().get(idChap).getSteps().get(idStep).setImageX(this.imageX.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setImageY(this.imageY.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setImage2X(this.image2X.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setImage2Y(this.image2Y.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setImage3X(this.image3X.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setImage3Y(this.image3Y.getText());
         str.getChapters().get(idChap).getSteps().get(idStep).setFunction(this.stepTestField.getText());
     }
 
@@ -120,7 +152,15 @@ public class GeneratorStep extends Generator implements Initializable {
         str.getChapters().get(idChap).getSteps().get(idStep).setHelp(this.stepHelpField.getText());
         str.getChapters().get(idChap).getSteps().get(idStep).setDirection(this.stepDirectionField.getText());
         str.getChapters().get(idChap).getSteps().get(idStep).setHint(this.stepHintField.getText());
-        str.getChapters().get(idChap).getSteps().get(idStep).setImage(this.stepImageField.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setImage(this.stepImageField.getValue().toString());
+        str.getChapters().get(idChap).getSteps().get(idStep).setImage2(this.stepImageField2.getValue().toString());
+        str.getChapters().get(idChap).getSteps().get(idStep).setImage3(this.stepImageField3.getValue().toString());
+        str.getChapters().get(idChap).getSteps().get(idStep).setImageX(this.imageX.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setImageY(this.imageY.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setImage2X(this.image2X.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setImage2Y(this.image2Y.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setImage3X(this.image3X.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setImage3Y(this.image3Y.getText());
         str.getChapters().get(idChap).getSteps().get(idStep).setFunction(this.stepTestField.getText());
     }
 

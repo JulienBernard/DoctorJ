@@ -31,8 +31,52 @@
             <TextArea fx:id="stepHintField" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefHeight="45.0" prefRowCount="0" prefWidth="463.0" promptText="Les astuces propose des axes de solution au joueur et lui apportent des conseils. Elles sont affichés au lancement de l'étape." wrapText="true" />
             <Label text="Instructions" />
             <TextArea fx:id="stepDirectionField" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefHeight="75.0" prefRowCount="0" prefWidth="463.0" promptText="Les instructions spécifient la tâche que doit réaliser le joueur. Elles sont affichées lors du lancement de l'étape" wrapText="true" />
-            <Label text="Image" />
-            <TextField fx:id="stepImageField" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefWidth="463.0" promptText="Link to asset's libraries" VBox.vgrow="ALWAYS" />
+            <Label text="Images à afficher" />
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0">
+              <children>
+                <TextField id="imageX" fx:id="imageX" alignment="CENTER_RIGHT" disable="false" editable="true" focusTraversable="true" layoutX="76.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="1.0" prefColumnCount="1" prefHeight="21.0" prefWidth="62.0" promptText="X" text="" visible="true" />
+                <TextField id="imageY" fx:id="imageY" alignment="CENTER_RIGHT" disable="false" editable="true" focusTraversable="true" layoutX="138.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="1.0" prefColumnCount="1" prefHeight="21.0" prefWidth="62.0" promptText="Y" text="" visible="true" />
+                <ComboBox id="stepImageField" fx:id="stepImageField" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="2.0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Rien" />
+                      <String fx:value="Img 1" />
+                      <String fx:value="Img 2" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+              </children>
+            </AnchorPane>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0">
+              <children>
+                <TextField id="image2X" fx:id="image2X" alignment="CENTER_RIGHT" disable="false" editable="true" focusTraversable="true" layoutX="76.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="1.0" prefColumnCount="1" prefHeight="21.0" prefWidth="62.0" promptText="X" text="" visible="true" />
+                <TextField id="image2Y" fx:id="image2Y" alignment="CENTER_RIGHT" disable="false" editable="true" focusTraversable="true" layoutX="138.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="1.0" prefColumnCount="1" prefHeight="21.0" prefWidth="62.0" promptText="Y" text="" visible="true" />
+                <ComboBox id="stepImageField2" fx:id="stepImageField2" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="2.0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Rien" />
+                      <String fx:value="Img 1" />
+                      <String fx:value="Img 2" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+              </children>
+            </AnchorPane>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="25.0" prefWidth="200.0">
+              <children>
+                <TextField id="image3X" fx:id="image3X" alignment="CENTER_RIGHT" disable="false" editable="true" focusTraversable="true" layoutX="76.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="1.0" prefColumnCount="1" prefHeight="21.0" prefWidth="62.0" promptText="X" text="" visible="true" />
+                <TextField id="image3Y" fx:id="image3Y" alignment="CENTER_RIGHT" disable="false" editable="true" focusTraversable="true" layoutX="138.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" opacity="1.0" prefColumnCount="1" prefHeight="21.0" prefWidth="62.0" promptText="Y" text="" visible="true" />
+                <ComboBox id="stepImageField3" fx:id="stepImageField3" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="2.0">
+                  <items>
+                    <FXCollections fx:factory="observableArrayList">
+                      <String fx:value="Rien" />
+                      <String fx:value="Img 1" />
+                      <String fx:value="Img 2" />
+                    </FXCollections>
+                  </items>
+                </ComboBox>
+              </children>
+            </AnchorPane>
             <Label text="Fonction de test" />
             <TextField fx:id="stepTestField" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefWidth="463.0" promptText="Nom de la fonction de test qui est dans votre fichier de test. Renvoie &quot;true&quot; ou &quot;false&quot;." />
             <StackPane alignment="BOTTOM_CENTER" prefHeight="59.0" prefWidth="638.0" VBox.vgrow="ALWAYS">
