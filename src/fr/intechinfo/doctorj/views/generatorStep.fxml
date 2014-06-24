@@ -31,10 +31,19 @@
             <TextArea fx:id="stepHintField" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefHeight="45.0" prefRowCount="0" prefWidth="463.0" promptText="Les astuces propose des axes de solution au joueur et lui apportent des conseils. Elles sont affichés au lancement de l'étape." wrapText="true" />
             <Label text="Instructions" />
             <TextArea fx:id="stepDirectionField" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefHeight="75.0" prefRowCount="0" prefWidth="463.0" promptText="Les instructions spécifient la tâche que doit réaliser le joueur. Elles sont affichées lors du lancement de l'étape" wrapText="true" />
-            <Label text="Image" />
-            <TextField fx:id="stepImageField" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefWidth="463.0" promptText="Link to asset's libraries" VBox.vgrow="ALWAYS" />
+            <Label text="Emplacement du fond de votre scène" />
+            <Button alignment="CENTER_RIGHT" focusTraversable="false" mnemonicParsing="false" text="Où ?" textAlignment="CENTER" onAction="#findBackgroundFile">
+                <VBox.margin>
+                    <Insets left="300.0" />
+                </VBox.margin>
+            </Button>
+            <TextField fx:id="stepImageField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefWidth="300.0" promptText="Spécifier l'emplacement de la vidéo de fond de votre scène.">
+                <VBox.margin>
+                    <Insets right="50.0" top="-24.0" />
+                </VBox.margin>
+            </TextField>
             <Label text="Fonction de test" />
-            <TextField fx:id="stepTestField" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefWidth="463.0" promptText="Nom de la fonction de test qui est dans votre fichier de test. Renvoie &quot;true&quot; ou &quot;false&quot;." />
+            <TextField fx:id="stepTestField" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefWidth="350.0" promptText="Nom de la fonction de test qui est dans votre fichier de test. Renvoie &quot;true&quot; ou &quot;false&quot;." />
             <StackPane alignment="BOTTOM_CENTER" prefHeight="59.0" prefWidth="638.0" VBox.vgrow="ALWAYS">
               <Button onAction="#previous" text="Précédent" StackPane.alignment="BOTTOM_LEFT" />
               <Button onAction="#next" text="Continuer" StackPane.alignment="BOTTOM_RIGHT" />

@@ -1,8 +1,6 @@
 package fr.intechinfo.doctorj.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Represents a step in the game.
@@ -13,7 +11,7 @@ public class Step implements Serializable {
     private String help;
     private String direction;
     private String hint;
-    private String image;
+    private String video;
     private String function;
 
     public Step() {
@@ -21,17 +19,17 @@ public class Step implements Serializable {
         this.help = "";
         this.direction = "";
         this.hint = "";
-        this.image = "";
+        this.video = "";
         this.function = "";
         this.id = 0;
     }
 
-    public Step(String title, String help, String direction, String hint, String image, String function, int id) {
+    public Step(String title, String help, String direction, String hint, String video, String function, int id) {
         this.title = title;
         this.help = help;
         this.direction = direction;
         this.hint = hint;
-        this.image = image;
+        this.video = video;
         this.function = function;
         this.id = id;
     }
@@ -68,12 +66,12 @@ public class Step implements Serializable {
         this.hint = hint;
     }
 
-    public String getImage() {
-        return image;
+    public String getVideo() {
+        return video;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setVideo(String video) {
+        this.video = video;
     }
 
     public String getFunction() {

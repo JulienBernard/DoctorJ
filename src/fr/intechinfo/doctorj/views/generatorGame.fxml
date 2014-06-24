@@ -39,7 +39,7 @@
                   <Insets left="300.0" />
               </VBox.margin>
             </Button>
-            <TextField fx:id="gameBackgroundField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefWidth="300.0" promptText="Spécifier l'emplacement de l'image de fond de votre scène.">
+            <TextField fx:id="gameBackgroundField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefWidth="300.0" promptText="Spécifier l'emplacement de la vidéo de fond de votre scène.">
               <VBox.margin>
                   <Insets right="50.0" top="-24.0" />
               </VBox.margin>

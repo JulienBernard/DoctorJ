@@ -137,7 +137,6 @@ public class GeneratorGame extends Generator implements Initializable {
         JFileChooser dialogue = new JFileChooser(new File("."));
         File file;
 
-        str.resetStoryline();
         if (dialogue.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             try {
                 file = dialogue.getSelectedFile();
@@ -153,11 +152,10 @@ public class GeneratorGame extends Generator implements Initializable {
         JFileChooser dialogue = new JFileChooser(new File("."));
         File file;
 
-        str.resetStoryline();
         if (dialogue.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             try {
                 file = dialogue.getSelectedFile();
-                gameBackgroundField.setText(file.getName());
+                gameBackgroundField.setText(file.getPath());
             } catch (NullPointerException e) {
                 System.out.println(e);
                 System.out.println(e.getStackTrace());

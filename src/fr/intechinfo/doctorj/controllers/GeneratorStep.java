@@ -49,7 +49,7 @@ public class GeneratorStep extends Generator implements Initializable {
                 this.stepHelpField.setText(step.getHelp());
                 this.stepDirectionField.setText(step.getDirection());
                 this.stepHintField.setText(step.getHint());
-                this.stepImageField.setText(step.getImage());
+                this.stepImageField.setText(step.getVideo());
                 this.stepTestField.setText(step.getFunction());
             }
             else
@@ -108,7 +108,7 @@ public class GeneratorStep extends Generator implements Initializable {
         str.getChapters().get(idChap).getSteps().get(idStep).setHelp(this.stepHelpField.getText());
         str.getChapters().get(idChap).getSteps().get(idStep).setDirection(this.stepDirectionField.getText());
         str.getChapters().get(idChap).getSteps().get(idStep).setHint(this.stepHintField.getText());
-        str.getChapters().get(idChap).getSteps().get(idStep).setImage(this.stepImageField.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setVideo(this.stepImageField.getText());
         str.getChapters().get(idChap).getSteps().get(idStep).setFunction(this.stepTestField.getText());
     }
 
@@ -120,7 +120,7 @@ public class GeneratorStep extends Generator implements Initializable {
         str.getChapters().get(idChap).getSteps().get(idStep).setHelp(this.stepHelpField.getText());
         str.getChapters().get(idChap).getSteps().get(idStep).setDirection(this.stepDirectionField.getText());
         str.getChapters().get(idChap).getSteps().get(idStep).setHint(this.stepHintField.getText());
-        str.getChapters().get(idChap).getSteps().get(idStep).setImage(this.stepImageField.getText());
+        str.getChapters().get(idChap).getSteps().get(idStep).setVideo(this.stepImageField.getText());
         str.getChapters().get(idChap).getSteps().get(idStep).setFunction(this.stepTestField.getText());
     }
 
@@ -228,5 +228,20 @@ public class GeneratorStep extends Generator implements Initializable {
 
     public void faq(ActionEvent actionEvent) {
         JOptionPane.showMessageDialog(new Frame(), "Fonctionnalité à venir.");
+    }
+
+    public void findBackgroundFile(ActionEvent actionEvent) {
+        JFileChooser dialogue = new JFileChooser(new File("."));
+        File file;
+
+        if (dialogue.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
+            try {
+                file = dialogue.getSelectedFile();
+                stepImageField.setText(file.getPath());
+            } catch (NullPointerException e) {
+                System.out.println(e);
+                System.out.println(e.getStackTrace());
+            }
+        }
     }
 }

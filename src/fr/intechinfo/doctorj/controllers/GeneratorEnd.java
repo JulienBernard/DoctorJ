@@ -170,7 +170,7 @@ public class GeneratorEnd implements Initializable {
                 else {
 
                 }
-                if( str.getChapters().get(i).getSteps().get(j).getImage().isEmpty() )
+                if( str.getChapters().get(i).getSteps().get(j).getVideo().isEmpty() )
                     result += "Champ vide : L'image d'une des étapes ("+j+1+") de l'un de vos chapitres ("+i+1+") n'est pas renseignée !\n";
             }
         }
