@@ -15,7 +15,7 @@
 </children></HBox>
 </top>
 <center><VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
-<children><Button fx:id="btnNewGame" mnemonicParsing="false" onAction="#onClickBtnNewGame" prefHeight="52.0" prefWidth="190.0" text="Nouvelle partie" /><Button fx:id="btnContinue" mnemonicParsing="false" onAction="#onClickBtnContinue" prefHeight="52.0" prefWidth="190.0" text="Continuer" /><Button fx:id="btnGenerator" mnemonicParsing="false" onAction="#onClickBtnGenerator" prefHeight="52.0" prefWidth="190.0" text="Générateur d'histoires" />
+<children><Button fx:id="btnNewGame" mnemonicParsing="false" onAction="#onClickBtnNewGame" prefHeight="52.0" prefWidth="190.0" text="Jouer" /><Button fx:id="btnGenerator" mnemonicParsing="false" onAction="#onClickBtnGenerator" prefHeight="52.0" prefWidth="190.0" text="Générateur d'histoires" />
 </children>
 <opaqueInsets>
 <Insets />

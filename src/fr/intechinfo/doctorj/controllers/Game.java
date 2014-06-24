@@ -1,5 +1,6 @@
 package fr.intechinfo.doctorj.controllers;
 
+import fr.intechinfo.doctorj.DoctorJ;
 import fr.intechinfo.doctorj.model.validators.SyntaxValidator;
 import fr.intechinfo.doctorj.model.validators.TestValidator;
 import javafx.event.ActionEvent;
@@ -27,6 +28,11 @@ public class Game implements Initializable {
 
     @FXML private TextArea codeArea;
     @FXML private TextArea errorArea;
+    @FXML private Button btnHome;
+
+    @FXML protected void onClickBtnHome(ActionEvent event) {
+        DoctorJ.getInstance().changeScene("home", "Doctor J - Accueil", 800, 600);
+    }
 
     @FXML protected void handleExecuteButton(ActionEvent event) throws IOException {
 
@@ -49,5 +55,4 @@ public class Game implements Initializable {
             errorArea.setText(errors);
         }
     }
-
 }
