@@ -15,7 +15,6 @@ import java.util.ResourceBundle;
  */
 public class Home implements Initializable {
     @FXML Button btnNewGame;
-    @FXML Button btnContinue;
     @FXML Button btnGenerator;
 
     @Override
@@ -24,11 +23,7 @@ public class Home implements Initializable {
     }
 
     @FXML protected void onClickBtnNewGame(ActionEvent event) {
-        DoctorJ.getInstance().changeScene("game", "Doctor J - Le jeu", 800, 600);
-    }
-
-    @FXML protected void onClickBtnContinue(ActionEvent event) {
-        DoctorJ.getInstance().changeScene("game", "Doctor J - Le jeu", 800, 600);
+        DoctorJ.getInstance().changeScene("selectLevel", "Doctor J - Sélection d'un niveau", 800, 600);
     }
 
     @FXML protected void onClickBtnGenerator(ActionEvent event) {
