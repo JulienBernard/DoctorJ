@@ -27,15 +27,7 @@
                     "stepTitle" : "Découvrons les méthodes avec les getters et setters",
                     "stepHelp" : "Un getter est une méthode (ou fonction) qui va nous permettre d'accéder aux variables de nos objets en lecture, et un setter nous permettra d'en faire de même en écriture.",
                     "stepDirection" : "Pour pouvoir accèder aux informations de Jeanne, nous avons besoin de 3 getters. Son age peut changer, il nous faut donc un setter pour cette variable. Créer les méthodes publiques \"getName\", \"getAge\", \"getSexe\" et \"setAge\".",
-                    "stepHint" : "Une méthode peut retourner quelque, si c'est le cas le type de retour doit être défini. Par exemple, l'age est \"int\" donc le getter sera \"public int getAge()\". Un setter ne retourne rien, le setter sera donc \"public setAge(int age)\".",
-                    "stepImage" : "image",
-                    "stepFunction" : "step3"
-                },
-                {
-                    "stepTitle" : "Découvrons les méthodes avec les getters et setters",
-                    "stepHelp" : "Un getter est une méthode (ou fonction) qui va nous permettre d'accéder aux variables de nos objets en lecture, et un setter nous permettra d'en faire de même en écriture.",
-                    "stepDirection" : "Pour pouvoir accèder aux informations de Jeanne, nous avons besoin de 3 getters. Son age peut changer, il nous faut donc un setter pour cette variable. Créer les méthodes publiques \"getName\", \"getAge\", \"getSexe\" et \"setAge\".",
-                    "stepHint" : "Une méthode peut retourner quelque, si c'est le cas le type de retour doit être défini. Par exemple, l'age est \"int\" donc le getter sera \"public int getAge()\". Un setter ne retourne rien, le setter sera donc \"public setAge(int age)\".",
+                    "stepHint" : "Une méthode peut retourner une valeur, si c'est le cas le type de retour doit être défini. Par exemple, l'age est \"int\" donc le getter sera \"public int getAge()\". Un setter ne retourne rien, le setter sera donc \"public setAge(int age)\".",
                     "stepImage" : "image",
                     "stepFunction" : "step3"
                 }
