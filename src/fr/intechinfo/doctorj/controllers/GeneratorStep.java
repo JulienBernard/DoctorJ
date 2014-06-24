@@ -25,15 +25,7 @@ public class GeneratorStep extends Generator implements Initializable {
     @FXML private TextArea stepHelpField;
     @FXML private TextArea stepDirectionField;
     @FXML private TextArea stepHintField;
-    @FXML private ComboBox stepImageField;
-    @FXML private ComboBox stepImageField2;
-    @FXML private ComboBox stepImageField3;
-    @FXML private TextField imageX;
-    @FXML private TextField imageY;
-    @FXML private TextField image2X;
-    @FXML private TextField image2Y;
-    @FXML private TextField image3X;
-    @FXML private TextField image3Y;
+    @FXML private TextField stepImageField;
     @FXML private TextField stepTestField;
     @FXML private ComboBox stepsBox;
 
