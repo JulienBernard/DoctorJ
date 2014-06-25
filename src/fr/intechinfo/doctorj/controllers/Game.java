@@ -13,6 +13,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.apache.commons.io.FileUtils;
+import org.fife.rsta.ac.LanguageSupportFactory;
 import org.fife.ui.autocomplete.*;
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
@@ -54,7 +55,8 @@ public class Game extends AbstractController implements Initializable {
 
                 JPanel cp = new JPanel(new BorderLayout());
 
-                RSyntaxTextArea textArea = new RSyntaxTextArea(20, 60);
+                RSyntaxTextArea textArea = new RSyntaxTextArea(25, 70);
+                LanguageSupportFactory.get().register(textArea);
                 textArea.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_JAVA);
                 textArea.setCodeFoldingEnabled(true);
 
