@@ -163,18 +163,4 @@ public class GeneratorGame extends Generator implements Initializable {
         }
     }
 
-    public void findBackgroundFile(ActionEvent actionEvent) {
-        JFileChooser dialogue = new JFileChooser(new File("."));
-        File file;
-
-        if (dialogue.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
-            try {
-                file = dialogue.getSelectedFile();
-                gameBackgroundField.setText(file.getPath());
-            } catch (NullPointerException e) {
-                System.out.println(e);
-                System.out.println(e.getStackTrace());
-            }
-        }
-    }
 }

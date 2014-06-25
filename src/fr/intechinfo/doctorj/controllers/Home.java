@@ -34,7 +34,10 @@ public class Home extends AbstractController implements Initializable {
     }
 
     @FXML protected void onClickBtnGenerator(ActionEvent event) {
-        Generator controller = new Generator(getMainWindow(), "generator");
-        controller.show("Générateur d'histoires");
+        //Generator controller = new Generator(getMainWindow(), "generator");
+        //controller.show("Générateur d'histoires");
+
+        // TODO : LEGACY
+        DoctorJ.getInstance().changeScene("generator", "Générateur", 800, 600);
     }
 }
