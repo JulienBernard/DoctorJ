@@ -56,17 +56,19 @@ public class Game extends AbstractController implements Initializable {
         SwingUtilities.invokeLater(() -> {
             JPanel cp = new JPanel(new BorderLayout());
 
-                RSyntaxTextArea textArea = new RSyntaxTextArea(25, 70);
-                LanguageSupportFactory.get().register(textArea);
+            codeArea = new RSyntaxTextArea(30, 70);
             codeArea.setCodeFoldingEnabled(true);
-            RTextScrollPane sp = new RTextScrollPane(codeArea);
+            codeArea.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_JAVA);
 
+            RTextScrollPane sp = new RTextScrollPane(codeArea);
             cp.add(sp);
+
             swingNode.setContent(cp);
 
             CompletionProvider provider = RSyntaxTextAreaUtils.createCompletionProvider();
             AutoCompletion ac = new AutoCompletion(provider);
             ac.install(codeArea);
+            LanguageSupportFactory.get().register(codeArea);
 
             RSyntaxTextAreaUtils.fixKeyboardIssues(codeArea, vBoxCode);
         });
