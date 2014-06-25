@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="482.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.intechinfo.doctorj.controllers.Game">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="482.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <top><ToolBar fx:id="toolbar" nodeOrientation="RIGHT_TO_LEFT" prefWidth="200.0" BorderPane.alignment="CENTER_RIGHT">
         <items><ComboBox fx:id="btnSelectLevel" prefHeight="25.0" prefWidth="175.0" promptText="Sélectionnez un niveau..." /><Button fx:id="btnHome" mnemonicParsing="false" onAction="#onClickBtnHome" text="Accueil" />
         </items>

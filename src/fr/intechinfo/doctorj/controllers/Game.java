@@ -1,6 +1,5 @@
 package fr.intechinfo.doctorj.controllers;
 
-import fr.intechinfo.doctorj.DoctorJ;
 import fr.intechinfo.doctorj.model.validators.SyntaxValidator;
 import fr.intechinfo.doctorj.model.validators.TestValidator;
 import javafx.event.ActionEvent;
@@ -8,30 +7,34 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.stage.Stage;
 import org.apache.commons.io.FileUtils;
 
 import java.io.*;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Controller for the Game view
  */
-public class Game implements Initializable {
+public class Game extends AbstractController implements Initializable {
+    @FXML private TextArea codeArea;
+    @FXML private TextArea errorArea;
+    @FXML private Button btnHome;
+
+    public Game(Stage mainWindow, String viewName) {
+        super(mainWindow, viewName);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
          
     }
 
-    @FXML private TextArea codeArea;
-    @FXML private TextArea errorArea;
-    @FXML private Button btnHome;
-
     @FXML protected void onClickBtnHome(ActionEvent event) {
-        DoctorJ.getInstance().changeScene("home", "Doctor J - Accueil", 800, 600);
+        Home home = new Home(getMainWindow(), "home");
+        home.show("Accueil");
     }
 
     @FXML protected void handleExecuteButton(ActionEvent event) throws IOException {
