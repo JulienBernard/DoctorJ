@@ -1,15 +1,18 @@
 package fr.intechinfo.doctorj.controllers;
 
 import fr.intechinfo.doctorj.model.ApplicationContext;
+import fr.intechinfo.doctorj.model.RSyntaxTextAreaUtils;
 import fr.intechinfo.doctorj.model.validators.SyntaxValidator;
 import fr.intechinfo.doctorj.model.validators.TestValidator;
 import fr.intechinfo.doctorj.model.validators.ValidatorMessage;
 import javafx.embed.swing.SwingNode;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.apache.commons.io.FileUtils;
@@ -18,7 +21,10 @@ import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
 import org.fife.ui.rtextarea.RTextScrollPane;
 
 import javax.swing.*;
+import javax.swing.text.Keymap;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -27,10 +33,10 @@ import java.util.ResourceBundle;
  * Controller for the Game view
  */
 public class Game extends AbstractController implements Initializable {
-    @FXML private TextArea codeArea;
     @FXML private TextArea errorArea;
     @FXML private Button btnHome;
     @FXML private VBox vBoxCode;
+    private RSyntaxTextArea codeArea;
 
     public Game(Stage mainWindow, String viewName) {
         super(mainWindow, viewName);
@@ -42,28 +48,23 @@ public class Game extends AbstractController implements Initializable {
         vBoxCode.getChildren().add(swingNode);
 
         createSwingContent(swingNode);
-        
-         
     }
 
-    private void createSwingContent(final SwingNode swingNode) {
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
+    private void createSwingContent(SwingNode swingNode) {
+        SwingUtilities.invokeLater(() -> {
+            JPanel cp = new JPanel(new BorderLayout());
 
-                JPanel cp = new JPanel(new BorderLayout());
+            codeArea = new RSyntaxTextArea(50, 50);
 
+            codeArea.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_JAVA);
+            codeArea.setCodeFoldingEnabled(true);
 
+            RTextScrollPane sp = new RTextScrollPane(codeArea);
+            cp.add(sp);
 
-                RSyntaxTextArea textArea = new RSyntaxTextArea(20, 60);
-                textArea.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_JAVA);
-                textArea.setCodeFoldingEnabled(true);
-                RTextScrollPane sp = new RTextScrollPane(textArea);
-                cp.add(sp);
+            swingNode.setContent(cp);
 
-                swingNode.setContent(cp);
-
-            }
+            RSyntaxTextAreaUtils.fixKeyboardIssues(codeArea, vBoxCode);
         });
     }
 

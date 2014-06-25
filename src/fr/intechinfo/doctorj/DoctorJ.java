@@ -24,7 +24,7 @@ public class DoctorJ extends Application {
 
         mainWindow.show();
 
-        // test();
+        test();
     }
 
     public void test() {

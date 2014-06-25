@@ -4,7 +4,6 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
 
 <BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="482.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <top><ToolBar fx:id="toolbar" nodeOrientation="RIGHT_TO_LEFT" prefWidth="200.0" BorderPane.alignment="CENTER_RIGHT">
@@ -40,7 +39,7 @@
                 <children><SplitPane dividerPositions="0.6930022573363431" focusTraversable="true" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
   <items>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
-<children><VBox fx:id="vBoxCode" layoutX="29.0" layoutY="53.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<children><VBox layoutX="29.0" layoutY="53.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <children><HBox fx:id="debugArea" alignment="CENTER" prefHeight="41.0" prefWidth="170.0" spacing="10.0">
                         <children><Button fx:id="btnRun" alignment="CENTER" mnemonicParsing="false" onAction="#handleExecuteButton" prefHeight="26.0" prefWidth="56.0" text="Lancer" /><Button fx:id="btnReset" mnemonicParsing="false" text="Reset" />
                         </children>
@@ -49,7 +48,10 @@
                         </opaqueInsets>
                         <VBox.margin>
                             <Insets />
-                        </VBox.margin></HBox>
+                        </VBox.margin>
+<padding>
+<Insets bottom="10.0" top="10.0" />
+</padding></HBox><VBox fx:id="vBoxCode" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS" />
                     </children></VBox>
 </children></AnchorPane>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
