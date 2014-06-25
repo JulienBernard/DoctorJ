@@ -1,7 +1,9 @@
 package fr.intechinfo.doctorj.controllers;
 
+import fr.intechinfo.doctorj.model.ApplicationContext;
 import fr.intechinfo.doctorj.model.validators.SyntaxValidator;
 import fr.intechinfo.doctorj.model.validators.TestValidator;
+import fr.intechinfo.doctorj.model.validators.ValidatorMessage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,7 +14,6 @@ import org.apache.commons.io.FileUtils;
 
 import java.io.*;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -40,22 +41,22 @@ public class Game extends AbstractController implements Initializable {
     @FXML protected void handleExecuteButton(ActionEvent event) throws IOException {
 
         String data = codeArea.getText();
+        String strPath = ApplicationContext.getInstance().getStoriesPath();
+        String curStory = ApplicationContext.getInstance().getCurrentGameContext().getCurrentStory().getShortName();
+        String curStep = ApplicationContext.getInstance().getCurrentGameContext().getCurrentStep().getShortName();
 
-        FileUtils.writeStringToFile(new File("./stories/story1/Step1.java"), data);
+        // Writes the file
+        String saveFile = strPath + "/" + curStory + "/" + curStep + ".java";
+        FileUtils.writeStringToFile(new File(saveFile), data);
 
         SyntaxValidator syntaxValidator;
-        List<String> errorList = SyntaxValidator.check("./stories/story1/Step1.java");
-        String errors = "";
+        ValidatorMessage m = SyntaxValidator.check(saveFile);
 
-        for (String anErrorList : errorList) {
-            errors += anErrorList;
-        }
-        errorArea.setText(errors);
+        errorArea.setText(m.getMessage());
 
-        if(errors.length() < 10 && codeArea.getText().length() > 6) {
-            errors += TestValidator.check("story1", "Step1").getMessage();
-
-            errorArea.setText(errors);
+        if(m.isValid()) {
+            ValidatorMessage m2 = TestValidator.check(curStory, curStep);
+            errorArea.appendText("\n" + m2.getMessage());
         }
     }
 }

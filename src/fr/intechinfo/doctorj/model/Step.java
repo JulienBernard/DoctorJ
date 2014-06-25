@@ -6,32 +6,16 @@ import java.io.Serializable;
  * Represents a step in the game.
  */
 public class Step implements Serializable {
-    private int id;
     private String title;
+    private String shortName;
     private String help;
     private String direction;
-    private String hint;
-    private String video;
-    private String function;
+
+    private String videoStart;
+    private String videoLoop;
 
     public Step() {
-        this.title = "";
-        this.help = "";
-        this.direction = "";
-        this.hint = "";
-        this.video = "";
-        this.function = "";
-        this.id = 0;
-    }
 
-    public Step(String title, String help, String direction, String hint, String video, String function, int id) {
-        this.title = title;
-        this.help = help;
-        this.direction = direction;
-        this.hint = hint;
-        this.video = video;
-        this.function = function;
-        this.id = id;
     }
 
     public String getTitle() {
@@ -40,6 +24,14 @@ public class Step implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    public String getShortName() {
+        return shortName;
+    }
+
+    public void setShortName(String shortName) {
+        this.shortName = shortName;
     }
 
     public String getHelp() {
@@ -58,35 +50,19 @@ public class Step implements Serializable {
         this.direction = direction;
     }
 
-    public String getHint() {
-        return hint;
+    public String getVideoStart() {
+        return videoStart;
     }
 
-    public void setHint(String hint) {
-        this.hint = hint;
+    public void setVideoStart(String videoStart) {
+        this.videoStart = videoStart;
     }
 
-    public String getVideo() {
-        return video;
+    public String getVideoLoop() {
+        return videoLoop;
     }
 
-    public void setVideo(String video) {
-        this.video = video;
-    }
-
-    public String getFunction() {
-        return function;
-    }
-
-    public void setFunction(String function) {
-        this.function = function;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
+    public void setVideoLoop(String videoLoop) {
+        this.videoLoop = videoLoop;
     }
 }

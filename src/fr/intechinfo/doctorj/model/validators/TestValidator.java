@@ -1,5 +1,6 @@
 package fr.intechinfo.doctorj.model.validators;
 
+import fr.intechinfo.doctorj.model.ApplicationContext;
 import fr.intechinfo.doctorj.model.tests.TestListener;
 import org.junit.internal.TextListener;
 import org.junit.runner.JUnitCore;
@@ -15,9 +16,11 @@ import java.net.URLClassLoader;
  * Verifies that a code source passes a test.
  */
 public class TestValidator {
-    public static ValidatorMessage check(String storyName, String stepName) {
-        File file = new File("./stories/" + storyName);
-        String testFileName = stepName + "Test";
+    public static ValidatorMessage check(String storyShortName, String stepShortName) {
+        String strPath = ApplicationContext.getInstance().getStoriesPath();
+
+        File file = new File(strPath + "/" + storyShortName);
+        String testFileName = stepShortName + "Test";
 
         try {
             ClassLoader cl = new URLClassLoader(new URL[]{file.toURI().toURL()});

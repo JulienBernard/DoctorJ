@@ -1,14 +1,11 @@
 package fr.intechinfo.doctorj.controllers;
 
-import fr.intechinfo.doctorj.DoctorJ;
-import fr.intechinfo.doctorj.model.Storyline;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -34,10 +31,7 @@ public class Home extends AbstractController implements Initializable {
     }
 
     @FXML protected void onClickBtnGenerator(ActionEvent event) {
-        //Generator controller = new Generator(getMainWindow(), "generator");
+        //TODO : Generator controller = new Generator(getMainWindow(), "generator");
         //controller.show("Générateur d'histoires");
-
-        // TODO : LEGACY
-        DoctorJ.getInstance().changeScene("generator", "Générateur", 800, 600);
     }
 }
