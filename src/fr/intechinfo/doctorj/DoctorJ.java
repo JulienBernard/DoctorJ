@@ -5,7 +5,6 @@ import fr.intechinfo.doctorj.model.ApplicationContext;
 import fr.intechinfo.doctorj.model.Step;
 import fr.intechinfo.doctorj.model.Story;
 import javafx.application.Application;
-import javafx.application.Platform;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -24,11 +23,7 @@ public class DoctorJ extends Application {
         home.show("Accueil", 800, 600);
 
         mainWindow.show();
-
-        mainWindow.setOnCloseRequest(windowEvent -> {
-            Platform.exit();
-        });
-
+        
         test();
     }
 

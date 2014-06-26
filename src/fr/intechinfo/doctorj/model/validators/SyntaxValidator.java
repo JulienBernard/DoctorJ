@@ -3,20 +3,24 @@ package fr.intechinfo.doctorj.model.validators;
 import org.eclipse.jdt.internal.compiler.tool.EclipseCompiler;
 
 import javax.tools.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Locale;
 
 /**
  * Checks the syntax of a given source code
  */
 public class SyntaxValidator {
+    // TODO : use all snippets from the user as Compilation Units ?
     public static ValidatorMessage check(String file) {
         JavaCompiler compiler = new EclipseCompiler();
 
         StandardJavaFileManager fileManager = compiler.getStandardFileManager(null, null, null);
         Iterable<? extends JavaFileObject> compilationUnits =
                 fileManager.getJavaFileObjectsFromStrings(Arrays.asList(file));
-
         DiagnosticCollector<JavaFileObject> diagnostics = new DiagnosticCollector<JavaFileObject>();
+
         compiler.getTask(null, fileManager, diagnostics, null, null, compilationUnits).call();
 
         List<ValidatorMessageElement> elements = new ArrayList<>();
