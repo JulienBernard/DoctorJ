@@ -23,7 +23,7 @@ public class DoctorJ extends Application {
         home.show("Accueil", 800, 600);
 
         mainWindow.show();
-        
+
         test();
     }
 
