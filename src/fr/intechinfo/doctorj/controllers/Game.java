@@ -1,5 +1,6 @@
 package fr.intechinfo.doctorj.controllers;
 
+import com.sun.java.swing.plaf.motif.MotifTreeCellRenderer;
 import fr.intechinfo.doctorj.model.ApplicationContext;
 import fr.intechinfo.doctorj.model.RSyntaxTextAreaUtils;
 import fr.intechinfo.doctorj.model.validators.SyntaxValidator;
@@ -16,17 +17,16 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import org.apache.commons.io.FileUtils;
+import org.fife.rsta.ac.LanguageSupport;
 import org.fife.rsta.ac.LanguageSupportFactory;
 import org.fife.ui.autocomplete.*;
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
 import org.fife.ui.rtextarea.RTextScrollPane;
+import sun.awt.IconInfo;
 
 import javax.swing.*;
-import javax.swing.text.Keymap;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 import java.io.*;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -54,6 +54,18 @@ public class Game extends AbstractController implements Initializable {
 
     private void createSwingContent(SwingNode swingNode) {
         SwingUtilities.invokeLater(() -> {
+            try {
+                UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (UnsupportedLookAndFeelException e) {
+                e.printStackTrace();
+            }
+
             JPanel cp = new JPanel(new BorderLayout());
 
             codeArea = new RSyntaxTextArea(30, 70);
@@ -61,16 +73,21 @@ public class Game extends AbstractController implements Initializable {
             codeArea.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_JAVA);
 
             RTextScrollPane sp = new RTextScrollPane(codeArea);
+            sp.setIconRowHeaderEnabled(true);
+
             cp.add(sp);
 
             swingNode.setContent(cp);
 
             CompletionProvider provider = RSyntaxTextAreaUtils.createCompletionProvider();
+
             AutoCompletion ac = new AutoCompletion(provider);
             ac.install(codeArea);
-            LanguageSupportFactory.get().register(codeArea);
 
             RSyntaxTextAreaUtils.fixKeyboardIssues(codeArea, vBoxCode);
+
+            // TODO : bugué
+            LanguageSupportFactory.get().register(codeArea);
         });
     }
 

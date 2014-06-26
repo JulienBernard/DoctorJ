@@ -117,6 +117,5 @@ public class RSyntaxTextAreaUtils {
                 "System.err.println(", "System.err.println("));
 
         return provider;
-
     }
 }
