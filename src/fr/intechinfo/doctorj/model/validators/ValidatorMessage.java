@@ -1,22 +1,24 @@
 package fr.intechinfo.doctorj.model.validators;
 
+import java.util.List;
+
 /**
  * Created by Alexandre on 10/05/2014.
  */
 public class ValidatorMessage {
     private boolean isValid;
-    private String message;
+    private List<ValidatorMessageElement> messageElements;
 
-    public ValidatorMessage(boolean isValid, String message) {
+    public ValidatorMessage(boolean isValid, List<ValidatorMessageElement> messageElements) {
         this.isValid = isValid;
-        this.message = message;
+        this.messageElements = messageElements;
     }
 
     public boolean isValid() {
         return isValid;
     }
 
-    public String getMessage() {
-        return message;
+    public List<ValidatorMessageElement> getMessage() {
+        return messageElements;
     }
 }

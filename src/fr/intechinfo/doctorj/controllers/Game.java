@@ -5,13 +5,18 @@ import fr.intechinfo.doctorj.model.RSyntaxTextAreaUtils;
 import fr.intechinfo.doctorj.model.validators.SyntaxValidator;
 import fr.intechinfo.doctorj.model.validators.TestValidator;
 import fr.intechinfo.doctorj.model.validators.ValidatorMessage;
+import fr.intechinfo.doctorj.model.validators.ValidatorMessageElement;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingNode;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.ListView;
+import javafx.scene.control.Tab;
 import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import org.apache.commons.io.FileUtils;
 import org.fife.rsta.ac.LanguageSupportFactory;
@@ -24,16 +29,20 @@ import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
  * Controller for the Game view
  */
 public class Game extends AbstractController implements Initializable {
-    @FXML private TextArea errorArea;
     @FXML private Button btnHome;
-    @FXML private VBox vBoxCode;
-    private RSyntaxTextArea codeArea;
+    @FXML private VBox codeArea;
+    @FXML private ListView<Text> listExec;
+    @FXML private Tab execTab;
+
+    private ObservableList<Text> listExecElements;
+    private RSyntaxTextArea codeTextArea;
 
     public Game(Stage mainWindow, String viewName) {
         super(mainWindow, viewName);
@@ -41,6 +50,9 @@ public class Game extends AbstractController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        listExecElements = FXCollections.observableArrayList();
+        listExec.setItems(listExecElements);
+
         try {
             UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
         } catch (Exception e) {
@@ -48,7 +60,7 @@ public class Game extends AbstractController implements Initializable {
         }
 
         SwingNode swingNode = new SwingNode();
-        vBoxCode.getChildren().add(swingNode);
+        codeArea.getChildren().add(swingNode);
 
         createSwingContent(swingNode);
     }
@@ -57,11 +69,11 @@ public class Game extends AbstractController implements Initializable {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                codeArea = new RSyntaxTextArea(100, 50);
-                codeArea.setCodeFoldingEnabled(true);
-                codeArea.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_JAVA);
+                codeTextArea = new RSyntaxTextArea(100, 50);
+                codeTextArea.setCodeFoldingEnabled(true);
+                codeTextArea.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_JAVA);
 
-                RTextScrollPane sp = new RTextScrollPane(codeArea);
+                RTextScrollPane sp = new RTextScrollPane(codeTextArea);
                 sp.setIconRowHeaderEnabled(true);
 
                 LanguageSupportFactory lsf = LanguageSupportFactory.get();
@@ -73,10 +85,10 @@ public class Game extends AbstractController implements Initializable {
                     ioe.printStackTrace();
                 }
 
-                lsf.register(codeArea);
+                lsf.register(codeTextArea);
 
                 swingNode.setContent(sp);
-                RSyntaxTextAreaUtils.fixKeyboardIssues(codeArea, vBoxCode);
+                RSyntaxTextAreaUtils.fixKeyboardIssues(codeTextArea, codeArea);
             }
         });
     }
@@ -86,8 +98,8 @@ public class Game extends AbstractController implements Initializable {
         home.show("Accueil");
     }
 
-    @FXML protected void handleExecuteButton(ActionEvent event) throws IOException {
-        String data = codeArea.getText();
+    @FXML protected void onClickBtnRun(ActionEvent event) throws IOException {
+        String data = codeTextArea.getText();
         String strPath = ApplicationContext.getInstance().getStoriesPath();
         String curStory = ApplicationContext.getInstance().getCurrentGameContext().getCurrentStory().getShortName();
         String curStep = ApplicationContext.getInstance().getCurrentGameContext().getCurrentStep().getShortName();
@@ -96,13 +108,27 @@ public class Game extends AbstractController implements Initializable {
         String saveFile = strPath + "/" + curStory + "/" + curStep + ".java";
         FileUtils.writeStringToFile(new File(saveFile), data);
 
+        // Clear output
+        listExecElements.clear();
+
         ValidatorMessage m = SyntaxValidator.check(saveFile);
 
-        errorArea.setText(m.getMessage());
+        addElementsToListExec(m.getMessage());
 
         if(m.isValid()) {
             ValidatorMessage m2 = TestValidator.check(curStory, curStep);
-            errorArea.appendText("\n" + m2.getMessage());
+            addElementsToListExec(m2.getMessage());
+        }
+
+        // Jump to tab
+        execTab.getTabPane().getSelectionModel().select(execTab);
+    }
+
+    private void addElementsToListExec(List<ValidatorMessageElement> elements) {
+        for(ValidatorMessageElement m : elements) {
+            Text t = new Text(m.getElement());
+            t.setStyle(m.getCode().getStyle());
+            listExecElements.add(t);
         }
     }
 }

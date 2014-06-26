@@ -2,7 +2,6 @@ package fr.intechinfo.doctorj.model.validators;
 
 import fr.intechinfo.doctorj.model.ApplicationContext;
 import fr.intechinfo.doctorj.model.tests.TestListener;
-import org.junit.internal.TextListener;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
@@ -11,6 +10,8 @@ import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Verifies that a code source passes a test.
@@ -34,68 +35,56 @@ public class TestValidator {
                 Result r = runner.run(cls);
 
                 if(r.wasSuccessful()) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("Le code est conforme aux spécifications !");
-                    sb.append("\n\n");
+                    List<ValidatorMessageElement> elements = new ArrayList<>();
 
-                    sb.append("Statistiques :");
-                    sb.append('\n');
+                    elements.add(new ValidatorMessageElement("Le code est conforme aux spécifications", ValidatorConstants.TITLE));
+                    elements.add(new ValidatorMessageElement("Statistiques :", ValidatorConstants.INFO));
+                    elements.add(new ValidatorMessageElement(r.getRunCount() + " test(s) exécuté(s)", ValidatorConstants.BLANK));
+                    elements.add(new ValidatorMessageElement("Temps d'exécution : " + r.getRunTime() + " ms", ValidatorConstants.BLANK));
+                    elements.add(new ValidatorMessageElement("", ValidatorConstants.BLANK));
+                    elements.add(new ValidatorMessageElement("", ValidatorConstants.BLANK));
+                    elements.add(new ValidatorMessageElement("", ValidatorConstants.BLANK));
+                    elements.add(new ValidatorMessageElement("", ValidatorConstants.BLANK));
+                    elements.add(new ValidatorMessageElement("", ValidatorConstants.BLANK));
 
-                    sb.append(r.getRunCount());
-                    sb.append(" test(s) exécuté(s)");
-                    sb.append('\n');
-
-                    sb.append("Temps d'exécution : ");
-                    sb.append(r.getRunTime());
-                    sb.append(" ms");
-                    sb.append('\n');
-
-                    return new ValidatorMessage(true, sb.toString());
+                    return new ValidatorMessage(true, elements);
                 }
                 else {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("Le code n'est pas conforme aux spécifications !");
-                    sb.append("\n\n");
+                    List<ValidatorMessageElement> elements = new ArrayList<>();
 
-                    sb.append("Statistiques :");
-                    sb.append('\n');
-
-                    sb.append(r.getRunCount());
-                    sb.append(" test(s) exécuté(s)");
-                    sb.append('\n');
-
-                    sb.append(r.getFailureCount());
-                    sb.append(" erreur(s)");
-                    sb.append('\n');
-
-                    sb.append("Temps d'exécution : ");
-                    sb.append(r.getRunTime());
-                    sb.append(" ms");
-                    sb.append("\n\n");
-
-                    sb.append("Liste des erreurs :");
-                    sb.append('\n');
+                    elements.add(new ValidatorMessageElement("Le code n'est pas conforme aux spécifications", ValidatorConstants.TITLE));
+                    elements.add(new ValidatorMessageElement("Statistiques :", ValidatorConstants.INFO));
+                    elements.add(new ValidatorMessageElement(r.getRunCount() + " test(s) exécuté(s)", ValidatorConstants.BLANK));
+                    elements.add(new ValidatorMessageElement(r.getFailureCount() + " erreur(s)", ValidatorConstants.BLANK));
+                    elements.add(new ValidatorMessageElement("Temps d'exécution : " + r.getRunTime() + " ms", ValidatorConstants.BLANK));
+                    elements.add(new ValidatorMessageElement("Liste des erreurs :", ValidatorConstants.SUBTITLE));
 
                     for(Failure f : r.getFailures()) {
-                        sb.append("- Test : ");
-                        sb.append(f.getDescription());
-                        sb.append("\n");
-                        sb.append("Erreur : ");
-                        sb.append(f.getMessage());
-                        sb.append("\n");
+                        elements.add(new ValidatorMessageElement("\tTest : " + f.getDescription(), ValidatorConstants.ERROR));
+                        elements.add(new ValidatorMessageElement("\t\tErreur : " + f.getMessage().replace("<[", " <<").replace("]>", ">> "), ValidatorConstants.BLANK));
                     }
 
-                    return new ValidatorMessage(false, sb.toString());
+                    return new ValidatorMessage(false, elements);
                 }
             }
             catch(ClassNotFoundException e) {
                 e.printStackTrace();
-                return new ValidatorMessage(false, "La classe de test n'existe pas");
+
+                List<ValidatorMessageElement> elements = new ArrayList<>();
+                elements.add(new ValidatorMessageElement("Erreur système", ValidatorConstants.TITLE));
+                elements.add(new ValidatorMessageElement("La classe de test n'existe pas !", ValidatorConstants.ERROR));
+
+                return new ValidatorMessage(false, elements);
             }
         }
         catch(MalformedURLException e) {
             e.printStackTrace();
-            return new ValidatorMessage(false, "Le chemin vers la classe de test n'est pas valide");
+
+            List<ValidatorMessageElement> elements = new ArrayList<>();
+            elements.add(new ValidatorMessageElement("Erreur système", ValidatorConstants.TITLE));
+            elements.add(new ValidatorMessageElement("Le chemin vers la classe de test est invalide !", ValidatorConstants.ERROR));
+
+            return new ValidatorMessage(false, elements);
         }
     }
 }

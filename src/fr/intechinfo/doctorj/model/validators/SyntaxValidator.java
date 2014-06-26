@@ -18,22 +18,25 @@ public class SyntaxValidator {
         DiagnosticCollector<JavaFileObject> diagnostics = new DiagnosticCollector<JavaFileObject>();
         compiler.getTask(null, fileManager, diagnostics, null, null, compilationUnits).call();
 
-        String errors = "";
-
-        Formatter formatter = new Formatter();
+        List<ValidatorMessageElement> elements = new ArrayList<>();
 
         for (Diagnostic diagnostic : diagnostics.getDiagnostics()) {
-            errors += diagnostic.getKind() + ":\t Line [" + diagnostic.getLineNumber() + "] \t Position [" + diagnostic.getPosition() +
-            "] \t" + diagnostic.getMessage(Locale.FRENCH) + "\n";
+            elements.add(
+                    new ValidatorMessageElement(
+                            diagnostic.getKind() + ":\t Line [" + diagnostic.getLineNumber() + "] \t Position [" + diagnostic.getPosition() +
+                                    "] \t" + diagnostic.getMessage(Locale.FRENCH) + "\n",
+                            ValidatorConstants.ERROR
+                    )
+            );
         }
 
         ValidatorMessage message;
 
-        if(errors.isEmpty()) {
-            message = new ValidatorMessage(true, "Le code est valide syntaxiquement !");
+        if(elements.isEmpty()) {
+            message = new ValidatorMessage(true, elements);
         }
         else {
-            message = new ValidatorMessage(false, errors);
+            message = new ValidatorMessage(false, elements);
         }
 
         return message;
