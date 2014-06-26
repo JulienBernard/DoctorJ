@@ -57,7 +57,7 @@ public class Game extends AbstractController implements Initializable {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                codeArea = new RSyntaxTextArea(30, 70);
+                codeArea = new RSyntaxTextArea(100, 50);
                 codeArea.setCodeFoldingEnabled(true);
                 codeArea.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_JAVA);
 
