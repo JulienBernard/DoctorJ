@@ -32,7 +32,7 @@ public class DoctorJ extends Application {
         s.setShortName("story1");
 
         Step st = new Step();
-        st.setShortName("Step1");
+        st.setUserFileName("Step1");
 
         applicationContext.getCurrentGameContext().setCurrentStory(s);
         applicationContext.getCurrentGameContext().setCurrentStep(st);

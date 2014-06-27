@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 public class Step implements Serializable {
     private String title;
-    private String shortName;
+    private String userFileName;
     private String help;
     private String direction;
 
@@ -26,12 +26,12 @@ public class Step implements Serializable {
         this.title = title;
     }
 
-    public String getShortName() {
-        return shortName;
+    public String getUserFileName() {
+        return userFileName;
     }
 
-    public void setShortName(String shortName) {
-        this.shortName = shortName;
+    public void setUserFileName(String userFileName) {
+        this.userFileName = userFileName;
     }
 
     public String getHelp() {

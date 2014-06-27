@@ -102,10 +102,10 @@ public class Game extends AbstractController implements Initializable {
         String data = codeTextArea.getText();
         String strPath = ApplicationContext.getInstance().getStoriesPath();
         String curStory = ApplicationContext.getInstance().getCurrentGameContext().getCurrentStory().getShortName();
-        String curStep = ApplicationContext.getInstance().getCurrentGameContext().getCurrentStep().getShortName();
+        String userFileName = ApplicationContext.getInstance().getCurrentGameContext().getCurrentStep().getUserFileName();
 
         // Writes the file
-        String saveFile = strPath + "/" + curStory + "/" + curStep + ".java";
+        String saveFile = strPath + "/" + curStory + "/" + userFileName + ".java";
         FileUtils.writeStringToFile(new File(saveFile), data);
 
         // Clear output
@@ -116,7 +116,7 @@ public class Game extends AbstractController implements Initializable {
         addElementsToListExec(m.getMessage());
 
         if(m.isValid()) {
-            ValidatorMessage m2 = TestValidator.check(curStory, curStep);
+            ValidatorMessage m2 = TestValidator.check(curStory, userFileName);
             addElementsToListExec(m2.getMessage());
         }
 
