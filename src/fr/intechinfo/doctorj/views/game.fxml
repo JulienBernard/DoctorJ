@@ -4,11 +4,12 @@
 <?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.media.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="482.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="fr.intechinfo.doctorj.controllers.Game">
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="482.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
     <top><ToolBar fx:id="toolbar" nodeOrientation="RIGHT_TO_LEFT" prefWidth="200.0" BorderPane.alignment="CENTER_RIGHT">
-        <items><ComboBox fx:id="btnSelectLevel" prefHeight="25.0" prefWidth="175.0" promptText="Sélectionnez un niveau..." /><Button fx:id="btnHome" mnemonicParsing="false" text="Accueil" />
+        <items><ComboBox fx:id="btnSelectLevel" prefHeight="25.0" prefWidth="175.0" promptText="Sélectionnez un niveau..." /><Button fx:id="btnHome" mnemonicParsing="false" onAction="#onClickBtnHome" text="Accueil" />
         </items>
     </ToolBar>
     </top>
@@ -18,10 +19,10 @@
                 <children><SplitPane dividerPositions="0.690744920993228" focusTraversable="true" layoutX="168.0" layoutY="112.0" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                     <items>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="357.0" prefWidth="458.0">
-                            <children><Pane fx:id="gameViewPane" layoutX="141.0" layoutY="42.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-                                <children>
-                                </children></Pane>
-                            </children></AnchorPane>
+                            <children>
+                                <MediaView fitHeight="-Infinity" fitWidth="-Infinity" fx:id="backgroundScene"/>
+                            </children>
+                        </AnchorPane>
                         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="108.0" prefWidth="458.0">
                             <children><VBox fx:id="helpArea" layoutX="116.0" layoutY="-86.0" prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                 <children><Label fx:id="lblHelp" text="..." wrapText="true" VBox.vgrow="ALWAYS">

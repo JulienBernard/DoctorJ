@@ -1,3 +1,1 @@
-public class {
-	return true;
-}
+import tamere;
