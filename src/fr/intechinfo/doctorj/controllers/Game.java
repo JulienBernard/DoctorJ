@@ -29,6 +29,9 @@ public class Game extends AbstractController implements Initializable {
     @FXML private MediaView background;
 
     public static final String VID_URL = "file:./src/fr/intechinfo/doctorj/assets/test.mp4";
+
+    public Game(Stage mainWindow, String viewName) {
+        super(mainWindow, viewName);
     }
 
     @Override

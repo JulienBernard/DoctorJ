@@ -15,6 +15,9 @@ public abstract class AbstractController {
     private Parent view;
     private String viewName;
 
+    protected AbstractController() {
+    }
+
     public AbstractController(Stage mainWindow, String viewName) {
         this.mainWindow = mainWindow;
         this.viewName = viewName;
