@@ -1,4 +1,4 @@
-DoctorJ - Version 1.2
+DoctorJ - Version 1.3
 =======
 
 DoctorJ is a learning software using customizables storylines on Java.
