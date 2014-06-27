@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="640.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="fr.intechinfo.doctorj.controllers.GeneratorGame">
+  <center>
+    <ScrollPane fitToHeight="true" fitToWidth="true">
+      <content>
+        <VBox fx:id="generatorAnchor" alignment="CENTER">
+          <children>
+            <Label text="Nom de la partie" />
+            <TextField fx:id="gameNameField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefWidth="359.0" promptText="Spécifier le nom de votre histoire." />
+            <Label text="Nom du fichier de test" />
+            <Button alignment="CENTER_RIGHT" focusTraversable="false" mnemonicParsing="false" text="Où ?" textAlignment="CENTER" onAction="#findFile">
+              <VBox.margin>
+                <Insets left="300.0" />
+              </VBox.margin>
+            </Button>
+            <TextField fx:id="gameTestField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefWidth="300.0" promptText="Fichier compilé et disponible dans le dossier de votre histoire.">
+              <VBox.margin>
+                <Insets right="50.0" top="-24.0" />
+              </VBox.margin>
+            </TextField>
+            <Label text="Emplacement du fond de votre scène" />
+            <Button alignment="CENTER_RIGHT" focusTraversable="false" mnemonicParsing="false" text="Où ?" textAlignment="CENTER" onAction="#findBackgroundFile">
+              <VBox.margin>
+                  <Insets left="300.0" />
+              </VBox.margin>
+            </Button>
+            <TextField fx:id="gameBackgroundField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefWidth="300.0" promptText="Spécifier l'emplacement de la vidéo de fond de votre scène.">
+              <VBox.margin>
+                  <Insets right="50.0" top="-24.0" />
+              </VBox.margin>
+            </TextField>
+            <Label text="Description de la partie" />
+            <TextArea fx:id="gamePitchField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefHeight="100.0" prefRowCount="0" prefWidth="463.0" promptText="Spécifier la description de votre histoire." wrapText="true" />
+            <StackPane alignment="BOTTOM_RIGHT" prefHeight="59.0" prefWidth="638.0" VBox.vgrow="ALWAYS">
+              <Button onAction="#next" text="Continuer" StackPane.alignment="BOTTOM_RIGHT" />
+            </StackPane>
+          </children>
+          <padding>
+            <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+          </padding>
+        </VBox>
+      </content>
+    </ScrollPane>
+  </center>
+  <top>
+    <MenuBar>
+      <menus>
+        <Menu mnemonicParsing="false" text="Fichier">
+          <items>
+            <MenuItem id="newFile" mnemonicParsing="false" onAction="#newFile" text="Nouveau" />
+            <MenuItem id="loadFile" mnemonicParsing="false" onAction="#loadFile" text="Ouvrir ..." />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Sauvegarde rapide" />
+            <MenuItem mnemonicParsing="false" onAction="#saveFullFile" text="Sauvegarder en tant que ..." />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" onAction="#quit" text="Quitter" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Aide">
+          <items>
+            <MenuItem mnemonicParsing="false" text="FAQ" />
+            <MenuItem mnemonicParsing="false" text="A propos" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+  </top>
+</BorderPane>

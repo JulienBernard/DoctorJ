@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.collections.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane prefHeight="400.0" prefWidth="640.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="fr.intechinfo.doctorj.controllers.GeneratorStep">
+  <center>
+    <ScrollPane fitToHeight="true" fitToWidth="true">
+      <content>
+        <VBox fx:id="generatorAnchor" alignment="CENTER">
+          <children>
+            <Label text="Titre du l'étape" />
+            <TextField fx:id="stepTitleField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefWidth="349.0" promptText="Spécifier le titre de l'étape du chapitre actuel ici" VBox.vgrow="ALWAYS" />
+            <Label text="Aide" />
+            <TextArea fx:id="stepHelpField" editable="true" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefHeight="45.0" prefRowCount="0" prefWidth="463.0" promptText="L'aide apporte une documentation au joueur. Elle est affichée au lancement de l'étape." wrapText="true" />
+            <Label text="Astuces" />
+            <TextArea fx:id="stepHintField" focusTraversable="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefHeight="45.0" prefRowCount="0" prefWidth="463.0" promptText="Les astuces propose des axes de solution au joueur et lui apportent des conseils. Elles sont affichés au lancement de l'étape." wrapText="true" />
+            <Label text="Instructions" />
+            <TextArea fx:id="stepDirectionField" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefHeight="75.0" prefRowCount="0" prefWidth="463.0" promptText="Les instructions spécifient la tâche que doit réaliser le joueur. Elles sont affichées lors du lancement de l'étape" wrapText="true" />
+            <Label text="Emplacement du fond de votre scène" />
+            <Button alignment="CENTER_RIGHT" focusTraversable="false" mnemonicParsing="false" text="Où ?" textAlignment="CENTER" onAction="#findBackgroundFile">
+                <VBox.margin>
+                    <Insets left="300.0" />
+                </VBox.margin>
+            </Button>
+            <TextField fx:id="stepImageField" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefWidth="300.0" promptText="Spécifier l'emplacement de la vidéo de fond de votre scène.">
+                <VBox.margin>
+                    <Insets right="50.0" top="-24.0" />
+                </VBox.margin>
+            </TextField>
+            <Label text="Fonction de test" />
+                        <TextField fx:id="stepTestField" focusTraversable="false" maxHeight="1.7976931348623157E308" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefColumnCount="0" prefWidth="350.0" promptText="Nom de la fonction de test qui est dans votre fichier de test. Renvoie &quot;true&quot; ou &quot;false&quot;." />
+            <StackPane alignment="BOTTOM_CENTER" prefHeight="59.0" prefWidth="638.0" VBox.vgrow="ALWAYS">
+              <Button onAction="#previous" text="Précédent" StackPane.alignment="BOTTOM_LEFT" />
+              <Button onAction="#next" text="Continuer" StackPane.alignment="BOTTOM_RIGHT" />
+              <ComboBox fx:id="stepsBox" onAction="#stepSelected" StackPane.alignment="BOTTOM_CENTER">
+                <items>
+                  <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Ajouter une étape" />
+                    <String fx:value="Supprimer cette étape" />
+                  </FXCollections>
+                </items>
+              </ComboBox>
+              <VBox.margin>
+                <Insets top="25.0" />
+              </VBox.margin>
+            </StackPane>
+          </children>
+          <padding>
+            <Insets bottom="25.0" left="50.0" right="50.0" top="25.0" />
+          </padding>
+        </VBox>
+      </content>
+    </ScrollPane>
+  </center>
+  <top>
+    <MenuBar>
+      <menus>
+        <Menu mnemonicParsing="false" text="Fichier">
+          <items>
+            <MenuItem id="newFile" mnemonicParsing="false" onAction="#newFile" text="Nouveau" />
+            <MenuItem id="loadFile" mnemonicParsing="false" onAction="#loadFile" text="Ouvrir ..." />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" onAction="#saveFile" text="Sauvegarde rapide" />
+            <MenuItem mnemonicParsing="false" onAction="#saveFullFile" text="Sauvegarder en tant que ..." />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" onAction="#quit" text="Quitter" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Aide">
+          <items>
+            <MenuItem mnemonicParsing="false" text="FAQ" />
+            <MenuItem mnemonicParsing="false" text="A propos" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+  </top>
+</BorderPane>

@@ -1,6 +1,8 @@
 package fr.intechinfo.doctorj;
 
+import fr.intechinfo.doctorj.controllers.Home;
 import javafx.application.Application;
+
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -8,28 +10,24 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-/**
- * Entry point of the program. Can switch between different scenes in the main window.
- * The running instance of the class is accessible globally with the static method "getInstance()".
- */
 public class DoctorJ extends Application {
-
-    private static DoctorJ instance;
-    private Stage primaryStage;
-
     public static void main(String[] args) {
         launch(args);
     }
 
-    @Override
-    /**
-     * First method called by the platform.
-     */
-    public void start(Stage primaryStage) {
-        instance = this;
-        this.primaryStage = primaryStage;
-        changeScene("home", "Doctor J - Accueil", 800, 600);
+    public void start(Stage mainWindow) throws IOException {
+        // TODO : LEGACY
+        instance = this; this.primaryStage = mainWindow;
+
+        Home home = new Home(mainWindow, "home");
+        home.show("Accueil", 800, 600);
+
+        mainWindow.show();
     }
+
+    ////////////////////////////////// TODO : LEGACY //////////////////////////////////
+    private static DoctorJ instance;
+    private Stage primaryStage;
 
     /**
      * Gets the primary stage.
@@ -72,4 +70,5 @@ public class DoctorJ extends Application {
     public static DoctorJ getInstance() {
         return instance;
     }
+    ///////////////////////////////////////////////////////////////////////////////////
 }

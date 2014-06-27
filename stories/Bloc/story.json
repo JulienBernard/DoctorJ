@@ -1,0 +1,59 @@
+{
+	"storyName" : "Matérnité",
+    "storyPitch" : "Allez faire naitre ce bébé !",
+    "storyTestFile" : "pregnant.test",
+	"storyChapters" : [
+        {
+            "chapterName" : "La matérnité admet une patiente",
+            "chapterPitch" : "Jeanne vient d'arriver, accueillons là comme il le faut.",
+            "chapterSteps" : [
+                {
+                    "stepTitle" : "Découvrons les classes",
+                    "stepHelp" : "Une classe peut être comparée à un moule qui, lorsque nous le remplissons, nous donne un objet ayant la forme du moule ainsi que toutes ses caractéristiques. Comme quand vous étiez enfants, lorsque vous vous amusiez avec de la pâte à modeler.",
+                    "stepDirection" : "Commençons par encadrer la patiente. Créer une classe nommée \"Patient\".",
+                    "stepHint" : "Votre classe doit être accessible par tous. N'oubliez pas de la déclarer en \"public\".",
+                    "stepImage" : "image",
+                    "stepFunction" : "step1"
+                },
+                {
+                    "stepTitle" : "Découvrons les constructeurs",
+                    "stepHelp" : "Un constructeur est une méthode d'instance qui va se charger de créer un objet et, le cas échéant, d'initialiser ses variables de classe.",
+                    "stepDirection" : "Nous savons que notre patiente se nomme \"Jeanne\", qu'elle a 24 ans et que c'est une femme. Créer les variables \"sexe\", \"age\" et \"name\" en \"protected\" puis initialisez-les avec ces données dans un constructeur.",
+                    "stepHint" : "Le constructeur est public, sans paramètre et doit porter le nom de la classe !",
+                    "stepImage" : "image",
+                    "stepFunction" : "step2"
+                },
+                {
+                    "stepTitle" : "Découvrons les méthodes avec les getters et setters",
+                    "stepHelp" : "Un getter est une méthode (ou fonction) qui va nous permettre d'accéder aux variables de nos objets en lecture, et un setter nous permettra d'en faire de même en écriture.",
+                    "stepDirection" : "Pour pouvoir accèder aux informations de Jeanne, nous avons besoin de 3 getters. Son age peut changer, il nous faut donc un setter pour cette variable. Créer les méthodes publiques \"getName\", \"getAge\", \"getSexe\" et \"setAge\".",
+                    "stepHint" : "Une méthode peut retourner une valeur, si c'est le cas le type de retour doit être défini. Par exemple, l'age est \"int\" donc le getter sera \"public int getAge()\". Un setter ne retourne rien, le setter sera donc \"public setAge(int age)\".",
+                    "stepImage" : "image",
+                    "stepFunction" : "step3"
+                }
+            ]
+        },
+        {
+            "chapterName" : "Le bébé arrive !",
+            "chapterPitch" : "Aidez les docteurs à se préparer à l'arrivée du nouveau née.",
+            "chapterSteps" : [
+                {
+                    "stepTitle" : "Découvrons l'héritage",
+                    "stepHelp" : "L'héritage est un mécanisme permettant de créer une nouvelle classe à partir d'une classe existante en lui proférant ses propriétés et ses méthodes. Ainsi, pour définir une nouvelle classe, il suffit de la faire hériter d'une classe existante et de lui ajouter de nouvelles propriétés/méthodes.",
+                    "stepDirection" : "Créer une classe nommée \"Baby\" qui hérite de la classe \"Patient\".",
+                    "stepHint" : "Pour hériter d'une classe, ajouter le mot-clé \"extends\" après le nom de la votre class.",
+                    "stepImage" : "image",
+                    "stepFunction" : "step1"
+                },
+                {
+                    "stepTitle" : "Le bébé est né !",
+                    "stepHelp" : "Graçe à l'héritage, notre classe peut directement accèder à des variables comme \"age\" ou \"sexe\".",
+                    "stepDirection" : "Créer le constructeur de la classe \"Baby\" et via le mot-clé \"this\", initialisez les valeurs pour \"age\" et \"sexe\" à 0 puis à \"men\".",
+                    "stepHint" : "Le mot-clé \"this\" désigne, dans une classe, l'instance courante de la classe elle-même. Dans notre cas, nous précisions au constructeur d'initialiser les variables de la classe actuelle, soit \"Baby\" et non \"Patient\" !",
+                    "stepImage" : "image",
+                    "stepFunction" : "step2"
+                }
+            ]
+        }
+	]
+}
