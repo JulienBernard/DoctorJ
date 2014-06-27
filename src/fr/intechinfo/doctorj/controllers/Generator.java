@@ -11,7 +11,6 @@ import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 import fr.intechinfo.doctorj.DoctorJ;
-import org.json.simple.parser.JSONParser;
 
 import javax.swing.*;
 
@@ -40,8 +39,6 @@ public class Generator implements Initializable {
         str.resetStoryline();
         if (dialogue.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             try {
-                JSONParser parser = new JSONParser();
-
                 file = dialogue.getSelectedFile();
                 fileReader reader = new fileReader( file.getPath() );
 

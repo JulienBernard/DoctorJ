@@ -7,7 +7,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import org.json.simple.parser.JSONParser;
 
 import javax.swing.*;
 import java.awt.*;
@@ -52,8 +51,6 @@ public class GeneratorChapter extends Generator implements Initializable {
         str.resetStoryline();
         if (dialogue.showOpenDialog(null) == JFileChooser.APPROVE_OPTION) {
             try {
-                JSONParser parser = new JSONParser();
-
                 file = dialogue.getSelectedFile();
                 fileReader reader = new fileReader( file.getPath() );
 

@@ -1,15 +1,6 @@
 package fr.intechinfo.doctorj.model;
 
-import java.awt.*;
 import java.io.*;
-import java.util.*;
-import java.util.List;
-
-import org.json.simple.JSONArray;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
-
-import javax.swing.*;
 
 public class fileReader {
 
