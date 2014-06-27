@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.media.Media;
+import javafx.stage.Stage;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import org.apache.commons.io.FileUtils;
@@ -17,19 +18,19 @@ import java.io.*;
 import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Controller for the Game view
  */
-public class Game implements Initializable {
+public class Game extends AbstractController implements Initializable {
     @FXML private TextArea codeArea;
     @FXML private TextArea errorArea;
     @FXML private Button btnHome;
     @FXML private MediaView background;
 
     public static final String VID_URL = "file:./src/fr/intechinfo/doctorj/assets/test.mp4";
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         Media clip = new Media(VID_URL);
@@ -40,7 +41,8 @@ public class Game implements Initializable {
     }
 
     @FXML protected void onClickBtnHome(ActionEvent event) {
-        DoctorJ.getInstance().changeScene("home", "Doctor J - Accueil", 800, 600);
+        Home home = new Home(getMainWindow(), "home");
+        home.show("Accueil");
     }
 
     @FXML protected void handleExecuteButton(ActionEvent event) throws IOException {

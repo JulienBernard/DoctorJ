@@ -6,16 +6,22 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 /**
  * Controller for the Home view
  */
-public class Home implements Initializable {
+public class Home extends AbstractController implements Initializable {
     @FXML Button btnNewGame;
     @FXML Button btnGenerator;
+
+    public Home(Stage mainWindow, String viewName) {
+        super(mainWindow, viewName);
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -23,10 +29,15 @@ public class Home implements Initializable {
     }
 
     @FXML protected void onClickBtnNewGame(ActionEvent event) {
-        DoctorJ.getInstance().changeScene("selectLevel", "Doctor J - Sélection d'un niveau", 800, 600);
+        SelectLevel controller = new SelectLevel(getMainWindow(), "selectLevel");
+        controller.show("Sélection d'un niveau");
     }
 
     @FXML protected void onClickBtnGenerator(ActionEvent event) {
-        DoctorJ.getInstance().changeScene("generator", "Doctor J - Générateur d'histoires", 800, 600);
+        //Generator controller = new Generator(getMainWindow(), "generator");
+        //controller.show("Générateur d'histoires");
+
+        // TODO : LEGACY
+        DoctorJ.getInstance().changeScene("generator", "Générateur", 800, 600);
     }
 }

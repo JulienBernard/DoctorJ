@@ -9,6 +9,7 @@ import java.util.List;
  */
 public class Storyline implements Serializable {
     // Global Storyline then we can access to the story from anywhere.
+    // TODO : LEGACY
     private final static Storyline instance = new Storyline();
 
     public static Storyline getInstance() {
