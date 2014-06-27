@@ -1,6 +1,7 @@
 package fr.intechinfo.doctorj.controllers;
 
 import fr.intechinfo.doctorj.DoctorJ;
+import fr.intechinfo.doctorj.model.Storyline;
 import fr.intechinfo.doctorj.model.validators.SyntaxValidator;
 import fr.intechinfo.doctorj.model.validators.TestValidator;
 import javafx.event.ActionEvent;
@@ -34,13 +35,18 @@ public class Game extends AbstractController implements Initializable {
         super(mainWindow, viewName);
     }
 
+    public Game(Stage mainWindow, String viewName, Storyline story) {
+        super(mainWindow, viewName, story);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        /*
         Media clip = new Media(VID_URL);
         MediaPlayer player = new MediaPlayer(clip);
         player.setAutoPlay(true);
         background.setMediaPlayer(player);
-
+        */
     }
 
     @FXML protected void onClickBtnHome(ActionEvent event) {

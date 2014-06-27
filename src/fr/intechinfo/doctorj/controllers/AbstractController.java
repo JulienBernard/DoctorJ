@@ -1,5 +1,6 @@
 package fr.intechinfo.doctorj.controllers;
 
+import fr.intechinfo.doctorj.model.Storyline;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,6 +15,7 @@ public abstract class AbstractController {
     private Stage mainWindow;
     private Parent view;
     private String viewName;
+    private Storyline story;
 
     protected AbstractController() {
     }
@@ -21,6 +23,12 @@ public abstract class AbstractController {
     public AbstractController(Stage mainWindow, String viewName) {
         this.mainWindow = mainWindow;
         this.viewName = viewName;
+    }
+
+    public AbstractController(Stage mainWindow, String viewName, Storyline story) {
+        this.mainWindow = mainWindow;
+        this.viewName = viewName;
+        this.story = story;
     }
 
     public void show(String title) {
@@ -56,5 +64,9 @@ public abstract class AbstractController {
 
     public String getViewName() {
         return viewName;
+    }
+
+    public Storyline getStory() {
+        return story;
     }
 }
