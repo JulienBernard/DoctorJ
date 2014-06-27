@@ -47,6 +47,9 @@ public class Game extends AbstractController implements Initializable {
         player.setAutoPlay(true);
         background.setMediaPlayer(player);
         */
+
+        // Example:
+        System.out.println(getStory().getName());
     }
 
     @FXML protected void onClickBtnHome(ActionEvent event) {
