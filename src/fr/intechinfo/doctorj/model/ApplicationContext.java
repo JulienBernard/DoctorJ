@@ -12,7 +12,6 @@ public class ApplicationContext extends Context {
     private static ApplicationContext instance; // Stories discovered by the application context
     private String appPath;
     private String storiesPath;
-    private String storiesFile;
     private String applicationContextFile;
 
     private GameContext currentGameContext;
@@ -23,7 +22,6 @@ public class ApplicationContext extends Context {
         try {
             appPath = new File(".").getCanonicalPath();
             storiesPath = appPath + "/stories";
-            storiesFile = storiesPath + "/stories.drj";
             applicationContextFile = appPath + "/appcontext.drj";
 
         } catch (IOException e) {
@@ -80,13 +78,5 @@ public class ApplicationContext extends Context {
 
     public void setApplicationContextFile(String applicationContextFile) {
         this.applicationContextFile = applicationContextFile;
-    }
-
-    public String getStoriesFile() {
-        return storiesFile;
-    }
-
-    public void setStoriesFile(String storiesFile) {
-        this.storiesFile = storiesFile;
     }
 }
