@@ -3,7 +3,6 @@ package fr.intechinfo.doctorj.controllers;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 import java.net.URL;
@@ -13,8 +12,6 @@ import java.util.ResourceBundle;
  * Controller for the Home view
  */
 public class Home extends AbstractController implements Initializable {
-    @FXML Button btnNewGame;
-    @FXML Button btnGenerator;
 
     public Home(Stage mainWindow, String viewName) {
         super(mainWindow, viewName);
