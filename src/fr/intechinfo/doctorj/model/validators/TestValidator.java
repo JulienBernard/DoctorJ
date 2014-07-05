@@ -1,7 +1,7 @@
 package fr.intechinfo.doctorj.model.validators;
 
-import fr.intechinfo.doctorj.model.ApplicationContext;
 import fr.intechinfo.doctorj.model.tests.TestListener;
+import fr.intechinfo.doctorj.utils.Paths;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.Failure;
@@ -18,7 +18,7 @@ import java.util.List;
  */
 public class TestValidator {
     public static ValidatorMessage check(String storyShortName, String stepShortName) {
-        String strPath = ApplicationContext.getInstance().getStoriesPath();
+        String strPath = Paths.getStoriesPath();
 
         File file = new File(strPath + "/" + storyShortName);
         String testFileName = stepShortName + "Test";

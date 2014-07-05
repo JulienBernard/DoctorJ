@@ -6,7 +6,7 @@ import java.util.List;
 /**
  * Created by Alexandre on 25/06/2014.
  */
-public class GameContext extends Context { // Useful to see where is the player in the game
+public class GameContext { // Useful to see where is the player in the game
     private List<Snippet> snippets;
     private List<StepResult> stepResults;
 

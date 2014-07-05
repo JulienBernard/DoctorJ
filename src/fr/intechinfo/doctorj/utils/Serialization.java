@@ -1,12 +1,11 @@
-package fr.intechinfo.doctorj.model;
+package fr.intechinfo.doctorj.utils;
 
 import java.io.*;
 
 /**
- * Created by Alexandre on 25/06/2014.
+ * Created by Alexandre on 05/07/2014.
  */
-public abstract class Context {
-
+public class Serialization {
     public static <T> T loadFile(String filePath) {
         ObjectInputStream ois = null;
         try {

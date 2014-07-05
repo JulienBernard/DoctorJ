@@ -28,7 +28,7 @@ public class Home extends AbstractController implements Initializable {
     }
 
     @FXML protected void onClickBtnGenerator(ActionEvent event) {
-        //TODO : Generator controller = new Generator(getMainWindow(), "generator");
+        //Generator controller = new Generator(getMainWindow(), "generator");
         //controller.show("Générateur d'histoires");
     }
 }

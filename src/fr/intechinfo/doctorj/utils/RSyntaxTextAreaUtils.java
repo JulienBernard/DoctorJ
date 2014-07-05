@@ -1,4 +1,4 @@
-package fr.intechinfo.doctorj.model;
+package fr.intechinfo.doctorj.utils;
 
 import javafx.application.Platform;
 import javafx.event.EventHandler;

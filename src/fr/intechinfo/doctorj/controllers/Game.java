@@ -1,11 +1,12 @@
 package fr.intechinfo.doctorj.controllers;
 
-import fr.intechinfo.doctorj.model.ApplicationContext;
-import fr.intechinfo.doctorj.model.RSyntaxTextAreaUtils;
+import fr.intechinfo.doctorj.DoctorJ;
 import fr.intechinfo.doctorj.model.validators.SyntaxValidator;
 import fr.intechinfo.doctorj.model.validators.TestValidator;
 import fr.intechinfo.doctorj.model.validators.ValidatorMessage;
 import fr.intechinfo.doctorj.model.validators.ValidatorMessageElement;
+import fr.intechinfo.doctorj.utils.Paths;
+import fr.intechinfo.doctorj.utils.RSyntaxTextAreaUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingNode;
@@ -100,9 +101,9 @@ public class Game extends AbstractController implements Initializable {
 
     @FXML protected void onClickBtnRun(ActionEvent event) throws IOException {
         String data = codeTextArea.getText();
-        String strPath = ApplicationContext.getInstance().getStoriesPath();
-        String curStory = ApplicationContext.getInstance().getCurrentGameContext().getCurrentStory().getShortName();
-        String userFileName = ApplicationContext.getInstance().getCurrentGameContext().getCurrentStep().getUserFileName();
+        String strPath = Paths.getStoriesPath();
+        String curStory = DoctorJ.getCurrentGameContext().getCurrentStory().getShortName();
+        String userFileName = DoctorJ.getCurrentGameContext().getCurrentStep().getUserFileName();
 
         // Writes the file
         String saveFile = strPath + "/" + curStory + "/" + userFileName + ".java";
