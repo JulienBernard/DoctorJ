@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<top><MenuBar BorderPane.alignment="CENTER">
+  <menus>
+    <Menu mnemonicParsing="false" text="Fichier">
+      <items><MenuItem fx:id="menuNewStory" mnemonicParsing="false" onAction="#onClickMenuNewStory" text="Nouvelle histoire" /><MenuItem fx:id="menuImportStory" mnemonicParsing="false" onAction="#onClickMenuImportStory" text="Importer une histoire (.zip)" />
+        <MenuItem fx:id="menuGoHome" mnemonicParsing="false" onAction="#onClickMenuGoHome" text="Retour à l'accueil" />
+      </items>
+    </Menu>
+  </menus>
+</MenuBar>
+</top>
+<center><AnchorPane fx:id="controlContainer" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+<children><VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<children><Label layoutX="14.0" layoutY="14.0" text="Sélectionnez une histoire dans la liste à gauche, ou créez-en une nouvelle..." wrapText="true" VBox.vgrow="ALWAYS">
+<font>
+<Font size="17.0" />
+</font>
+<VBox.margin>
+<Insets left="20.0" top="20.0" />
+</VBox.margin></Label>
+</children></VBox>
+</children></AnchorPane>
+</center>
+<left><ListView fx:id="listStories" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+</left></BorderPane>
