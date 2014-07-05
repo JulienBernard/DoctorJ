@@ -30,7 +30,7 @@
 <padding>
 <Insets top="5.0" />
 </padding></VBox><VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
-<children><TextField fx:id="storyName" /><TextField fx:id="storyShortName" /><TextArea fx:id="storyDesc" prefHeight="129.0" prefWidth="487.0" /><HBox spacing="10.0">
+<children><TextField fx:id="storyName" /><TextField fx:id="storyShortName" /><TextArea fx:id="storyDesc" minHeight="129.0" minWidth="487.0" prefHeight="129.0" prefWidth="487.0" /><HBox spacing="10.0">
 <children><TextField fx:id="videoStart" editable="false" HBox.hgrow="ALWAYS" /><Button fx:id="openVideoStart" mnemonicParsing="false" text="..." />
 </children></HBox>
 <HBox layoutX="10.0" layoutY="219.0" spacing="10.0">
@@ -41,7 +41,7 @@
 </HBox>
 <HBox layoutX="10.0" layoutY="289.0" spacing="10.0">
 <children>
-<TextField fx:id="videoEnd" editable="false" HBox.hgrow="ALWAYS" />
+<TextField fx:id="videoBad" editable="false" HBox.hgrow="ALWAYS" />
 <Button fx:id="openVideoEnd" mnemonicParsing="false" text="..." />
 </children>
 </HBox>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
-<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
@@ -10,7 +9,7 @@
 <top><MenuBar BorderPane.alignment="CENTER">
   <menus>
     <Menu mnemonicParsing="false" text="Fichier">
-      <items><MenuItem fx:id="menuNewStory" mnemonicParsing="false" onAction="#onClickMenuNewStory" text="Nouvelle histoire" /><MenuItem fx:id="menuImportStory" mnemonicParsing="false" onAction="#onClickMenuImportStory" text="Importer une histoire (.zip)" />
+      <items><MenuItem fx:id="menuOpenStory" mnemonicParsing="false" onAction="#onClickMenuOpenStory" text="Ouvrir une histoire" /><MenuItem fx:id="menuNewStory" mnemonicParsing="false" onAction="#onClickMenuNewStory" text="Nouvelle histoire" /><MenuItem fx:id="menuImportStory" mnemonicParsing="false" onAction="#onClickMenuImportStory" text="Importer une histoire (.zip)" />
         <MenuItem fx:id="menuGoHome" mnemonicParsing="false" onAction="#onClickMenuGoHome" text="Retour à l'accueil" />
       </items>
     </Menu>
@@ -23,9 +22,4 @@
 <Font size="18.0" />
 </font></Label>
 </children></AnchorPane>
-</center>
-<left><ListView fx:id="listStories" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-<BorderPane.margin>
-<Insets />
-</BorderPane.margin></ListView>
-</left></BorderPane>
+</center></BorderPane>

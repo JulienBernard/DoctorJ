@@ -1,5 +1,6 @@
 package fr.intechinfo.doctorj.controllers;
 
+import fr.intechinfo.doctorj.model.Story;
 import fr.intechinfo.doctorj.views.customControls.GeneratorHome;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -32,12 +33,16 @@ public class Generator extends AbstractController implements Initializable {
 
     }
 
-    @FXML protected void onClickMenuNewStory(ActionEvent event) {
-        controlContainer.getChildren().clear();
-        controlContainer.getChildren().add(new GeneratorHome());
+    @FXML protected void onClickMenuImportStory(ActionEvent event) {
+
     }
 
-    @FXML protected void onClickMenuImportStory(ActionEvent event) {
+    @FXML protected void onClickMenuNewStory(ActionEvent event) {
+        controlContainer.getChildren().clear();
+        controlContainer.getChildren().add(new GeneratorHome(new Story("newStory", "desc")));
+    }
+
+    @FXML protected void onClickMenuOpenStory(ActionEvent event) {
 
     }
 
