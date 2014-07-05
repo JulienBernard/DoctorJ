@@ -1,6 +1,7 @@
 package fr.intechinfo.doctorj.views.customControls;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
 import java.io.IOException;
@@ -20,5 +21,10 @@ public class GeneratorHome extends VBox {
         } catch (IOException exception) {
             throw new RuntimeException(exception);
         }
+
+        AnchorPane.setTopAnchor(this, 0.0);
+        AnchorPane.setBottomAnchor(this,0.0);
+        AnchorPane.setLeftAnchor(this,0.0);
+        AnchorPane.setRightAnchor(this,0.0);
     }
 }

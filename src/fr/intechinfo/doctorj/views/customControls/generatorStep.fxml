@@ -1,9 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import javafx.embed.swing.*?>
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<fx:root prefHeight="426.0" prefWidth="599.0" type="javafx.scene.layout.VBox" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
-    <children>
-    </children></fx:root>
+<fx:root prefHeight="495.0" prefWidth="599.0" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<children><ToolBar prefWidth="200.0">
+<items>
+<Label maxWidth="250.0" text="story_name">
+<font>
+<Font size="18.0" />
+</font>
+</Label>
+<Label layoutX="10.0" layoutY="10.0" text="&gt;">
+<font>
+<Font size="18.0" />
+</font>
+</Label>
+<Label layoutX="105.0" layoutY="10.0" text="step_name">
+<font>
+<Font size="18.0" />
+</font>
+</Label>
+</items>
+</ToolBar><TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+  <tabs>
+    <Tab text="Edition de l'étape">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+<children><HBox layoutX="62.0" layoutY="57.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<padding>
+<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+</padding>
+<children><VBox prefHeight="340.0" prefWidth="141.0" spacing="19.0">
+<HBox.margin>
+<Insets />
+</HBox.margin>
+<padding>
+<Insets top="5.0" />
+</padding>
+<children><Label text="Nom de l'étape :" /><Label text="Nom du fichier utilisateur :" /><Label text="Consigne :" /><Label text="Aide :">
+<VBox.margin>
+<Insets top="61.0" />
+</VBox.margin></Label><Label text="Vidéo début :">
+<VBox.margin>
+<Insets top="120.0" />
+</VBox.margin></Label><Label text="Vidéo de fond :" />
+</children></VBox><VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
+<children><TextField fx:id="stepName" /><TextField fx:id="userCodeName" /><TextArea fx:id="direction" prefHeight="86.0" prefWidth="428.0" /><TextArea fx:id="help" prefHeight="151.0" prefWidth="428.0" /><HBox spacing="10.0">
+<children><TextField fx:id="videoStart" HBox.hgrow="ALWAYS" /><Button fx:id="openVideoStart" mnemonicParsing="false" text="..." />
+</children></HBox>
+<HBox layoutX="10.0" layoutY="337.0" spacing="10.0">
+<children>
+<TextField fx:id="videoLoop" HBox.hgrow="ALWAYS" />
+<Button fx:id="openVideoLoop" mnemonicParsing="false" text="..." />
+</children>
+</HBox><HBox spacing="10.0">
+<children><Button fx:id="btnSave" mnemonicParsing="false" text="Sauvegarder" /><Button fx:id="btnDelete" mnemonicParsing="false" text="Supprimer l'étape" />
+</children></HBox>
+</children></VBox>
+</children></HBox>
+</children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab text="Edition du fichier de test">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+<children><VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<children><ToolBar prefWidth="200.0">
+  <items><Label text="Nom du fichier :" /><TextField fx:id="testFileName" /><Separator orientation="VERTICAL" />
+    <Button fx:id="btnSaveTest" mnemonicParsing="false" text="Sauvegarder" /><Button fx:id="btnCompile" mnemonicParsing="false" text="Compiler" /><MenuButton mnemonicParsing="false" text="Options">
+  <items>
+    <MenuItem fx:id="btnGenerateSkeleton" mnemonicParsing="false" text="Générer un squelette" />
+  </items>
+</MenuButton>
+  </items>
+</ToolBar><SplitPane dividerPositions="0.7554179566563467" focusTraversable="true" orientation="VERTICAL" prefHeight="200.0" prefWidth="160.0" VBox.vgrow="ALWAYS">
+  <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+<children><SwingNode fx:id="codeNode" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+</children></AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+<children><ListView fx:id="listCode" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+</children></AnchorPane>
+  </items>
+</SplitPane>
+</children></VBox>
+</children></AnchorPane>
+      </content>
+    </Tab>
+  </tabs>
+</TabPane>
+</children></fx:root>

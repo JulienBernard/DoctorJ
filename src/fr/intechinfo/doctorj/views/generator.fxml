@@ -17,17 +17,15 @@
   </menus>
 </MenuBar>
 </top>
-<center><AnchorPane fx:id="controlContainer" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-<children><VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-<children><Label layoutX="14.0" layoutY="14.0" text="Sélectionnez une histoire dans la liste à gauche, ou créez-en une nouvelle..." wrapText="true" VBox.vgrow="ALWAYS">
+<center><AnchorPane fx:id="controlContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
+<children><Label layoutX="137.0048828125" layoutY="86.5" text="Sélectionnez une histoire, ou créez-en une nouvelle..." AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
 <font>
-<Font size="17.0" />
-</font>
-<VBox.margin>
-<Insets left="20.0" top="20.0" />
-</VBox.margin></Label>
-</children></VBox>
+<Font size="18.0" />
+</font></Label>
 </children></AnchorPane>
 </center>
-<left><ListView fx:id="listStories" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+<left><ListView fx:id="listStories" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+<BorderPane.margin>
+<Insets />
+</BorderPane.margin></ListView>
 </left></BorderPane>
