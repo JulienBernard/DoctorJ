@@ -1,5 +1,6 @@
 package fr.intechinfo.doctorj.controllers;
 
+import fr.intechinfo.doctorj.views.customControls.GeneratorHome;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,11 +16,11 @@ import java.util.ResourceBundle;
  * Created by Alexandre on 05/07/2014.
  */
 public class Generator extends AbstractController implements Initializable {
-    @FXML MenuItem menuNewStory;
-    @FXML MenuItem menuImportStory;
-    @FXML MenuItem menuGoHome;
-    @FXML ListView listStories;
-    @FXML AnchorPane controlContainer;
+    @FXML private MenuItem menuNewStory;
+    @FXML private MenuItem menuImportStory;
+    @FXML private MenuItem menuGoHome;
+    @FXML private ListView listStories;
+    @FXML private AnchorPane controlContainer;
 
     public Generator(Stage mainWindow, String viewName) {
         super(mainWindow, viewName);
@@ -31,7 +32,8 @@ public class Generator extends AbstractController implements Initializable {
     }
 
     @FXML protected void onClickMenuNewStory(ActionEvent event) {
-
+        controlContainer.getChildren().clear();
+        controlContainer.getChildren().add(new GeneratorHome());
     }
 
     @FXML protected void onClickMenuImportStory(ActionEvent event) {
