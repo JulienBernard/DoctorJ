@@ -16,6 +16,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Tab;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -38,7 +39,8 @@ import java.util.ResourceBundle;
  */
 public class Game extends AbstractController implements Initializable {
     @FXML private Button btnHome;
-    @FXML private VBox codeArea;
+    @FXML private AnchorPane codeArea;
+    @FXML private SwingNode swingNode;
     @FXML private ListView<Text> listExec;
     @FXML private Tab execTab;
 
@@ -60,17 +62,14 @@ public class Game extends AbstractController implements Initializable {
             e.printStackTrace();
         }
 
-        SwingNode swingNode = new SwingNode();
-        codeArea.getChildren().add(swingNode);
-
-        createSwingContent(swingNode);
+        createSwingContent();
     }
 
-    private void createSwingContent(SwingNode swingNode) {
+    private void createSwingContent() {
         SwingUtilities.invokeLater(new Runnable() {
             @Override
             public void run() {
-                codeTextArea = new RSyntaxTextArea(100, 50);
+                codeTextArea = new RSyntaxTextArea(20, 50);
                 codeTextArea.setCodeFoldingEnabled(true);
                 codeTextArea.setSyntaxEditingStyle(SyntaxConstants.SYNTAX_STYLE_JAVA);
 
