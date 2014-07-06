@@ -6,7 +6,10 @@ import fr.intechinfo.doctorj.model.Step;
 import fr.intechinfo.doctorj.model.Story;
 import fr.intechinfo.doctorj.utils.Serialization;
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 
 import javax.swing.*;
 import java.io.IOException;
@@ -19,6 +22,16 @@ public class DoctorJ extends Application {
     }
 
     public void start(Stage mainWindow) throws IOException {
+        Platform.setImplicitExit(true);
+
+        mainWindow.setOnCloseRequest(new EventHandler<WindowEvent>() {
+            @Override
+            public void handle(WindowEvent windowEvent) {
+                Platform.exit();
+                System.exit(0);
+            }
+        });
+
         setCurrentGameContext(new GameContext());
 
         Home home = new Home(mainWindow, "home");
