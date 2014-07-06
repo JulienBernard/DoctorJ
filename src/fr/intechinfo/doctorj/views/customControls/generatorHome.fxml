@@ -7,71 +7,71 @@
 <?import javafx.scene.text.*?>
 
 <fx:root maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="419.0" prefWidth="661.0" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-<children><HBox prefHeight="28.0" prefWidth="589.0">
-<children><ToolBar prefWidth="200.0" HBox.hgrow="ALWAYS">
-<items><Label fx:id="lblStoryName" text="story_name">
-<font>
-<Font size="18.0" />
-</font></Label>
-</items>
-</ToolBar>
-</children></HBox><TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
-  <tabs>
-    <Tab text="Gestion de l'histoire">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-<children><HBox layoutX="82.0" layoutY="54.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-<children><VBox prefHeight="333.0" prefWidth="116.0" spacing="18.0">
-<children><Label text="Nom de l'histoire :" /><Label text="Nom court :" /><Label text="Description :" /><Label text="Vidéo début :">
-<VBox.margin>
-<Insets top="100.0" />
-</VBox.margin></Label><Label text="Vidéo victoire :" /><Label text="Vidéo défaite :" />
-</children>
-<padding>
-<Insets top="5.0" />
-</padding></VBox><VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
-<children><TextField fx:id="storyName" /><TextField fx:id="storyShortName" /><TextArea fx:id="storyDesc" minHeight="129.0" minWidth="487.0" prefHeight="129.0" prefWidth="487.0" /><HBox spacing="10.0">
-<children><TextField fx:id="videoStart" editable="false" HBox.hgrow="ALWAYS" /><Button fx:id="openVideoStart" mnemonicParsing="false" onAction="#onClickOpenVideoStart" text="..." />
-</children></HBox>
-<HBox layoutX="10.0" layoutY="219.0" spacing="10.0">
-<children>
-<TextField fx:id="videoGood" editable="false" HBox.hgrow="ALWAYS" />
-<Button fx:id="openVideoGood" mnemonicParsing="false" onAction="#onClickOpenVideoGood" text="..." />
-</children>
-</HBox>
-<HBox layoutX="10.0" layoutY="289.0" spacing="10.0">
-<children>
-<TextField fx:id="videoBad" editable="false" HBox.hgrow="ALWAYS" />
-<Button fx:id="openVideoEnd" mnemonicParsing="false" onAction="#onClickOpenVideoEnd" text="..." />
-</children>
-</HBox>
-<HBox layoutX="10.0" layoutY="283.0" spacing="10.0">
-<children><Button fx:id="btnSave" mnemonicParsing="false" onAction="#onClickBtnSave" text="Sauvegarder" />
-<Button fx:id="btnDelStory" mnemonicParsing="false" onAction="#onClickBtnDelStory" text="Supprimer l'histoire" />
-</children>
-</HBox>
-</children></VBox>
-</children>
-<padding>
-<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-</padding></HBox>
-</children></AnchorPane>
-      </content>
-    </Tab>
-    <Tab text="Gestion des étapes">
-      <content>
-        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-<children><HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-<children><ListView fx:id="listSteps" prefHeight="353.0" prefWidth="180.0" /><VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
-<children><Button fx:id="btnAddStep" mnemonicParsing="false" onAction="#onClickBtnAddStep" text="Ajouter une étape" /><Button fx:id="btnEditStep" disable="true" mnemonicParsing="false" onAction="#onClickBtnEditStep" text="Editer l'étape sélectionnée" /><Button fx:id="btnDelStep" disable="true" mnemonicParsing="false" onAction="#onClickBtnDelStep" text="Supprimer l'étape sélectionnée" />
-</children></VBox>
-</children>
-<padding>
-<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-</padding></HBox>
-</children></AnchorPane>
-      </content>
-    </Tab>
-  </tabs>
-</TabPane>
-</children></fx:root>
+    <children><HBox prefHeight="28.0" prefWidth="589.0">
+        <children><ToolBar prefWidth="200.0" HBox.hgrow="ALWAYS">
+            <items><Label fx:id="lblStoryName" text="story_name">
+                <font>
+                    <Font size="18.0" />
+                </font></Label>
+            </items>
+        </ToolBar>
+        </children></HBox><TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+        <tabs>
+            <Tab text="Gestion de l'histoire">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <children><HBox layoutX="82.0" layoutY="54.0" prefHeight="100.0" prefWidth="200.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children><VBox prefHeight="333.0" prefWidth="116.0" spacing="18.0">
+                                <children><Label text="Nom de l'histoire :" /><Label text="Nom court :" /><Label text="Description :" /><Label text="Vidéo début :">
+                                    <VBox.margin>
+                                        <Insets top="100.0" />
+                                    </VBox.margin></Label><Label text="Vidéo victoire :" /><Label text="Vidéo défaite :" />
+                                </children>
+                                <padding>
+                                    <Insets top="5.0" />
+                                </padding></VBox><VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                                <children><TextField fx:id="storyName" /><TextField fx:id="storyShortName" /><TextArea fx:id="storyDesc" minHeight="129.0" minWidth="487.0" prefHeight="129.0" prefWidth="487.0" /><HBox spacing="10.0">
+                                    <children><TextField fx:id="videoStart" editable="false" HBox.hgrow="ALWAYS" /><Button fx:id="openVideoStart" mnemonicParsing="false" onAction="#onClickOpenVideoStart" text="..." />
+                                    </children></HBox>
+                                    <HBox layoutX="10.0" layoutY="219.0" spacing="10.0">
+                                        <children>
+                                            <TextField fx:id="videoGood" editable="false" HBox.hgrow="ALWAYS" />
+                                            <Button fx:id="openVideoGood" mnemonicParsing="false" onAction="#onClickOpenVideoGood" text="..." />
+                                        </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="289.0" spacing="10.0">
+                                        <children>
+                                            <TextField fx:id="videoBad" editable="false" HBox.hgrow="ALWAYS" />
+                                            <Button fx:id="openVideoEnd" mnemonicParsing="false" onAction="#onClickOpenVideoEnd" text="..." />
+                                        </children>
+                                    </HBox>
+                                    <HBox layoutX="10.0" layoutY="283.0" spacing="10.0">
+                                        <children><Button fx:id="btnSave" mnemonicParsing="false" onAction="#onClickBtnSave" text="Sauvegarder" />
+                                            <Button fx:id="btnDelStory" mnemonicParsing="false" onAction="#onClickBtnDelStory" text="Supprimer l'histoire" />
+                                        </children>
+                                    </HBox>
+                                </children></VBox>
+                            </children>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding></HBox>
+                        </children></AnchorPane>
+                </content>
+            </Tab>
+            <Tab text="Gestion des étapes">
+                <content>
+                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                        <children><HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <children><ListView fx:id="listSteps" prefHeight="353.0" prefWidth="180.0" /><VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                                <children><Button fx:id="btnAddStep" mnemonicParsing="false" onAction="#onClickBtnAddStep" text="Ajouter une étape" /><Button fx:id="btnEditStep" disable="true" mnemonicParsing="false" onAction="#onClickBtnEditStep" text="Editer l'étape sélectionnée" /><Button fx:id="btnDelStep" disable="true" mnemonicParsing="false" onAction="#onClickBtnDelStep" text="Supprimer l'étape sélectionnée" />
+                                </children></VBox>
+                            </children>
+                            <padding>
+                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                            </padding></HBox>
+                        </children></AnchorPane>
+                </content>
+            </Tab>
+        </tabs>
+    </TabPane>
+    </children></fx:root>

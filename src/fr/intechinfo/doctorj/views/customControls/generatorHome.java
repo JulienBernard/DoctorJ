@@ -3,6 +3,8 @@ package fr.intechinfo.doctorj.views.customControls;
 import fr.intechinfo.doctorj.controllers.Generator;
 import fr.intechinfo.doctorj.model.Step;
 import fr.intechinfo.doctorj.model.Story;
+import fr.intechinfo.doctorj.utils.Paths;
+import fr.intechinfo.doctorj.utils.Serialization;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -24,6 +26,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Callback;
 
+import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 
@@ -90,18 +93,6 @@ public class GeneratorHome extends VBox {
         videoBad.setText(story.getVideoBadEnd());
     }
 
-    public void changeStory() {
-        story.setTitle(lblStoryName.getText());
-        story.setTitle(storyName.getText());
-        story.setShortName(storyShortName.getText());
-        story.setDescription(storyDesc.getText());
-        story.setVideoStart(videoStart.getText());
-        story.setVideoGoodEnd(videoGood.getText());
-        story.setVideoBadEnd(videoBad.getText());
-
-        fillForm();
-    }
-
     public void fillStepList() {
         listSteps.getSelectionModel().clearSelection();
         btnEditStep.setDisable(true);
@@ -128,8 +119,61 @@ public class GeneratorHome extends VBox {
         });
     }
 
-    public boolean saveStory() {
-        return true;
+    public boolean saveStory(boolean notify) {
+        if(storyShortName.getText() != null) {
+            // First save
+            if(story.getShortName() == null || story.getShortName().isEmpty()) {
+                File f = new File(Paths.getStoriesPath() + "/" + storyShortName.getText());
+
+                // Folder already exists, we can't overwrite
+                if (f.exists() && f.isDirectory()) {
+                    Dialog.showDialog("Erreur : une histoire existe déjà avec ce nom !");
+                    return false;
+                }
+                else {
+                    f.mkdir();
+                    new File(f.getAbsolutePath() + "/" + "medias").mkdir();
+                    new File(f.getAbsolutePath() + "/" + "tests").mkdir();
+                }
+            }
+            // Change directory
+            else if(!storyShortName.getText().equals(story.getShortName())) {
+                File f = new File(Paths.getStoriesPath() + "/" + story.getShortName());
+                File nf = new File(Paths.getStoriesPath() + "/" + storyShortName.getText());
+
+                // Folder already exists, we can't overwrite
+                if (nf.exists() && nf.isDirectory()) {
+                    Dialog.showDialog("Erreur : une histoire existe déjà avec ce nom !");
+                    return false;
+                }
+
+                if (f.exists() && f.isDirectory()) {
+                    f.renameTo(nf);
+                }
+                else { // Initial directory doesn't exist... So we just have to create new one
+                    nf.mkdir();
+                    new File(nf.getAbsolutePath() + "/" + "medias").mkdir();
+                    new File(nf.getAbsolutePath() + "/" + "tests").mkdir();
+                }
+            }
+
+            story.setTitle(storyName.getText());
+            story.setShortName(storyShortName.getText());
+            story.setDescription(storyDesc.getText());
+            story.setVideoStart(videoStart.getText());
+            story.setVideoGoodEnd(videoGood.getText());
+            story.setVideoBadEnd(videoBad.getText());
+
+            Serialization.saveFile(story, new File(Paths.getStoriesPath() + "/" + story.getShortName() + "/" + "story.drj").getAbsolutePath());
+
+            fillForm();
+
+            if(notify) Dialog.showDialog("Sauvegarde effectuée avec succès !");
+            return true;
+        } else {
+            Dialog.showDialog("Au moins un des champs est vide !");
+            return false;
+        }
     }
 
     @FXML protected void onClickOpenVideoStart(ActionEvent event) {
@@ -161,7 +205,7 @@ public class GeneratorHome extends VBox {
     }
 
     @FXML protected void onClickBtnSave(ActionEvent event) {
-
+        saveStory(true);
     }
 
     @FXML protected void onClickBtnDelStory(ActionEvent event) {
@@ -169,10 +213,33 @@ public class GeneratorHome extends VBox {
     }
 
     @FXML protected void onClickBtnAddStep(ActionEvent event) {
-        Step s = new Step("New step");
-        story.getSteps().add(s);
+        boolean success = saveStory(false);
 
-        GeneratorStep gs = new GeneratorStep(s, story);
+        if(success) {
+            Step s = new Step("New step");
+            story.getSteps().add(s);
+
+            GeneratorStep gs = new GeneratorStep(s, story);
+
+            Stage stage = new Stage();
+            stage.setTitle("Doctor J - Edition d'une étape");
+            Scene scene = new Scene(gs, 600, 500);
+            stage.setScene(scene);
+            stage.initModality(Modality.APPLICATION_MODAL);
+            stage.show();
+
+            stage.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                @Override
+                public void handle(WindowEvent windowEvent) {
+                    fillStepList();
+                    saveStory(false);
+                }
+            });
+        }
+    }
+
+    @FXML protected void onClickBtnEditStep(ActionEvent event) {
+        GeneratorStep gs = new GeneratorStep(listSteps.getSelectionModel().getSelectedItem(), story);
 
         Stage stage = new Stage();
         stage.setTitle("Doctor J - Edition d'une étape");
@@ -185,16 +252,14 @@ public class GeneratorHome extends VBox {
             @Override
             public void handle(WindowEvent windowEvent) {
                 fillStepList();
+                saveStory(false);
             }
         });
-    }
-
-    @FXML protected void onClickBtnEditStep(ActionEvent event) {
-
     }
 
     @FXML protected void onClickBtnDelStep(ActionEvent event) {
         story.getSteps().remove(listSteps.getSelectionModel().getSelectedItem());
         fillStepList();
+        saveStory(false);
     }
 }

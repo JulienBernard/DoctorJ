@@ -38,7 +38,6 @@ public class GeneratorStep extends VBox {
     @FXML private TextField videoLoop;
     @FXML private Button openVideoLoop;
     @FXML private Button btnSave;
-    @FXML private Button btnDelete;
 
     @FXML private Button btnSaveTest;
     @FXML private Button btnCompile;
@@ -110,6 +109,17 @@ public class GeneratorStep extends VBox {
         videoLoop.setText(step.getVideoLoop());
     }
 
+    public void changeStep() {
+        story.setTitle(lblStoryName.getText());
+        step.setTitle(lblStepName.getText());
+        step.setTitle(stepName.getText());
+        step.setUserFileName(userCodeName.getText());
+        step.setDirection(direction.getText());
+        step.setHelp(help.getText());
+        step.setVideoStart(videoStart.getText());
+        step.setVideoLoop(videoLoop.getText());
+    }
+
     @FXML protected void onClickOpenVideoStart(ActionEvent event) {
 
     }
@@ -127,11 +137,7 @@ public class GeneratorStep extends VBox {
     }
 
     @FXML protected void onClickBtnSave(ActionEvent event) {
-
-    }
-
-    @FXML protected void onClickBtnDelete(ActionEvent event) {
-
+        changeStep();
     }
 
     @FXML protected void onClickBtnCompile(ActionEvent event) {

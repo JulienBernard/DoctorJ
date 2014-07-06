@@ -59,7 +59,7 @@
 <Button fx:id="openVideoLoop" mnemonicParsing="false" onAction="#onClickOpenVideoLoop" text="..." />
 </children>
 </HBox><HBox spacing="10.0">
-<children><Button fx:id="btnSave" mnemonicParsing="false" onAction="#onClickBtnSave" text="Sauvegarder" /><Button fx:id="btnDelete" mnemonicParsing="false" onAction="#onClickBtnDelete" text="Supprimer l'étape" />
+<children><Button fx:id="btnSave" mnemonicParsing="false" onAction="#onClickBtnSave" text="Sauvegarder" />
 </children></HBox>
 </children></VBox>
 </children></HBox>

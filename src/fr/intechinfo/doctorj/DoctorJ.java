@@ -8,6 +8,7 @@ import fr.intechinfo.doctorj.utils.Serialization;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 
 public class DoctorJ extends Application {
