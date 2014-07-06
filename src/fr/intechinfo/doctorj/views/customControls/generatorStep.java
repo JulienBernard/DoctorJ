@@ -140,17 +140,62 @@ public class GeneratorStep extends VBox {
     }
 
     public boolean changeStep(boolean notify) {
-        story.setTitle(lblStoryName.getText());
-        step.setTitle(lblStepName.getText());
-        step.setTitle(stepName.getText());
-        step.setUserFileName(userCodeName.getText());
-        step.setDirection(direction.getText());
-        step.setHelp(help.getText());
-        step.setVideoStart(videoStart.getText());
-        step.setVideoLoop(videoLoop.getText());
+        if(userCodeName.getText() != null) {
 
-        if(notify) Dialog.showDialog("L'étape a bien été modifiée !");
-        return true;
+            // Step name changed
+            if(userCodeName.getText() != step.getUserFileName()) {
+
+                // Video start
+                if(step.getVideoStart() != null) {
+                    File f = new File(Paths.getStoriesPath() + "/" + story.getShortName() + "/medias/" + step.getVideoStart());
+                    String ext = FilenameUtils.getExtension(f.getAbsolutePath());
+                    String fileName = "videoStartStep" + userCodeName.getText() + "." + ext;
+                    File nf = new File(Paths.getStoriesPath() + "/" + story.getShortName() + "/medias/" + fileName);
+
+                    f.renameTo(nf);
+                    videoStart.setText(fileName);
+                }
+
+                // Video loop
+                if(step.getVideoLoop() != null) {
+                    File f = new File(Paths.getStoriesPath() + "/" + story.getShortName() + "/medias/" + step.getVideoLoop());
+                    String ext = FilenameUtils.getExtension(f.getAbsolutePath());
+
+                    String fileName = "videoLoopStep" + userCodeName.getText() + "." + ext;
+                    File nf = new File(Paths.getStoriesPath() + "/" + story.getShortName() + "/medias/" + fileName);
+
+                    f.renameTo(nf);
+                    videoLoop.setText(fileName);
+                }
+
+                // User code test
+                File oldUserCode = new File(Paths.getStoriesPath() + "/" + story.getShortName() + "/tests/" + step.getUserFileName() + "Test.java");
+                File newUserCode = new File(Paths.getStoriesPath() + "/" + story.getShortName() + "/tests/" + userCodeName.getText() + "Test.java");
+                oldUserCode.renameTo(newUserCode);
+
+                // User code test compiled
+                File oldUserCodeCompiled = new File(Paths.getStoriesPath() + "/" + story.getShortName() + "/tests/" + step.getUserFileName() + "Test.class");
+                File newUserCodeCompiled = new File(Paths.getStoriesPath() + "/" + story.getShortName() + "/tests/" + userCodeName.getText() + "Test.class");
+                oldUserCodeCompiled.renameTo(newUserCodeCompiled);
+            }
+
+            story.setTitle(lblStoryName.getText());
+            step.setTitle(lblStepName.getText());
+            step.setTitle(stepName.getText());
+            step.setUserFileName(userCodeName.getText());
+            step.setDirection(direction.getText());
+            step.setHelp(help.getText());
+            step.setVideoStart(videoStart.getText());
+            step.setVideoLoop(videoLoop.getText());
+
+            if(notify) Dialog.showDialog("L'étape a bien été modifiée !");
+            fillForm();
+            return true;
+        }
+        else {
+            Dialog.showDialog("Au moins un des champs est vide !");
+            return false;
+        }
     }
 
     @FXML protected void onClickOpenVideoStart(ActionEvent event) {
