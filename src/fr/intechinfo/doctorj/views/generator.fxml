@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<top><MenuBar BorderPane.alignment="CENTER">
+  <menus>
+    <Menu mnemonicParsing="false" text="Fichier">
+      <items><MenuItem fx:id="menuNewStory" mnemonicParsing="false" onAction="#onClickMenuNewStory" text="Nouvelle histoire" /><MenuItem fx:id="menuOpenStory" mnemonicParsing="false" onAction="#onClickMenuOpenStory" text="Ouvrir une histoire" /><MenuItem fx:id="menuImportStory" mnemonicParsing="false" onAction="#onClickMenuImportStory" text="Importer une histoire (.zip)" />
+        <MenuItem fx:id="menuGoHome" mnemonicParsing="false" onAction="#onClickMenuGoHome" text="Retour à l'accueil" />
+      </items>
+    </Menu>
+  </menus>
+</MenuBar>
+</top>
+<center><AnchorPane fx:id="controlContainer" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" BorderPane.alignment="CENTER">
+<children><Label layoutX="137.0048828125" layoutY="86.5" text="Sélectionnez une histoire, ou créez-en une nouvelle..." AnchorPane.leftAnchor="10.0" AnchorPane.topAnchor="10.0">
+<font>
+<Font size="18.0" />
+</font></Label>
+</children></AnchorPane>
+</center></BorderPane>
