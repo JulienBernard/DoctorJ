@@ -101,9 +101,9 @@ public class GeneratorStep extends VBox {
 
                 try {
                     support.getJarManager().addCurrentJreClassFileSource();
-                    support.getJarManager().addClassFileSource(new File("C:\\INTECH\\S4\\DoctorJ\\libs\\junit-4.11.jar"));
-                    support.getJarManager().addClassFileSource(new File("C:\\INTECH\\S4\\DoctorJ\\libs\\hamcrest-core-1.3.jar"));
-                    support.getJarManager().addClassFileSource(new File("C:\\INTECH\\S4\\DoctorJ\\out\\artifacts\\DoctorJ\\DoctorJ.jar"));
+                    support.getJarManager().addClassFileSource(new File(Paths.getAppPath() + "/junit-4.11.jar"));
+                    support.getJarManager().addClassFileSource(new File(Paths.getAppPath() + "/hamcrest-core-1.3.jar"));
+                    support.getJarManager().addClassFileSource(new File(Paths.getAppPath() + "/DoctorJ.jar"));
                 } catch (IOException ioe) {
                     ioe.printStackTrace();
                 }
