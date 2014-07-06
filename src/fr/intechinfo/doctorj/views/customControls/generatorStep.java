@@ -18,6 +18,7 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
+import org.apache.commons.io.IOUtils;
 import org.fife.rsta.ac.LanguageSupportFactory;
 import org.fife.rsta.ac.java.JavaLanguageSupport;
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
@@ -101,9 +102,9 @@ public class GeneratorStep extends VBox {
 
                 try {
                     support.getJarManager().addCurrentJreClassFileSource();
-                    support.getJarManager().addClassFileSource(new File("C:\\INTECH\\S4\\DoctorJ\\libs\\junit-4.11.jar"));
-                    support.getJarManager().addClassFileSource(new File("C:\\INTECH\\S4\\DoctorJ\\libs\\hamcrest-core-1.3.jar"));
-                    support.getJarManager().addClassFileSource(new File("C:\\INTECH\\S4\\DoctorJ\\out\\artifacts\\DoctorJ\\DoctorJ.jar"));
+                    support.getJarManager().addClassFileSource(new File(Paths.getAppPath() + "/junit-4.11.jar"));
+                    support.getJarManager().addClassFileSource(new File(Paths.getAppPath() + "/hamcrest-core-1.3.jar"));
+                    support.getJarManager().addClassFileSource(new File(Paths.getAppPath() + "/DoctorJ.jar"));
                 } catch (IOException ioe) {
                     ioe.printStackTrace();
                 }
@@ -141,7 +142,6 @@ public class GeneratorStep extends VBox {
 
     public boolean changeStep(boolean notify) {
         if(userCodeName.getText() != null) {
-
             // Step name changed
             if(userCodeName.getText() != step.getUserFileName()) {
 
@@ -255,14 +255,12 @@ public class GeneratorStep extends VBox {
 
     @FXML protected void onClickBtnGenerateSkeleton(ActionEvent event) {
         try {
-            String template = FileUtils.readFileToString(new File(DoctorJ.class.getResource("assets/TemplateTestCase.txt").toURI()));
+            String template = IOUtils.toString(DoctorJ.class.getResourceAsStream("assets/TemplateTestCase.txt"), "UTF-8");
             template = template.replace("<<STORYNAME>>", story.getShortName());
             template = template.replace("<<STEPNAME>>", step.getUserFileName());
 
             codeTextArea.setText(template);
         } catch (IOException e) {
-            e.printStackTrace();
-        } catch (URISyntaxException e) {
             e.printStackTrace();
         }
     }

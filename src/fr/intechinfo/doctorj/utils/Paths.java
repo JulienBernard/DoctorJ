@@ -17,6 +17,10 @@ public class Paths {
     }
 
     public static String getStoriesPath() {
-        return getAppPath() + "/stories";
+        File f = new File(getAppPath() + "/stories");
+        if(!f.exists()) {
+            f.mkdir();
+        }
+        return f.getAbsolutePath();
     }
 }
