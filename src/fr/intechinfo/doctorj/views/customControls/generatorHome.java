@@ -25,6 +25,8 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import javafx.util.Callback;
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.FilenameUtils;
 
 import javax.swing.*;
 import java.io.File;
@@ -177,31 +179,69 @@ public class GeneratorHome extends VBox {
     }
 
     @FXML protected void onClickOpenVideoStart(ActionEvent event) {
-        FileChooser f = new FileChooser();
-        f.setTitle("Sélectionnez la vidéo du début :");
-        File video = f.showOpenDialog(getScene().getWindow());
+        if(saveStory(false)) {
+            FileChooser f = new FileChooser();
+            f.setTitle("Sélectionnez la vidéo de départ :");
+            File video = f.showOpenDialog(getScene().getWindow());
 
-        if (video != null)
-            videoStart.setText(video.getAbsolutePath());
+            if (video != null) {
+                String ext = FilenameUtils.getExtension(video.getAbsolutePath());
+                String fileName = "videoStart." + ext;
+                File newFile = new File(Paths.getStoriesPath() + "/" + story.getShortName() + "/medias/" + fileName);
 
+                try {
+                    FileUtils.copyFile(video, newFile);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                videoStart.setText(fileName);
+            }
+        }
     }
 
     @FXML protected void onClickOpenVideoGood(ActionEvent event) {
-        FileChooser f = new FileChooser();
-        f.setTitle("Sélectionnez la vidéo en cas de victoire :");
-        File video = f.showOpenDialog(getScene().getWindow());
+        if(saveStory(false)) {
+            FileChooser f = new FileChooser();
+            f.setTitle("Sélectionnez la vidéo en cas de victoire :");
+            File video = f.showOpenDialog(getScene().getWindow());
 
-        if (video != null)
-            videoGood.setText(video.getAbsolutePath());
+            if (video != null) {
+                String ext = FilenameUtils.getExtension(video.getAbsolutePath());
+                String fileName = "videoGood." + ext;
+                File newFile = new File(Paths.getStoriesPath() + "/" + story.getShortName() + "/medias/" + fileName);
+
+                try {
+                    FileUtils.copyFile(video, newFile);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                videoGood.setText(fileName);
+            }
+        }
     }
 
     @FXML protected void onClickOpenVideoEnd(ActionEvent event) {
-        FileChooser f = new FileChooser();
-        f.setTitle("Sélectionnez la vidéo en cas de défaite :");
-        File video = f.showOpenDialog(getScene().getWindow());
+        if(saveStory(false)) {
+            FileChooser f = new FileChooser();
+            f.setTitle("Sélectionnez la vidéo en cas de défaite :");
+            File video = f.showOpenDialog(getScene().getWindow());
 
-        if (video != null)
-            videoBad.setText(video.getAbsolutePath());
+            if (video != null) {
+                String ext = FilenameUtils.getExtension(video.getAbsolutePath());
+                String fileName = "videoBad." + ext;
+                File newFile = new File(Paths.getStoriesPath() + "/" + story.getShortName() + "/medias/" + fileName);
+
+                try {
+                    FileUtils.copyFile(video, newFile);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                videoBad.setText(fileName);
+            }
+        }
     }
 
     @FXML protected void onClickBtnSave(ActionEvent event) {
@@ -209,7 +249,13 @@ public class GeneratorHome extends VBox {
     }
 
     @FXML protected void onClickBtnDelStory(ActionEvent event) {
-
+        File f = new File(Paths.getStoriesPath() + "/" + story.getShortName());
+        try {
+            FileUtils.deleteDirectory(f);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        getChildren().clear();
     }
 
     @FXML protected void onClickBtnAddStep(ActionEvent event) {
