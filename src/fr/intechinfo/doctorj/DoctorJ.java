@@ -4,6 +4,7 @@ import fr.intechinfo.doctorj.controllers.Home;
 import fr.intechinfo.doctorj.model.GameContext;
 import fr.intechinfo.doctorj.model.Step;
 import fr.intechinfo.doctorj.model.Story;
+import fr.intechinfo.doctorj.utils.Serialization;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -38,9 +39,12 @@ public class DoctorJ extends Application {
     public void test() {
         Story s = new Story();
         s.setShortName("story1");
+        s.setTitle("tamerelastory");
 
         Step st = new Step();
         st.setUserFileName("Step1");
+        st.setTitle("tamere");
+        s.getSteps().add(st);
 
         getCurrentGameContext().setCurrentStory(s);
         getCurrentGameContext().setCurrentStep(st);

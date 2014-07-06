@@ -15,7 +15,11 @@ public class Step implements Serializable {
     private String videoLoop;
 
     public Step() {
+        this("");
+    }
 
+    public Step(String t) {
+        title = t;
     }
 
     public String getTitle() {

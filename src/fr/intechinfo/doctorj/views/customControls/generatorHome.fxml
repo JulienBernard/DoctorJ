@@ -31,23 +31,23 @@
 <Insets top="5.0" />
 </padding></VBox><VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
 <children><TextField fx:id="storyName" /><TextField fx:id="storyShortName" /><TextArea fx:id="storyDesc" minHeight="129.0" minWidth="487.0" prefHeight="129.0" prefWidth="487.0" /><HBox spacing="10.0">
-<children><TextField fx:id="videoStart" editable="false" HBox.hgrow="ALWAYS" /><Button fx:id="openVideoStart" mnemonicParsing="false" text="..." />
+<children><TextField fx:id="videoStart" editable="false" HBox.hgrow="ALWAYS" /><Button fx:id="openVideoStart" mnemonicParsing="false" onAction="#onClickOpenVideoStart" text="..." />
 </children></HBox>
 <HBox layoutX="10.0" layoutY="219.0" spacing="10.0">
 <children>
 <TextField fx:id="videoGood" editable="false" HBox.hgrow="ALWAYS" />
-<Button fx:id="openVideoGood" mnemonicParsing="false" text="..." />
+<Button fx:id="openVideoGood" mnemonicParsing="false" onAction="#onClickOpenVideoGood" text="..." />
 </children>
 </HBox>
 <HBox layoutX="10.0" layoutY="289.0" spacing="10.0">
 <children>
 <TextField fx:id="videoBad" editable="false" HBox.hgrow="ALWAYS" />
-<Button fx:id="openVideoEnd" mnemonicParsing="false" text="..." />
+<Button fx:id="openVideoEnd" mnemonicParsing="false" onAction="#onClickOpenVideoEnd" text="..." />
 </children>
 </HBox>
 <HBox layoutX="10.0" layoutY="283.0" spacing="10.0">
-<children><Button fx:id="btnSave" mnemonicParsing="false" text="Sauvegarder" />
-<Button fx:id="btnDelStory" mnemonicParsing="false" text="Supprimer l'histoire" />
+<children><Button fx:id="btnSave" mnemonicParsing="false" onAction="#onClickBtnSave" text="Sauvegarder" />
+<Button fx:id="btnDelStory" mnemonicParsing="false" onAction="#onClickBtnDelStory" text="Supprimer l'histoire" />
 </children>
 </HBox>
 </children></VBox>
@@ -63,7 +63,7 @@
         <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
 <children><HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 <children><ListView fx:id="listSteps" prefHeight="353.0" prefWidth="180.0" /><VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
-<children><Button fx:id="btnAddStep" mnemonicParsing="false" text="Ajouter une étape" /><Button fx:id="btnEditStep" disable="true" mnemonicParsing="false" text="Editer l'étape sélectionnée" /><Button fx:id="btnDelStep" disable="true" mnemonicParsing="false" text="Supprimer l'étape sélectionnée" />
+<children><Button fx:id="btnAddStep" mnemonicParsing="false" onAction="#onClickBtnAddStep" text="Ajouter une étape" /><Button fx:id="btnEditStep" disable="true" mnemonicParsing="false" onAction="#onClickBtnEditStep" text="Editer l'étape sélectionnée" /><Button fx:id="btnDelStep" disable="true" mnemonicParsing="false" onAction="#onClickBtnDelStep" text="Supprimer l'étape sélectionnée" />
 </children></VBox>
 </children>
 <padding>

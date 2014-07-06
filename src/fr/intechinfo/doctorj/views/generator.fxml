@@ -9,7 +9,7 @@
 <top><MenuBar BorderPane.alignment="CENTER">
   <menus>
     <Menu mnemonicParsing="false" text="Fichier">
-      <items><MenuItem fx:id="menuOpenStory" mnemonicParsing="false" onAction="#onClickMenuOpenStory" text="Ouvrir une histoire" /><MenuItem fx:id="menuNewStory" mnemonicParsing="false" onAction="#onClickMenuNewStory" text="Nouvelle histoire" /><MenuItem fx:id="menuImportStory" mnemonicParsing="false" onAction="#onClickMenuImportStory" text="Importer une histoire (.zip)" />
+      <items><MenuItem fx:id="menuNewStory" mnemonicParsing="false" onAction="#onClickMenuNewStory" text="Nouvelle histoire" /><MenuItem fx:id="menuOpenStory" mnemonicParsing="false" onAction="#onClickMenuOpenStory" text="Ouvrir une histoire" /><MenuItem fx:id="menuImportStory" mnemonicParsing="false" onAction="#onClickMenuImportStory" text="Importer une histoire (.zip)" />
         <MenuItem fx:id="menuGoHome" mnemonicParsing="false" onAction="#onClickMenuGoHome" text="Retour à l'accueil" />
       </items>
     </Menu>
