@@ -26,5 +26,7 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="commons-io-2.4" level="project" />
+    <orderEntry type="library" name="doctorJ" level="project" />
   </component>
 </module>
+
