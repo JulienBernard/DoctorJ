@@ -2,6 +2,7 @@ package fr.intechinfo.doctorj.controllers;
 
 import fr.intechinfo.doctorj.DoctorJ;
 import fr.intechinfo.doctorj.model.Story;
+import fr.intechinfo.doctorj.utils.Paths;
 import fr.intechinfo.doctorj.utils.Serialization;
 import fr.intechinfo.doctorj.views.customControls.Dialog;
 import javafx.event.ActionEvent;
@@ -27,21 +28,11 @@ public class SelectLevel extends AbstractController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Story str = Serialization.loadFile("C:/Users/Stage Brel/Desktop/Dev/Lourd/Java/DoctorJ/stories/histoire/story.drj");
-        listLevel.getChildren().add(new fr.intechinfo.doctorj.views.customControls.SelectLevel(str));
-    }
-
-    @FXML protected void onClickBtnAnnie(ActionEvent event) {
-        Game controller = new Game(getMainWindow(), "game");
-        controller.show("Annie et la découverte de Java");
-    }
-
-    @FXML protected void onClickBtnJeanne(ActionEvent event) {
-        Game controller = new Game(getMainWindow(), "game");
-        controller.show("Jeanne et la découverte de l'orienté objet");
-    }
-
-    public void searchStories() {
-        Dialog.showDialog("Sauvegarde effectuée avec succès !");
+        String[] dir = new java.io.File(Paths.getStoriesPath()).list( );
+        for (int i=0; i<dir.length; i++)
+        {
+            Story str = Serialization.loadFile(Paths.getStoriesPath()+"/"+dir[i]+"/story.drj");
+            listLevel.getChildren().add(new fr.intechinfo.doctorj.views.customControls.SelectLevel(str));
+        }
     }
 }

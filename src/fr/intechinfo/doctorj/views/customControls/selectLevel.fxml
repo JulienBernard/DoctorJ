@@ -19,7 +19,7 @@
             <Label prefHeight="79.0" prefWidth="459.0" text="Description de l'histoire" fx:id="desc"/>
         </children>
         </VBox>
-        <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="155.0" text="Button" fx:id="btn"/>
+        <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="155.0" text="Button" fx:id="btn" onAction="#onClickBtn"/>
     </children>
     </HBox>
 </children>

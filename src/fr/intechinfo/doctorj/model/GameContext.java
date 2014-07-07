@@ -8,7 +8,7 @@ import java.util.List;
  */
 public class GameContext { // Useful to see where is the player in the game
     private List<Snippet> snippets;
-    private List<StepResult> stepResults;
+    private List<Step> stepResults;
 
     private User currentUser;
     private Story currentStory;
@@ -19,7 +19,7 @@ public class GameContext { // Useful to see where is the player in the game
         stepResults = new ArrayList<>();
     }
 
-    public List<StepResult> getStepResults() {
+    public List<Step> getStepResults() {
         return stepResults;
     }
 

@@ -15,6 +15,7 @@ public class Story implements Serializable {
     private String videoStart;
     private String videoBadEnd;
     private String videoGoodEnd;
+    private int currentStep;
 
     public Story(String title, String description) {
         this.title = title;
@@ -76,5 +77,13 @@ public class Story implements Serializable {
 
     public void setVideoGoodEnd(String videoGoodEnd) {
         this.videoGoodEnd = videoGoodEnd;
+    }
+
+    public int getCurrentStep() {
+        return currentStep;
+    }
+
+    public void setCurrentStep(int currentStep) {
+        this.currentStep = currentStep;
     }
 }

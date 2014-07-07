@@ -1,6 +1,7 @@
 package fr.intechinfo.doctorj.controllers;
 
 import fr.intechinfo.doctorj.DoctorJ;
+import fr.intechinfo.doctorj.model.Story;
 import fr.intechinfo.doctorj.model.validators.SyntaxValidator;
 import fr.intechinfo.doctorj.model.validators.TestValidator;
 import fr.intechinfo.doctorj.model.validators.ValidatorMessage;
@@ -27,6 +28,7 @@ import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
 import org.fife.ui.rtextarea.RTextScrollPane;
 
+import javax.print.Doc;
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
@@ -63,6 +65,15 @@ public class Game extends AbstractController implements Initializable {
         }
 
         createSwingContent();
+
+        // Data select for the first step
+        Story currentStory = DoctorJ.getCurrentGameContext().getCurrentStory();
+        currentStory.setCurrentStep(0);
+
+        // Examples
+        System.out.println(currentStory.getSteps().get(currentStory.getCurrentStep()).getTitle());
+        currentStory.setCurrentStep(1); // on change de step
+        System.out.println(currentStory.getSteps().get(currentStory.getCurrentStep()).getTitle());
     }
 
     private void createSwingContent() {
@@ -101,11 +112,15 @@ public class Game extends AbstractController implements Initializable {
     @FXML protected void onClickBtnRun(ActionEvent event) throws IOException {
         String data = codeTextArea.getText();
         String strPath = Paths.getStoriesPath();
-        String curStory = DoctorJ.getCurrentGameContext().getCurrentStory().getShortName();
+        Story currentStory = DoctorJ.getCurrentGameContext().getCurrentStory();
+        String shortName = DoctorJ.getCurrentGameContext().getCurrentStory().getShortName();
         String userFileName = DoctorJ.getCurrentGameContext().getCurrentStep().getUserFileName();
 
+        System.out.println(currentStory.getTitle());
+        System.out.println(currentStory.getSteps().get(0).getTitle());
+
         // Writes the file
-        String saveFile = strPath + "/" + curStory + "/" + userFileName + ".java";
+        String saveFile = strPath + "/" + shortName + "/" + userFileName + ".java";
         FileUtils.writeStringToFile(new File(saveFile), data);
 
         // Clear output
@@ -116,7 +131,7 @@ public class Game extends AbstractController implements Initializable {
         addElementsToListExec(m.getMessage());
 
         if(m.isValid()) {
-            ValidatorMessage m2 = TestValidator.check(curStory, userFileName);
+            ValidatorMessage m2 = TestValidator.check(shortName, userFileName);
 
             if(m2.isValid()) {
                 // TODO : Donc là, le code de l'utilisateur est valide !
