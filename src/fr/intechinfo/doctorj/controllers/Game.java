@@ -117,6 +117,11 @@ public class Game extends AbstractController implements Initializable {
 
         if(m.isValid()) {
             ValidatorMessage m2 = TestValidator.check(curStory, userFileName);
+
+            if(m2.isValid()) {
+                // TODO : Donc là, le code de l'utilisateur est valide !
+            }
+
             addElementsToListExec(m2.getMessage());
         }
 
