@@ -243,25 +243,29 @@ public class GeneratorStep extends VBox {
     }
 
     @FXML protected void onClickBtnSaveTest(ActionEvent event) {
-        String fileName = step.getUserFileName() + "Test.java";
-        File f = new File(Paths.getStoriesPath() + "/" + story.getShortName() + "/tests/" + fileName);
+        if(changeStep(false)) {
+            String fileName = step.getUserFileName() + "Test.java";
+            File f = new File(Paths.getStoriesPath() + "/" + story.getShortName() + "/tests/" + fileName);
 
-        try {
-            FileUtils.writeStringToFile(f, codeTextArea.getText());
-        } catch (IOException e) {
-            e.printStackTrace();
+            try {
+                FileUtils.writeStringToFile(f, codeTextArea.getText());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
     @FXML protected void onClickBtnGenerateSkeleton(ActionEvent event) {
-        try {
-            String template = IOUtils.toString(DoctorJ.class.getResourceAsStream("assets/TemplateTestCase.txt"), "UTF-8");
-            template = template.replace("<<STORYNAME>>", story.getShortName());
-            template = template.replace("<<STEPNAME>>", step.getUserFileName());
+        if(changeStep(false)) {
+            try {
+                String template = IOUtils.toString(DoctorJ.class.getResourceAsStream("assets/TemplateTestCase.txt"), "UTF-8");
+                template = template.replace("<<STORYNAME>>", story.getShortName());
+                template = template.replace("<<STEPNAME>>", step.getUserFileName());
 
-            codeTextArea.setText(template);
-        } catch (IOException e) {
-            e.printStackTrace();
+                codeTextArea.setText(template);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -270,19 +274,21 @@ public class GeneratorStep extends VBox {
     }
 
     @FXML protected void onClickBtnCompile(ActionEvent event) {
-        onClickBtnSaveTest(null);
+        if(changeStep(false)) {
+            onClickBtnSaveTest(null);
 
-        listExecElements.clear();
+            listExecElements.clear();
 
-        String fileName = step.getUserFileName() + "Test.java";
-        File f = new File(Paths.getStoriesPath() + "/" + story.getShortName() + "/tests/" + fileName);
+            String fileName = step.getUserFileName() + "Test.java";
+            File f = new File(Paths.getStoriesPath() + "/" + story.getShortName() + "/tests/" + fileName);
 
-        ValidatorMessage m = SyntaxValidator.check(f.getAbsolutePath());
-        if(m.isValid()) {
-            m.getMessage().add(new ValidatorMessageElement("Le code a été compilé avec succès !", ValidatorConstants.OK));
+            ValidatorMessage m = SyntaxValidator.check(f.getAbsolutePath());
+            if(m.isValid()) {
+                m.getMessage().add(new ValidatorMessageElement("Le code a été compilé avec succès !", ValidatorConstants.OK));
+            }
+
+            addElementsToListExec(m.getMessage());
         }
-
-        addElementsToListExec(m.getMessage());
     }
 
     private void addElementsToListExec(List<ValidatorMessageElement> elements) {
