@@ -19,16 +19,16 @@
                     <Font size="14.0" />
                 </font>
 <VBox.margin>
-<Insets left="10.0" top="5.0" />
+<Insets left="10.0" right="10.0" top="5.0" />
 </VBox.margin>
             </Label>
             <Label fx:id="desc" styleClass="storySubtitle" text="Description de l'histoire" wrapText="true" VBox.vgrow="ALWAYS">
 <VBox.margin>
-<Insets bottom="10.0" left="10.0" />
+<Insets bottom="10.0" left="10.0" right="10.0" />
 </VBox.margin></Label>
         </children>
         </VBox><AnchorPane prefHeight="76.0" prefWidth="82.0">
-<children><Button minWidth="82.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="42.0" styleClass="btnPlayLevel" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<children><Button minWidth="82.0" mnemonicParsing="false" onAction="#onClickBtn" prefHeight="76.0" prefWidth="42.0" styleClass="btnPlayLevel" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
 <graphic><ImageView fitHeight="53.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
 <image>
 <Image url="@../../assets/whitePlayBtn.png" />

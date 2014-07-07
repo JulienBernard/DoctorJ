@@ -19,7 +19,6 @@ import java.io.IOException;
  * Created by Alexandre on 06/07/2014.
  */
 public class SelectLevel extends VBox{
-    @FXML private Button btn;
     @FXML private Label title;
     @FXML private Label desc;
     private Story str;
