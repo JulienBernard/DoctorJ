@@ -1,25 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.lang.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<fx:root type="javafx.scene.layout.VBox" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="80.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="500.0" styleClass="selectLevelElement" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
 <children>
-    <HBox prefHeight="100.0" prefWidth="200.0">
+    <HBox maxHeight="-Infinity" maxWidth="1.7976931348623157E308" minHeight="-Infinity" prefHeight="76.0" prefWidth="200.0" styleClass="selectLevelElement" VBox.vgrow="ALWAYS">
     <children>
-        <VBox maxHeight="-Infinity" prefHeight="80.0" prefWidth="450.0">
+        <VBox spacing="2.0" HBox.hgrow="ALWAYS">
         <children>
-            <Label prefHeight="17.0" prefWidth="453.0" text="Titre de l'histoire" fx:id="title">
+            <Label fx:id="title" styleClass="storyTitle" text="Titre de l'histoire" wrapText="true" VBox.vgrow="ALWAYS">
                 <font>
                     <Font size="14.0" />
                 </font>
+<VBox.margin>
+<Insets left="10.0" top="5.0" />
+</VBox.margin>
             </Label>
-            <Label prefHeight="79.0" prefWidth="459.0" text="Description de l'histoire" fx:id="desc"/>
+            <Label fx:id="desc" styleClass="storySubtitle" text="Description de l'histoire" wrapText="true" VBox.vgrow="ALWAYS">
+<VBox.margin>
+<Insets bottom="10.0" left="10.0" />
+</VBox.margin></Label>
         </children>
-        </VBox>
-        <Button mnemonicParsing="false" prefHeight="80.0" prefWidth="155.0" text="Button" fx:id="btn" onAction="#onClickBtn"/>
+        </VBox><AnchorPane prefHeight="76.0" prefWidth="82.0">
+<children><Button minWidth="82.0" mnemonicParsing="false" prefHeight="76.0" prefWidth="42.0" styleClass="btnPlayLevel" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+<graphic><ImageView fitHeight="53.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true">
+<image>
+<Image url="@../../assets/whitePlayBtn.png" />
+</image></ImageView>
+</graphic>
+<cursor>
+<Cursor fx:constant="HAND" />
+</cursor></Button>
+</children></AnchorPane>
     </children>
     </HBox>
 </children>

@@ -28,6 +28,8 @@ public class SelectLevel extends VBox{
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("selectLevel.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
+        getStylesheets().add(DoctorJ.class.getResource("views/styles/global.css").toExternalForm());
+        getStylesheets().add(DoctorJ.class.getResource("views/styles/customSelectLevel.css").toExternalForm());
 
         try {
             fxmlLoader.load();

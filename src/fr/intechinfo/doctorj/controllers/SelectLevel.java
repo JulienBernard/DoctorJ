@@ -9,6 +9,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -34,5 +35,10 @@ public class SelectLevel extends AbstractController implements Initializable {
             Story str = Serialization.loadFile(Paths.getStoriesPath()+"/"+dir[i]+"/story.drj");
             listLevel.getChildren().add(new fr.intechinfo.doctorj.views.customControls.SelectLevel(str));
         }
+    }
+
+    @FXML protected void GoToHome(MouseEvent event) {
+        Home home = new Home(getMainWindow(), "home");
+        home.show("Accueil");
     }
 }

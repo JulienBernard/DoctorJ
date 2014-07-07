@@ -1,0 +1,56 @@
+.titlePage {
+    -fx-text-fill: #FFFFFF;
+    -fx-effect: dropshadow(one-pass-box , #1a344c , 1, 0.5 , 0 , -2);
+}
+
+.bigRedButton {
+    -fx-background-color: linear-gradient(#f93f41, #f93f41), linear-gradient(#f62e30, #e92b2d);
+
+    -fx-background-insets: 0, 10 0 0 0;
+    -fx-padding: 10 20 10 20;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 1, 0.0, 4, 4);
+    -fx-border-color: linear-gradient(#e02828, #fc3637);
+    -fx-border-width: 4px;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-font-size: 24pt;
+}
+
+.bigRedButton:hover {
+    -fx-background-color: linear-gradient(#de2a2b, #de2a2b), linear-gradient(#e92b2d, #f62e30);
+    -fx-border-color: linear-gradient(#fc3637, #e02828);
+}
+
+.bigRedButton .text {
+    -fx-effect: dropshadow(one-pass-box , #d32a2c , 1, 0.5 , 0 , -2);
+}
+
+.bigBlueButton {
+    -fx-background-color: linear-gradient(#6aa0bc, #6aa0bc), linear-gradient(#5e92b2, #52809c);
+
+    -fx-background-insets: 0, 10 0 0 0;
+    -fx-padding: 10 20 10 20;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 1, 0.0, 4, 4);
+    -fx-border-color: linear-gradient(#51809d, #6094b4);
+    -fx-border-width: 4px;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-font-size: 24pt;
+}
+
+.bigBlueButton:hover {
+    -fx-background-color: linear-gradient(#4f7b97, #4f7b97), linear-gradient(#52809c, #5e92b2);
+    -fx-border-color: linear-gradient(#6094b4, #51809d);
+}
+
+.bigBlueButton .text {
+    -fx-effect: dropshadow(one-pass-box , #477088 , 1, 0.5 , 0 , -2);
+}
+
+.blueBackground {
+    -fx-background-image: url('../../assets/Fond.png');
+}

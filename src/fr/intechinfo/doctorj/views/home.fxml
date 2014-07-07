@@ -2,20 +2,30 @@
 
 <?import java.lang.*?>
 <?import javafx.geometry.*?>
+<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="483.0" prefWidth="658.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane id="borderPaneBg" fx:id="borderPaneBg" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="483.0" prefWidth="658.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
 <top><HBox alignment="CENTER" prefHeight="191.0" prefWidth="658.0" BorderPane.alignment="CENTER">
-<children><ImageView fitHeight="126.0" fitWidth="492.0" pickOnBounds="true" preserveRatio="true">
+<children><ImageView fitHeight="174.0" fitWidth="446.0" pickOnBounds="true" preserveRatio="true">
 <image>
-<Image url="@../assets/logo.png" />
-</image></ImageView>
+<Image url="@../assets/Logo%20home.png" />
+</image>
+<StackPane.margin>
+<Insets top="40.0" />
+</StackPane.margin></ImageView>
 </children></HBox>
 </top>
-<center><VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="20.0" BorderPane.alignment="CENTER">
-<children><Button fx:id="btnNewGame" mnemonicParsing="false" onAction="#onClickBtnNewGame" prefHeight="52.0" prefWidth="190.0" text="Jouer" /><Button fx:id="btnGenerator" mnemonicParsing="false" onAction="#onClickBtnGenerator" prefHeight="52.0" prefWidth="190.0" text="Générateur d'histoires" />
+<center><VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="40.0" BorderPane.alignment="CENTER">
+<children><Button fx:id="btnNewGame" minWidth="217.0" mnemonicParsing="false" onAction="#onClickBtnNewGame" styleClass="bigRedButton" text="Jouer">
+<cursor>
+<Cursor fx:constant="HAND" />
+</cursor></Button><Button fx:id="btnGenerator" mnemonicParsing="false" onAction="#onClickBtnGenerator" styleClass="bigBlueButton" text="Générateur">
+<cursor>
+<Cursor fx:constant="HAND" />
+</cursor></Button>
 </children>
 <opaqueInsets>
 <Insets />
