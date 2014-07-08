@@ -81,14 +81,7 @@ public class Game extends AbstractController implements Initializable {
         MediaPlayer mp = new MediaPlayer(m);
         gameMediaView.setMediaPlayer(mp);
         mp.play();
-        mp.setOnEndOfMedia(new Runnable() {
-            @Override
-            public void run() {
-                mp.setStartTime(Duration.ZERO);
-                mp.seek(Duration.ZERO);
-                mp.play();
-            }
-        });
+        mp.setCycleCount(MediaPlayer.INDEFINITE);
     }
 
     private void createSwingContent() {
