@@ -41,7 +41,10 @@ public class GameDialog  extends VBox {
     }
 
     @FXML protected void onClickBtn(ActionEvent event) {
-        callback.run();
+        if(callback != null) {
+            callback.run();
+        }
+
         btn.getScene().getWindow().hide();
     }
 

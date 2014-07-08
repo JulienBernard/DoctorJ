@@ -143,6 +143,7 @@ public class Game extends AbstractController implements Initializable {
             ValidatorMessage m2 = TestValidator.check(shortName, userFileName);
 
             if(m2.isValid()) {
+                GameDialog.showDialog("Vous avez correctement réalisé l'étape !", null);
                 NextStep();
             }
             else {
