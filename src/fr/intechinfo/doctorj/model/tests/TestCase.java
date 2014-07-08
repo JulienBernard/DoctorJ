@@ -1,6 +1,7 @@
 package fr.intechinfo.doctorj.model.tests;
 
 import fr.intechinfo.doctorj.game.Docteur;
+import fr.intechinfo.doctorj.game.Patient;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -28,6 +29,7 @@ public abstract class TestCase {
 
     protected static final void setStepToTest(String storyName, String stepName) {
         Docteur.Vider();
+        Patient.Vider();
 
         File file = new File("./stories/" + storyName);
 
