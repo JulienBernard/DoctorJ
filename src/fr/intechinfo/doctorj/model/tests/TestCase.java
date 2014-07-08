@@ -1,5 +1,6 @@
 package fr.intechinfo.doctorj.model.tests;
 
+import fr.intechinfo.doctorj.game.Docteur;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -21,21 +22,13 @@ import java.util.List;
 public abstract class TestCase {
     protected static Object testObject;
     protected static Class testClass;
-    protected static List<Object> outStream = new LinkedList<>();
 
     public TestCase() {
-        outStream.clear();
-
-        // Contrôle de System.out
-        System.setOut(new PrintStream(System.out) {
-            public void println(String s) {
-                outStream.add(s);
-                super.println(s);
-            }
-        });
     }
 
     protected static final void setStepToTest(String storyName, String stepName) {
+        Docteur.Vider();
+
         File file = new File("./stories/" + storyName);
 
         try {

@@ -1,10 +1,9 @@
 package fr.intechinfo.doctorj.controllers;
 
 import fr.intechinfo.doctorj.DoctorJ;
-import fr.intechinfo.doctorj.model.validators.SyntaxValidator;
-import fr.intechinfo.doctorj.model.validators.TestValidator;
-import fr.intechinfo.doctorj.model.validators.ValidatorMessage;
-import fr.intechinfo.doctorj.model.validators.ValidatorMessageElement;
+import fr.intechinfo.doctorj.game.Docteur;
+import fr.intechinfo.doctorj.model.tests.TestCase;
+import fr.intechinfo.doctorj.model.validators.*;
 import fr.intechinfo.doctorj.utils.Paths;
 import fr.intechinfo.doctorj.utils.RSyntaxTextAreaUtils;
 import fr.intechinfo.doctorj.views.customControls.GameDialog;
@@ -38,6 +37,7 @@ import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -101,6 +101,7 @@ public class Game extends AbstractController implements Initializable {
 
                 try {
                     support.getJarManager().addCurrentJreClassFileSource();
+                    support.getJarManager().addClassFileSource(new File(Paths.getAppPath() + "/DoctorJ.jar"));
                 } catch (IOException ioe) {
                     ioe.printStackTrace();
                 }
@@ -145,6 +146,14 @@ public class Game extends AbstractController implements Initializable {
         if(m.isValid()) {
             ValidatorMessage m2 = TestValidator.check(shortName, userFileName);
 
+            List<ValidatorMessageElement> consoleOut = new ArrayList<>();
+
+            for(Object o : Docteur.Paroles) {
+                ValidatorMessageElement vme = new ValidatorMessageElement("Console : " + o.toString(), ValidatorConstants.INFO);
+                consoleOut.add(vme);
+            }
+
+            addElementsToListExec(consoleOut);
             addElementsToListExec(m2.getMessage());
 
             if(m2.isValid()) {

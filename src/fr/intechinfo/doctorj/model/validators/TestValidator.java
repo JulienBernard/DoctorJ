@@ -1,5 +1,6 @@
 package fr.intechinfo.doctorj.model.validators;
 
+import fr.intechinfo.doctorj.model.tests.TestCase;
 import fr.intechinfo.doctorj.model.tests.TestListener;
 import fr.intechinfo.doctorj.utils.Paths;
 import org.junit.runner.JUnitCore;
