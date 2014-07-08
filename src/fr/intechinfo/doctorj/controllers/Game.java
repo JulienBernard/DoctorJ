@@ -132,6 +132,14 @@ public class Game extends AbstractController implements Initializable {
 
         // Writes the file
         String saveFile = strPath + "/" + shortName + "/" + userFileName + ".java";
+        String compiledFile = strPath + "/" + shortName + "/" + userFileName + ".class";
+
+        File f1 = new File(saveFile);
+        File f2 = new File(compiledFile);
+
+        if(f1.exists()) FileUtils.forceDelete(f1);
+        if (f2.exists()) FileUtils.forceDelete(f2);
+
         FileUtils.writeStringToFile(new File(saveFile), data);
 
         // Clear output
