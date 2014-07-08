@@ -49,6 +49,7 @@ public class Game extends AbstractController implements Initializable {
     @FXML private SwingNode swingNode;
     @FXML private ListView<Text> listExec;
     @FXML private Tab execTab;
+    @FXML private Tab scenarioTab;
     @FXML private WebView webViewHelp;
     @FXML private Label lblScenario;
     @FXML private Label lblCurStoryStep;
@@ -172,6 +173,9 @@ public class Game extends AbstractController implements Initializable {
         he.loadContent(DoctorJ.getCurrentGameContext().getCurrentStep().getHelp());
 
         lblScenario.setText(DoctorJ.getCurrentGameContext().getCurrentStep().getDirection());
+
+        // Jump to tab
+        scenarioTab.getTabPane().getSelectionModel().select(scenarioTab);
     }
 
     private void PlayVideo(String videoFileName, boolean loop, Runnable callback) {
