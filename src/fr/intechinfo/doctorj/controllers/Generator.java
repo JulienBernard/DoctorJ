@@ -37,13 +37,6 @@ public class Generator extends AbstractController implements Initializable {
 
     }
 
-    @FXML protected void onClickMenuImportStory(ActionEvent event) {
-        FileChooser f = new FileChooser();
-        f.setTitle("Sélectionnez une histoire à importer :");
-        File file = f.showOpenDialog(getMainWindow());
-        // TODO : zip import
-    }
-
     @FXML protected void onClickMenuNewStory(ActionEvent event) {
         controlContainer.getChildren().clear();
         controlContainer.getChildren().add(new GeneratorHome(new Story("New story", "")));
