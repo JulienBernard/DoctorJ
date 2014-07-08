@@ -12,11 +12,12 @@ public class GameContext { // Useful to see where is the player in the game
 
     private User currentUser;
     private Story currentStory;
-    private Step currentStep;
+    private Step currentStep; // How to get the Index of the currentStep in a Step List ? IndexOf !
 
     public GameContext() {
         snippets = new ArrayList<>();
         stepResults = new ArrayList<>();
+        currentUser = new User();
     }
 
     public List<Step> getStepResults() {

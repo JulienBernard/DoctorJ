@@ -66,14 +66,7 @@ public class Game extends AbstractController implements Initializable {
 
         createSwingContent();
 
-        // Data select for the first step
-        Story currentStory = DoctorJ.getCurrentGameContext().getCurrentStory();
-        currentStory.setCurrentStep(0);
-
-        // Examples
-        System.out.println(currentStory.getSteps().get(currentStory.getCurrentStep()).getTitle());
-        currentStory.setCurrentStep(1); // on change de step
-        System.out.println(currentStory.getSteps().get(currentStory.getCurrentStep()).getTitle());
+        IntroStory();
     }
 
     private void createSwingContent() {
@@ -150,5 +143,29 @@ public class Game extends AbstractController implements Initializable {
             t.setStyle(m.getCode().getStyle());
             listExecElements.add(t);
         }
+    }
+
+    private void IntroStory() {
+
+    }
+
+    private void IntroStep() {
+
+    }
+
+    private void PlayStep() {
+
+    }
+
+    private void LoseStep() {
+
+    }
+
+    private void WinStep() {
+
+    }
+
+    private void WinStory() {
+
     }
 }

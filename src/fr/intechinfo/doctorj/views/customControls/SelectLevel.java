@@ -44,6 +44,8 @@ public class SelectLevel extends VBox{
     @FXML protected void onClickBtn(ActionEvent event) {
         Game g = new Game((Stage) getScene().getWindow(), "game");
         DoctorJ.getCurrentGameContext().setCurrentStory(str);
+        DoctorJ.getCurrentGameContext().setCurrentStep(str.getSteps().get(0));
+
         g.show(str.getTitle());
     }
 }
