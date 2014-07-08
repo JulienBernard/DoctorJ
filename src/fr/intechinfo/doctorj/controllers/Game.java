@@ -153,6 +153,9 @@ public class Game extends AbstractController implements Initializable {
 
             addElementsToListExec(m2.getMessage());
         }
+        else {
+            PlayBadEnd();
+        }
 
         // Jump to tab
         execTab.getTabPane().getSelectionModel().select(execTab);
