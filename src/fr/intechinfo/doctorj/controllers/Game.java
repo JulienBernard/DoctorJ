@@ -51,7 +51,7 @@ public class Game extends AbstractController implements Initializable {
     @FXML private Tab execTab;
     @FXML private Tab scenarioTab;
     @FXML private WebView webViewHelp;
-    @FXML private Label lblScenario;
+    @FXML private WebView webViewScenario;
     @FXML private Label lblCurStoryStep;
     @FXML private MediaView gameMediaView;
     @FXML private StackPane messageVideo;
@@ -183,7 +183,8 @@ public class Game extends AbstractController implements Initializable {
         WebEngine he = webViewHelp.getEngine();
         he.loadContent(DoctorJ.getCurrentGameContext().getCurrentStep().getHelp());
 
-        lblScenario.setText(DoctorJ.getCurrentGameContext().getCurrentStep().getDirection());
+        WebEngine sc = webViewScenario.getEngine();
+        sc.loadContent(DoctorJ.getCurrentGameContext().getCurrentStep().getDirection());
 
         // Jump to tab
         scenarioTab.getTabPane().getSelectionModel().select(scenarioTab);

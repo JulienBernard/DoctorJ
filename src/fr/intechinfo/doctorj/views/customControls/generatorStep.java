@@ -43,7 +43,7 @@ public class GeneratorStep extends VBox {
 
     @FXML private TextField stepName;
     @FXML private TextField userCodeName;
-    @FXML private TextArea direction;
+    @FXML private HTMLEditor direction;
     @FXML private HTMLEditor help;
     @FXML private TextField videoStart;
     @FXML private Button openVideoStart;
@@ -134,7 +134,7 @@ public class GeneratorStep extends VBox {
         lblStepName.setText(step.getTitle());
         stepName.setText(step.getTitle());
         userCodeName.setText(step.getUserFileName());
-        direction.setText(step.getDirection());
+        direction.setHtmlText(step.getDirection());
         help.setHtmlText(step.getHelp());
         videoStart.setText(step.getVideoStart());
         videoLoop.setText(step.getVideoLoop());
@@ -183,7 +183,7 @@ public class GeneratorStep extends VBox {
             step.setTitle(lblStepName.getText());
             step.setTitle(stepName.getText());
             step.setUserFileName(userCodeName.getText());
-            step.setDirection(direction.getText());
+            step.setDirection(direction.getHtmlText());
             step.setHelp(help.getHtmlText());
             step.setVideoStart(videoStart.getText());
             step.setVideoLoop(videoLoop.getText());

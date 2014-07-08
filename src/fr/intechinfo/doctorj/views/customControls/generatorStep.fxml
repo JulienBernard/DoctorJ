@@ -8,7 +8,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.web.*?>
 
-<fx:root maxHeight="600.0" minHeight="500.0" prefHeight="576.0" prefWidth="797.0" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root maxHeight="694.0" minHeight="500.0" prefHeight="694.0" prefWidth="797.0" type="javafx.scene.layout.VBox" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
 <children><ToolBar prefWidth="200.0">
 <items>
 <Label fx:id="lblStoryName" maxWidth="250.0" text="story_name">
@@ -45,13 +45,13 @@
 </padding>
 <children><Label text="Nom de l'étape :" /><Label text="Nom du fichier utilisateur :" /><Label text="Consigne :" /><Label text="Aide :">
 <VBox.margin>
-<Insets top="61.0" />
+<Insets top="170.0" />
 </VBox.margin></Label><Label text="Vidéo début :">
 <VBox.margin>
 <Insets top="190.0" />
 </VBox.margin></Label><Label text="Vidéo de fond :" />
 </children></VBox><VBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="600.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
-<children><TextField fx:id="stepName" /><TextField fx:id="userCodeName" /><TextArea fx:id="direction" maxHeight="86.0" prefHeight="86.0" prefWidth="428.0" /><HTMLEditor fx:id="help" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" prefHeight="219.0" prefWidth="626.0" /><HBox spacing="10.0">
+<children><TextField fx:id="stepName" /><TextField fx:id="userCodeName" /><HTMLEditor fx:id="direction" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" prefHeight="200.0" prefWidth="506.0" /><HTMLEditor fx:id="help" htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" prefHeight="219.0" prefWidth="626.0" /><HBox spacing="10.0">
 <children><TextField fx:id="videoStart" editable="false" HBox.hgrow="ALWAYS" /><Button fx:id="openVideoStart" mnemonicParsing="false" onAction="#onClickOpenVideoStart" text="..." />
 </children></HBox>
 <HBox layoutX="10.0" layoutY="337.0" spacing="10.0">
