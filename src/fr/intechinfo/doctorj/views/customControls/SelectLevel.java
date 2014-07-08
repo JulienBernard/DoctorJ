@@ -46,6 +46,6 @@ public class SelectLevel extends VBox{
         DoctorJ.getCurrentGameContext().setCurrentStory(str);
         DoctorJ.getCurrentGameContext().setCurrentStep(str.getSteps().get(0));
 
-        g.show(str.getTitle() + " | " + DoctorJ.getCurrentGameContext().getCurrentStep().getTitle());
+        g.show(str.getTitle() + " > " + DoctorJ.getCurrentGameContext().getCurrentStep().getTitle());
     }
 }
