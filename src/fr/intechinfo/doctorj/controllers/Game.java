@@ -77,7 +77,7 @@ public class Game extends AbstractController implements Initializable {
         IntroStory();
         fillTabs();
 
-        Media m = new Media(new File("C:\\Users\\Alexandre\\Desktop\\INTECH\\S04\\PI\\videos\\lit-malade-gensautour.mp4").toURI().toString());
+        Media m = new Media(new File("C:\\Users\\Sirus\\Dropbox\\DoctorJ\\Ressources\\Vidéos\\lit-malade-gensautour.mp4").toURI().toString());
         MediaPlayer mp = new MediaPlayer(m);
         gameMediaView.setMediaPlayer(mp);
         mp.play();
