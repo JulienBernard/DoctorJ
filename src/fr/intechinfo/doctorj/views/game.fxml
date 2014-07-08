@@ -11,61 +11,7 @@
 <?import javafx.scene.text.*?>
 <?import javafx.scene.web.*?>
 
-<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="482.0" prefWidth="638.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
-<top><HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="42.0" prefWidth="200.0" spacing="30.0" styleClass="topMenu" BorderPane.alignment="CENTER">
-<children><ImageView fitHeight="25.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
-<image>
-<Image url="@../assets/minilogo.png" />
-</image>
-<HBox.margin>
-<Insets left="10.0" top="9.0" />
-</HBox.margin></ImageView><HBox spacing="8.0" HBox.hgrow="ALWAYS">
-<children><ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-<image>
-<Image url="@../assets/home.png" />
-</image>
-<HBox.margin>
-<Insets top="2.0" />
-</HBox.margin></ImageView><Label onMouseClicked="#onClickBtnHome" styleClass="topMenuElement" text="ACCUEIL">
-<cursor>
-<Cursor fx:constant="HAND" />
-</cursor>
-<HBox.margin>
-<Insets right="20.0" />
-</HBox.margin></Label><ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
-<image>
-<Image url="@../assets/joypad.png" />
-</image></ImageView>
-<Label layoutX="10.0" layoutY="18.0" onMouseClicked="#onClickBtnLevel" styleClass="topMenuElement" text="CHANGER DE NIVEAU">
-<cursor>
-<Cursor fx:constant="HAND" />
-</cursor>
-</Label><HBox alignment="TOP_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="42.0" prefWidth="200.0" spacing="8.0" HBox.hgrow="ALWAYS">
-<HBox.margin>
-<Insets right="20.0" top="-10.0" />
-</HBox.margin>
-<children><ImageView fitHeight="25.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
-<image>
-<Image url="@../assets/run.png" />
-</image>
-<HBox.margin>
-<Insets top="1.0" />
-</HBox.margin></ImageView>
-<Label layoutX="163.0" layoutY="18.0" onMouseClicked="#onClickBtnRun" styleClass="topMenuElement" text="EXECUTER">
-<cursor>
-<Cursor fx:constant="HAND" />
-</cursor>
-</Label>
-</children>
-<padding>
-<Insets top="9.0" />
-</padding></HBox>
-</children>
-<padding>
-<Insets top="8.0" />
-</padding></HBox>
-</children></HBox>
-</top>
+<BorderPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
 <center><HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
 <children><VBox prefHeight="400.0" prefWidth="406.0" spacing="20.0" BorderPane.alignment="CENTER">
 <children><StackPane prefHeight="150.0" prefWidth="200.0" styleClass="bigWhiteBorder">
@@ -121,15 +67,74 @@
 </children></AnchorPane>
 </children>
 <HBox.margin>
-<Insets bottom="20.0" left="20.0" top="20.0" />
+<Insets bottom="20.0" left="20.0" top="10.0" />
 </HBox.margin></VBox><AnchorPane fx:id="codeArea" prefHeight="200.0" prefWidth="200.0" styleClass="bigWhiteBorder" BorderPane.alignment="CENTER" HBox.hgrow="ALWAYS">
 <children><SwingNode fx:id="swingNode" layoutX="206.0" layoutY="213.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
 </children>
 <HBox.margin>
-<Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+<Insets bottom="20.0" left="20.0" right="20.0" top="10.0" />
 </HBox.margin>
 <padding>
 <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
 </padding></AnchorPane>
 </children></HBox>
-</center></BorderPane>
+</center>
+<top><VBox BorderPane.alignment="CENTER">
+<children><HBox maxHeight="-Infinity" minHeight="-Infinity" prefHeight="42.0" prefWidth="200.0" spacing="30.0" styleClass="topMenu" BorderPane.alignment="CENTER">
+<children><ImageView fitHeight="25.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+<image>
+<Image url="@../assets/minilogo.png" />
+</image>
+<HBox.margin>
+<Insets left="10.0" top="9.0" />
+</HBox.margin></ImageView><HBox spacing="8.0" HBox.hgrow="ALWAYS">
+<children><ImageView fitHeight="19.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+<image>
+<Image url="@../assets/home.png" />
+</image>
+<HBox.margin>
+<Insets top="2.0" />
+</HBox.margin></ImageView><Label onMouseClicked="#onClickBtnHome" styleClass="topMenuElement" text="ACCUEIL">
+<cursor>
+<Cursor fx:constant="HAND" />
+</cursor>
+<HBox.margin>
+<Insets right="20.0" />
+</HBox.margin></Label><ImageView fitHeight="22.0" fitWidth="22.0" pickOnBounds="true" preserveRatio="true">
+<image>
+<Image url="@../assets/joypad.png" />
+</image></ImageView>
+<Label layoutX="10.0" layoutY="18.0" onMouseClicked="#onClickBtnLevel" styleClass="topMenuElement" text="CHANGER DE NIVEAU">
+<cursor>
+<Cursor fx:constant="HAND" />
+</cursor>
+</Label><HBox alignment="TOP_RIGHT" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="42.0" prefWidth="200.0" spacing="8.0" HBox.hgrow="ALWAYS">
+<HBox.margin>
+<Insets right="20.0" top="-10.0" />
+</HBox.margin>
+<children><ImageView fitHeight="25.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
+<image>
+<Image url="@../assets/run.png" />
+</image>
+<HBox.margin>
+<Insets top="1.0" />
+</HBox.margin></ImageView>
+<Label layoutX="163.0" layoutY="18.0" onMouseClicked="#onClickBtnRun" styleClass="topMenuElement" text="EXECUTER">
+<cursor>
+<Cursor fx:constant="HAND" />
+</cursor>
+</Label>
+</children>
+<padding>
+<Insets top="9.0" />
+</padding></HBox>
+</children>
+<padding>
+<Insets top="8.0" />
+</padding></HBox>
+</children></HBox><Label fx:id="lblCurStoryStep" styleClass="topMenuElement" text="Label" VBox.vgrow="ALWAYS">
+<VBox.margin>
+<Insets left="20.0" top="10.0" />
+</VBox.margin></Label>
+</children></VBox>
+</top></BorderPane>

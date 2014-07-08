@@ -46,6 +46,7 @@ public class Game extends AbstractController implements Initializable {
     @FXML private Tab execTab;
     @FXML private WebView webViewHelp;
     @FXML private Label lblScenario;
+    @FXML private Label lblCurStoryStep;
 
     private ObservableList<Text> listExecElements;
     private RSyntaxTextArea codeTextArea;
@@ -67,6 +68,7 @@ public class Game extends AbstractController implements Initializable {
 
         createSwingContent();
 
+        lblCurStoryStep.setText(DoctorJ.getCurrentGameContext().getCurrentStory().getTitle() + " > " + DoctorJ.getCurrentGameContext().getCurrentStep().getTitle());
         IntroStory();
         fillTabs();
     }
