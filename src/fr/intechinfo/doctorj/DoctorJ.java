@@ -4,6 +4,7 @@ import fr.intechinfo.doctorj.controllers.Home;
 import fr.intechinfo.doctorj.model.GameContext;
 import fr.intechinfo.doctorj.model.Step;
 import fr.intechinfo.doctorj.model.Story;
+import fr.intechinfo.doctorj.utils.Paths;
 import fr.intechinfo.doctorj.utils.Serialization;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -12,6 +13,7 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
 import javax.swing.*;
+import java.io.File;
 import java.io.IOException;
 
 public class DoctorJ extends Application {
@@ -27,12 +29,20 @@ public class DoctorJ extends Application {
         mainWindow.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
             public void handle(WindowEvent windowEvent) {
+                Serialization.saveFile(getCurrentGameContext(), Paths.getAppPath() + "/default.ctx");
+
                 Platform.exit();
                 System.exit(0);
             }
         });
 
-        setCurrentGameContext(new GameContext());
+        File gameContext = new File(Paths.getAppPath() + "/default.ctx");
+
+        if(gameContext.exists()) {
+            setCurrentGameContext(Serialization.loadFile(gameContext.getAbsolutePath()));
+        } else {
+            setCurrentGameContext(new GameContext());
+        }
 
         Home home = new Home(mainWindow, "home");
         home.show("Accueil", 800, 600);

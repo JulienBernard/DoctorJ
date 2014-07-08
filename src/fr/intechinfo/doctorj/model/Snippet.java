@@ -1,9 +1,11 @@
 package fr.intechinfo.doctorj.model;
 
+import java.io.Serializable;
+
 /**
  * Represents a snippet, used by the user.
  */
-public class Snippet {
+public class Snippet implements Serializable {
     private Step stepConcerned;
     private String snippet;
 

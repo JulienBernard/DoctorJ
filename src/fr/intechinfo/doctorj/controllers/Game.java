@@ -109,9 +109,6 @@ public class Game extends AbstractController implements Initializable {
         String shortName = DoctorJ.getCurrentGameContext().getCurrentStory().getShortName();
         String userFileName = DoctorJ.getCurrentGameContext().getCurrentStep().getUserFileName();
 
-        System.out.println(currentStory.getTitle());
-        System.out.println(currentStory.getSteps().get(0).getTitle());
-
         // Writes the file
         String saveFile = strPath + "/" + shortName + "/" + userFileName + ".java";
         FileUtils.writeStringToFile(new File(saveFile), data);

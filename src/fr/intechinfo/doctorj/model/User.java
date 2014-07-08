@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Represents an user of the game.
  */
-public class User implements Serializable{
+public class User implements Serializable {
     private String name;
 
     public User() {
