@@ -1,13 +1,14 @@
 package fr.intechinfo.doctorj.controllers;
 
 import fr.intechinfo.doctorj.DoctorJ;
-import fr.intechinfo.doctorj.model.Story;
 import fr.intechinfo.doctorj.model.validators.SyntaxValidator;
 import fr.intechinfo.doctorj.model.validators.TestValidator;
 import fr.intechinfo.doctorj.model.validators.ValidatorMessage;
 import fr.intechinfo.doctorj.model.validators.ValidatorMessageElement;
 import fr.intechinfo.doctorj.utils.Paths;
 import fr.intechinfo.doctorj.utils.RSyntaxTextAreaUtils;
+import fr.intechinfo.doctorj.views.customControls.GameDialog;
+import fr.intechinfo.doctorj.views.customControls.SimpleDialog;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingNode;
@@ -18,6 +19,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.Tab;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.StackPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -25,7 +27,6 @@ import javafx.scene.text.Text;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 import org.apache.commons.io.FileUtils;
 import org.fife.rsta.ac.LanguageSupportFactory;
 import org.fife.rsta.ac.java.JavaLanguageSupport;
@@ -52,9 +53,12 @@ public class Game extends AbstractController implements Initializable {
     @FXML private Label lblScenario;
     @FXML private Label lblCurStoryStep;
     @FXML private MediaView gameMediaView;
+    @FXML private StackPane messageVideo;
+    @FXML private Label lblMessageVideo;
 
     private ObservableList<Text> listExecElements;
     private RSyntaxTextArea codeTextArea;
+    private MediaPlayer gameMediaPlayer;
 
     public Game(Stage mainWindow, String viewName) {
         super(mainWindow, viewName);
@@ -62,6 +66,8 @@ public class Game extends AbstractController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        messageVideo.setVisible(false);
+
         listExecElements = FXCollections.observableArrayList();
         listExec.setItems(listExecElements);
 
@@ -73,14 +79,9 @@ public class Game extends AbstractController implements Initializable {
 
         createSwingContent();
 
-        lblCurStoryStep.setText(DoctorJ.getCurrentGameContext().getCurrentStory().getTitle() + " > " + DoctorJ.getCurrentGameContext().getCurrentStep().getTitle());
-        fillTabs();
+        fillGameView();
 
-        Media m = new Media(new File("C:\\Users\\Sirus\\Dropbox\\DoctorJ\\Ressources\\Vidéos\\lit-malade-gensautour.mp4").toURI().toString());
-        MediaPlayer mp = new MediaPlayer(m);
-        gameMediaView.setMediaPlayer(mp);
-        mp.play();
-        mp.setCycleCount(MediaPlayer.INDEFINITE);
+        PlayIntroStory();
     }
 
     private void createSwingContent() {
@@ -124,7 +125,6 @@ public class Game extends AbstractController implements Initializable {
     @FXML protected void onClickBtnRun(MouseEvent event) throws IOException {
         String data = codeTextArea.getText();
         String strPath = Paths.getStoriesPath();
-        Story currentStory = DoctorJ.getCurrentGameContext().getCurrentStory();
         String shortName = DoctorJ.getCurrentGameContext().getCurrentStory().getShortName();
         String userFileName = DoctorJ.getCurrentGameContext().getCurrentStep().getUserFileName();
 
@@ -143,7 +143,10 @@ public class Game extends AbstractController implements Initializable {
             ValidatorMessage m2 = TestValidator.check(shortName, userFileName);
 
             if(m2.isValid()) {
-                // TODO : Donc là, le code de l'utilisateur est valide !
+                NextStep();
+            }
+            else {
+                PlayBadEnd();
             }
 
             addElementsToListExec(m2.getMessage());
@@ -161,10 +164,112 @@ public class Game extends AbstractController implements Initializable {
         }
     }
 
-    private void fillTabs() {
+    private void fillGameView() {
+        lblCurStoryStep.setText(DoctorJ.getCurrentGameContext().getCurrentStory().getTitle() + " > " + DoctorJ.getCurrentGameContext().getCurrentStep().getTitle());
+
         WebEngine he = webViewHelp.getEngine();
         he.loadContent(DoctorJ.getCurrentGameContext().getCurrentStep().getHelp());
 
         lblScenario.setText(DoctorJ.getCurrentGameContext().getCurrentStep().getDirection());
+    }
+
+    private void PlayVideo(String videoFileName, boolean loop, Runnable callback) {
+        String shortNameStory = DoctorJ.getCurrentGameContext().getCurrentStory().getShortName();
+        String userFileName = DoctorJ.getCurrentGameContext().getCurrentStep().getUserFileName();
+
+        File f = new File(Paths.getStoriesPath() + "/" + shortNameStory + "/medias/" + videoFileName);
+        Media m = new Media(f.toURI().toString());
+
+        gameMediaPlayer = new MediaPlayer(m);
+        gameMediaView.setMediaPlayer(gameMediaPlayer);
+
+        gameMediaPlayer.play();
+
+        if(loop) {
+            gameMediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
+        }
+
+        if(callback != null) {
+            gameMediaPlayer.setOnEndOfMedia(callback);
+        }
+
+    }
+
+    private void PlayIntroStory() {
+        messageVideo.setVisible(false);
+
+        String videoFileName = DoctorJ.getCurrentGameContext().getCurrentStory().getVideoStart();
+        PlayVideo(videoFileName, false, new Runnable() {
+            @Override
+            public void run() {
+                PlayIntroStep();
+            }
+        });
+    }
+
+    private void PlayIntroStep() {
+        messageVideo.setVisible(false);
+
+        String videoFileName = DoctorJ.getCurrentGameContext().getCurrentStep().getVideoStart();
+
+        PlayVideo(videoFileName, false, new Runnable() {
+            @Override
+            public void run() {
+                PlayLoopStep();
+            }
+        });
+    }
+
+    private void PlayLoopStep() {
+        lblMessageVideo.setText("AUSCULTATION EN COURS...");
+        messageVideo.setVisible(true);
+
+        String videoFileName = DoctorJ.getCurrentGameContext().getCurrentStep().getVideoLoop();
+
+        PlayVideo(videoFileName, true, null);
+    }
+
+    private void PlayGoodEnd() {
+        lblMessageVideo.setText("LE PATIENT EST GUERI !");
+        messageVideo.setVisible(true);
+
+        String videoFileName = DoctorJ.getCurrentGameContext().getCurrentStory().getVideoGoodEnd();
+
+        PlayVideo(videoFileName, false, new Runnable() {
+            @Override
+            public void run() {
+                GameDialog.showDialog("Vous avez terminé ce niveau !", new Runnable() {
+                    @Override
+                    public void run() {
+                        SelectLevel controller = new SelectLevel(getMainWindow(), "selectLevel");
+                        controller.show("Sélection d'un niveau");
+                    }
+                });
+            }
+        });
+    }
+
+    private void PlayBadEnd() {
+        lblMessageVideo.setText("LE PATIENT EST MORT !");
+        messageVideo.setVisible(true);
+
+        String videoFileName = DoctorJ.getCurrentGameContext().getCurrentStory().getVideoBadEnd();
+
+        PlayVideo(videoFileName, false, new Runnable() {
+            @Override
+            public void run() {
+                PlayLoopStep();
+            }
+        });
+    }
+
+    private void NextStep() {
+        if(DoctorJ.getCurrentGameContext().goToNextStep()) {
+            fillGameView();
+            PlayIntroStep();
+        }
+        else {
+            PlayGoodEnd();
+        }
     }
 }

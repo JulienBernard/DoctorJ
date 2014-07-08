@@ -1,0 +1,5 @@
+.root {
+    -fx-background-image: url('../../assets/Fond.png'), url('../../assets/Fond%20logo%20level.png');
+    -fx-background-repeat: repeat, no-repeat;
+    -fx-background-position: center, top left;
+}

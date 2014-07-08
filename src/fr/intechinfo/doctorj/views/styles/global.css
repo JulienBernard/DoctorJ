@@ -51,6 +51,36 @@
     -fx-effect: dropshadow(one-pass-box , #477088 , 1, 0.5 , 0 , -2);
 }
 
+.miniBlueButton {
+    -fx-background-color: linear-gradient(#6aa0bc, #6aa0bc), linear-gradient(#5e92b2, #52809c);
+
+    -fx-background-insets: 0, 10 0 0 0;
+    -fx-padding: 5 10 5 10;
+    -fx-font-weight: bold;
+    -fx-text-fill: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.2), 1, 0.0, 3, 3);
+    -fx-border-color: linear-gradient(#51809d, #6094b4);
+    -fx-border-width: 4px;
+    -fx-border-radius: 15px;
+    -fx-background-radius: 15px;
+    -fx-font-size: 16pt;
+}
+
+.miniBlueButton:hover {
+    -fx-background-color: linear-gradient(#4f7b97, #4f7b97), linear-gradient(#52809c, #5e92b2);
+    -fx-border-color: linear-gradient(#6094b4, #51809d);
+}
+
+.miniBlueButton .text {
+    -fx-effect: dropshadow(one-pass-box , #477088 , 1, 0.5 , 0 , -2);
+}
+
 .blueBackground {
     -fx-background-image: url('../../assets/Fond.png');
+}
+
+.title1 {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-effect: dropshadow(one-pass-box , rgba(0, 0, 0, 0.3) , 1, 0.5 , 0 , -2);
 }

@@ -16,11 +16,11 @@
 <center><HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
 <children><VBox prefHeight="400.0" prefWidth="406.0" spacing="20.0" BorderPane.alignment="CENTER">
 <children><StackPane prefHeight="150.0" prefWidth="200.0" styleClass="bigWhiteBorder">
-<children><MediaView fx:id="gameMediaView" fitHeight="292.0" fitWidth="403.0" /><StackPane alignment="BOTTOM_RIGHT">
+<children><MediaView fx:id="gameMediaView" fitHeight="292.0" fitWidth="403.0" /><StackPane fx:id="messageVideo" alignment="BOTTOM_RIGHT">
 <children><Rectangle height="40.0" opacity="0.7" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="297.0">
 <StackPane.margin>
 <Insets right="1.0" />
-</StackPane.margin></Rectangle><Label prefHeight="30.0" prefWidth="278.0" text="AUSCULTATION EN COURS..." textFill="WHITE">
+</StackPane.margin></Rectangle><Label fx:id="lblMessageVideo" prefHeight="30.0" prefWidth="278.0" text="AUSCULTATION EN COURS..." textFill="WHITE">
 <font>
 <Font name="System Bold" size="20.0" />
 </font>
