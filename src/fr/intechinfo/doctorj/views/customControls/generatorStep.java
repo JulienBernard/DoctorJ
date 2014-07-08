@@ -15,6 +15,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.web.HTMLEditor;
 import javafx.stage.FileChooser;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
@@ -44,7 +45,7 @@ public class GeneratorStep extends VBox {
     @FXML private TextField stepName;
     @FXML private TextField userCodeName;
     @FXML private TextArea direction;
-    @FXML private TextArea help;
+    @FXML private HTMLEditor help;
     @FXML private TextField videoStart;
     @FXML private Button openVideoStart;
     @FXML private TextField videoLoop;
@@ -135,7 +136,7 @@ public class GeneratorStep extends VBox {
         stepName.setText(step.getTitle());
         userCodeName.setText(step.getUserFileName());
         direction.setText(step.getDirection());
-        help.setText(step.getHelp());
+        help.setHtmlText(step.getHelp());
         videoStart.setText(step.getVideoStart());
         videoLoop.setText(step.getVideoLoop());
     }
@@ -184,7 +185,7 @@ public class GeneratorStep extends VBox {
             step.setTitle(stepName.getText());
             step.setUserFileName(userCodeName.getText());
             step.setDirection(direction.getText());
-            step.setHelp(help.getText());
+            step.setHelp(help.getHtmlText());
             step.setVideoStart(videoStart.getText());
             step.setVideoLoop(videoLoop.getText());
 

@@ -1,0 +1,26 @@
+.root {
+    -fx-background-image: url('../../assets/Fond.png');
+    -fx-background-repeat: repeat;
+}
+
+.topMenu {
+    -fx-background-image: url('../../assets/Fond.png'), url('../../assets/Fond%20menu%20game.png'), url('../../assets/Fond%20menu%20game2.png');
+    -fx-background-repeat: repeat, no-repeat, no-repeat;
+    -fx-background-position: center, top left, top right;
+}
+
+.topMenuElement {
+    -fx-text-fill: white;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-effect: dropshadow(one-pass-box , #183146 , 1, 0.5 , 2 , 2);
+}
+
+.topMenuElement:hover {
+    -fx-text-fill: #a5b8c9;
+}
+
+.bigWhiteBorder {
+    -fx-background-color: white;
+    -fx-effect: dropshadow(three-pass-box, rgba(0, 0, 0, 0.20), 1, 0.0, 4, 4);
+}

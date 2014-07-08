@@ -9,6 +9,8 @@ import fr.intechinfo.doctorj.utils.Serialization;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
+import javafx.scene.image.Image;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 
@@ -25,6 +27,8 @@ public class DoctorJ extends Application {
 
     public void start(Stage mainWindow) throws IOException {
         Platform.setImplicitExit(true);
+
+        mainWindow.getIcons().add(new Image(DoctorJ.class.getResourceAsStream("assets/minilogoico.png")));
 
         mainWindow.setOnCloseRequest(new EventHandler<WindowEvent>() {
             @Override
@@ -45,7 +49,7 @@ public class DoctorJ extends Application {
         }
 
         Home home = new Home(mainWindow, "home");
-        home.show("Accueil", 800, 600);
+        home.show("Accueil", 900, 600);
 
         mainWindow.show();
 

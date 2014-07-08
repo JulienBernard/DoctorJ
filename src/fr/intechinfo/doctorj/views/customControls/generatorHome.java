@@ -289,7 +289,7 @@ public class GeneratorHome extends VBox {
 
         Stage stage = new Stage();
         stage.setTitle("Doctor J - Edition d'une étape");
-        Scene scene = new Scene(gs, 600, 500);
+        Scene scene = new Scene(gs, 800, 600);
         stage.setScene(scene);
         stage.initModality(Modality.APPLICATION_MODAL);
         stage.show();

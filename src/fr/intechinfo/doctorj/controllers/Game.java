@@ -11,15 +11,16 @@ import fr.intechinfo.doctorj.utils.RSyntaxTextAreaUtils;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingNode;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.Tab;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
+import javafx.scene.web.WebEngine;
+import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import org.apache.commons.io.FileUtils;
 import org.fife.rsta.ac.LanguageSupportFactory;
@@ -28,7 +29,6 @@ import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
 import org.fife.ui.rsyntaxtextarea.SyntaxConstants;
 import org.fife.ui.rtextarea.RTextScrollPane;
 
-import javax.print.Doc;
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
@@ -40,11 +40,12 @@ import java.util.ResourceBundle;
  * Controller for the Game view
  */
 public class Game extends AbstractController implements Initializable {
-    @FXML private Button btnHome;
     @FXML private AnchorPane codeArea;
     @FXML private SwingNode swingNode;
     @FXML private ListView<Text> listExec;
     @FXML private Tab execTab;
+    @FXML private WebView webViewHelp;
+    @FXML private Label lblScenario;
 
     private ObservableList<Text> listExecElements;
     private RSyntaxTextArea codeTextArea;
@@ -67,6 +68,7 @@ public class Game extends AbstractController implements Initializable {
         createSwingContent();
 
         IntroStory();
+        fillTabs();
     }
 
     private void createSwingContent() {
@@ -97,12 +99,17 @@ public class Game extends AbstractController implements Initializable {
         });
     }
 
-    @FXML protected void onClickBtnHome(ActionEvent event) {
+    @FXML protected void onClickBtnHome(MouseEvent event) {
         Home home = new Home(getMainWindow(), "home");
         home.show("Accueil");
     }
 
-    @FXML protected void onClickBtnRun(ActionEvent event) throws IOException {
+    @FXML protected void onClickBtnLevel(MouseEvent event) {
+        SelectLevel controller = new SelectLevel(getMainWindow(), "selectLevel");
+        controller.show("Sélection d'un niveau");
+    }
+
+    @FXML protected void onClickBtnRun(MouseEvent event) throws IOException {
         String data = codeTextArea.getText();
         String strPath = Paths.getStoriesPath();
         Story currentStory = DoctorJ.getCurrentGameContext().getCurrentStory();
@@ -140,6 +147,13 @@ public class Game extends AbstractController implements Initializable {
             t.setStyle(m.getCode().getStyle());
             listExecElements.add(t);
         }
+    }
+
+    private void fillTabs() {
+        WebEngine he = webViewHelp.getEngine();
+        he.loadContent(DoctorJ.getCurrentGameContext().getCurrentStep().getHelp());
+
+        lblScenario.setText(DoctorJ.getCurrentGameContext().getCurrentStep().getDirection());
     }
 
     private void IntroStory() {
