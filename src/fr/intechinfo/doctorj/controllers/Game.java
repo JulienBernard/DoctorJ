@@ -154,8 +154,6 @@ public class Game extends AbstractController implements Initializable {
             else {
                 PlayBadEnd();
             }
-
-
         }
         else {
             PlayBadEnd();
@@ -180,6 +178,26 @@ public class Game extends AbstractController implements Initializable {
 
         // Jump to tab
         scenarioTab.getTabPane().getSelectionModel().select(scenarioTab);
+
+        // Load code source
+        String shortNameStory = DoctorJ.getCurrentGameContext().getCurrentStory().getShortName();
+        String userFileName = DoctorJ.getCurrentGameContext().getCurrentStep().getUserFileName();
+
+        File f = new File(Paths.getStoriesPath() + "/" + shortNameStory + "/" + userFileName + ".java");
+
+        if(f.exists()) {
+            try {
+                String code = FileUtils.readFileToString(f);
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        codeTextArea.setText(code);
+                    }
+                });
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     private void PlayVideo(String videoFileName, boolean loop, Runnable callback) {
