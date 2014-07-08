@@ -139,9 +139,13 @@ public class Game extends AbstractController implements Initializable {
         ValidatorMessage m = SyntaxValidator.check(saveFile);
 
         addElementsToListExec(m.getMessage());
+        // Jump to tab
+        execTab.getTabPane().getSelectionModel().select(execTab);
 
         if(m.isValid()) {
             ValidatorMessage m2 = TestValidator.check(shortName, userFileName);
+
+            addElementsToListExec(m2.getMessage());
 
             if(m2.isValid()) {
                 GameDialog.showDialog("Etape réussie !", null);
@@ -151,14 +155,11 @@ public class Game extends AbstractController implements Initializable {
                 PlayBadEnd();
             }
 
-            addElementsToListExec(m2.getMessage());
+
         }
         else {
             PlayBadEnd();
         }
-
-        // Jump to tab
-        execTab.getTabPane().getSelectionModel().select(execTab);
     }
 
     private void addElementsToListExec(List<ValidatorMessageElement> elements) {
