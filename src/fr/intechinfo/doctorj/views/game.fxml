@@ -7,6 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.media.*?>
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.web.*?>
@@ -15,10 +16,7 @@
 <center><HBox prefHeight="100.0" prefWidth="200.0" BorderPane.alignment="CENTER">
 <children><VBox prefHeight="400.0" prefWidth="406.0" spacing="20.0" BorderPane.alignment="CENTER">
 <children><StackPane prefHeight="150.0" prefWidth="200.0" styleClass="bigWhiteBorder">
-<children><ImageView fitHeight="292.0" fitWidth="403.0" pickOnBounds="true" preserveRatio="true">
-<image>
-<Image url="@../assets/Screen%20video.png" />
-</image></ImageView><StackPane alignment="BOTTOM_RIGHT">
+<children><MediaView fx:id="gameMediaView" fitHeight="292.0" fitWidth="403.0" /><StackPane alignment="BOTTOM_RIGHT">
 <children><Rectangle height="40.0" opacity="0.7" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" width="207.0">
 <StackPane.margin>
 <Insets right="1.0" />

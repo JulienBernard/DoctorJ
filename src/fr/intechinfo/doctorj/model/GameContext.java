@@ -56,4 +56,17 @@ public class GameContext implements Serializable { // Useful to see where is the
     public void setCurrentStep(Step currentStep) {
         this.currentStep = currentStep;
     }
+
+    public boolean goToNextStep() {
+        int indexCurStep = getCurrentStory().getSteps().indexOf(getCurrentStep());
+        int sizeStepList = getCurrentStory().getSteps().size();
+
+        if(indexCurStep < sizeStepList - 1) {
+            setCurrentStep(getCurrentStory().getSteps().get(indexCurStep + 1));
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }

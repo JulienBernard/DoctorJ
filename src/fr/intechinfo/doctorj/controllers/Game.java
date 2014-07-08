@@ -18,10 +18,14 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.Tab;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.scene.text.Text;
 import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import org.apache.commons.io.FileUtils;
 import org.fife.rsta.ac.LanguageSupportFactory;
 import org.fife.rsta.ac.java.JavaLanguageSupport;
@@ -47,6 +51,7 @@ public class Game extends AbstractController implements Initializable {
     @FXML private WebView webViewHelp;
     @FXML private Label lblScenario;
     @FXML private Label lblCurStoryStep;
+    @FXML private MediaView gameMediaView;
 
     private ObservableList<Text> listExecElements;
     private RSyntaxTextArea codeTextArea;
@@ -71,6 +76,19 @@ public class Game extends AbstractController implements Initializable {
         lblCurStoryStep.setText(DoctorJ.getCurrentGameContext().getCurrentStory().getTitle() + " > " + DoctorJ.getCurrentGameContext().getCurrentStep().getTitle());
         IntroStory();
         fillTabs();
+
+        Media m = new Media(new File("C:\\Users\\Alexandre\\Desktop\\INTECH\\S04\\PI\\videos\\lit-malade-gensautour.mp4").toURI().toString());
+        MediaPlayer mp = new MediaPlayer(m);
+        gameMediaView.setMediaPlayer(mp);
+        mp.play();
+        mp.setOnEndOfMedia(new Runnable() {
+            @Override
+            public void run() {
+                mp.setStartTime(Duration.ZERO);
+                mp.seek(Duration.ZERO);
+                mp.play();
+            }
+        });
     }
 
     private void createSwingContent() {
