@@ -74,7 +74,6 @@ public class Game extends AbstractController implements Initializable {
         createSwingContent();
 
         lblCurStoryStep.setText(DoctorJ.getCurrentGameContext().getCurrentStory().getTitle() + " > " + DoctorJ.getCurrentGameContext().getCurrentStep().getTitle());
-        IntroStory();
         fillTabs();
 
         Media m = new Media(new File("C:\\Users\\Alexandre\\Desktop\\INTECH\\S04\\PI\\videos\\lit-malade-gensautour.mp4").toURI().toString());
@@ -167,29 +166,5 @@ public class Game extends AbstractController implements Initializable {
         he.loadContent(DoctorJ.getCurrentGameContext().getCurrentStep().getHelp());
 
         lblScenario.setText(DoctorJ.getCurrentGameContext().getCurrentStep().getDirection());
-    }
-
-    private void IntroStory() {
-
-    }
-
-    private void IntroStep() {
-
-    }
-
-    private void PlayStep() {
-
-    }
-
-    private void LoseStep() {
-
-    }
-
-    private void WinStep() {
-
-    }
-
-    private void WinStory() {
-
     }
 }

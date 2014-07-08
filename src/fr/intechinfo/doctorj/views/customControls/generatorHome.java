@@ -1,6 +1,5 @@
 package fr.intechinfo.doctorj.views.customControls;
 
-import fr.intechinfo.doctorj.controllers.Generator;
 import fr.intechinfo.doctorj.model.Step;
 import fr.intechinfo.doctorj.model.Story;
 import fr.intechinfo.doctorj.utils.Paths;
@@ -28,7 +27,6 @@ import javafx.util.Callback;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 
-import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
 
@@ -129,7 +127,7 @@ public class GeneratorHome extends VBox {
 
                 // Folder already exists, we can't overwrite
                 if (f.exists() && f.isDirectory()) {
-                    Dialog.showDialog("Erreur : une histoire existe déjà avec ce nom !");
+                    SimpleDialog.showDialog("Erreur : une histoire existe déjà avec ce nom !");
                     return false;
                 }
                 else {
@@ -145,7 +143,7 @@ public class GeneratorHome extends VBox {
 
                 // Folder already exists, we can't overwrite
                 if (nf.exists() && nf.isDirectory()) {
-                    Dialog.showDialog("Erreur : une histoire existe déjà avec ce nom !");
+                    SimpleDialog.showDialog("Erreur : une histoire existe déjà avec ce nom !");
                     return false;
                 }
 
@@ -170,10 +168,10 @@ public class GeneratorHome extends VBox {
 
             fillForm();
 
-            if(notify) Dialog.showDialog("Sauvegarde effectuée avec succès !");
+            if(notify) SimpleDialog.showDialog("Sauvegarde effectuée avec succès !");
             return true;
         } else {
-            Dialog.showDialog("Au moins un des champs est vide !");
+            SimpleDialog.showDialog("Au moins un des champs est vide !");
             return false;
         }
     }

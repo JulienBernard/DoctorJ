@@ -29,7 +29,6 @@ import org.fife.ui.rtextarea.RTextScrollPane;
 import javax.swing.*;
 import java.io.File;
 import java.io.IOException;
-import java.net.URISyntaxException;
 import java.util.List;
 
 /**
@@ -189,12 +188,12 @@ public class GeneratorStep extends VBox {
             step.setVideoStart(videoStart.getText());
             step.setVideoLoop(videoLoop.getText());
 
-            if(notify) Dialog.showDialog("L'étape a bien été modifiée !");
+            if(notify) SimpleDialog.showDialog("L'étape a bien été modifiée !");
             fillForm();
             return true;
         }
         else {
-            Dialog.showDialog("Au moins un des champs est vide !");
+            SimpleDialog.showDialog("Au moins un des champs est vide !");
             return false;
         }
     }
