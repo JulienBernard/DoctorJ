@@ -1,0 +1,7 @@
+import fr.intechinfo.doctorj.game.*;
+
+ public class <<USERFILENAME>> {
+ 	public static void main() {
+
+ 	}
+ }

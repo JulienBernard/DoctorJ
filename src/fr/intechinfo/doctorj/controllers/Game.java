@@ -27,6 +27,7 @@ import javafx.scene.web.WebEngine;
 import javafx.scene.web.WebView;
 import javafx.stage.Stage;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.IOUtils;
 import org.fife.rsta.ac.LanguageSupportFactory;
 import org.fife.rsta.ac.java.JavaLanguageSupport;
 import org.fife.ui.rsyntaxtextarea.RSyntaxTextArea;
@@ -201,21 +202,33 @@ public class Game extends AbstractController implements Initializable {
         String shortNameStory = DoctorJ.getCurrentGameContext().getCurrentStory().getShortName();
         String userFileName = DoctorJ.getCurrentGameContext().getCurrentStep().getUserFileName();
 
-        File f = new File(Paths.getStoriesPath() + "/" + shortNameStory + "/" + userFileName + ".java");
+        // Default template
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    String template = IOUtils.toString(DoctorJ.class.getResourceAsStream("assets/TemplateCode.txt"), "UTF-8");
+                    template = template.replace("<<USERFILENAME>>", userFileName);
 
-        if(f.exists()) {
-            try {
-                String code = FileUtils.readFileToString(f);
-                SwingUtilities.invokeLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        codeTextArea.setText(code);
+                    codeTextArea.setText(template);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+                File f = new File(Paths.getStoriesPath() + "/" + shortNameStory + "/" + userFileName + ".java");
+
+                if(f.exists()) {
+                    try {
+                        String code = FileUtils.readFileToString(f);
+                        if(!code.isEmpty()) {
+                            codeTextArea.setText(code);
+                        }
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-                });
-            } catch (IOException e) {
-                e.printStackTrace();
+                }
             }
-        }
+        });
     }
 
     private void PlayVideo(String videoFileName, boolean loop, Runnable callback) {

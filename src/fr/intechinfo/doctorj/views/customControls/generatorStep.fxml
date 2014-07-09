@@ -43,7 +43,7 @@
 <padding>
 <Insets top="5.0" />
 </padding>
-<children><Label text="Nom de l'étape :" /><Label text="Nom du fichier utilisateur :" /><Label text="Consigne :" /><Label text="Aide :">
+<children><Label text="Nom de l'étape :" /><Label text="Nom classe utilisateur :" /><Label text="Scénario :" /><Label text="Cours/Aide :">
 <VBox.margin>
 <Insets top="170.0" />
 </VBox.margin></Label><Label text="Vidéo début :">
