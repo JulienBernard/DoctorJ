@@ -156,7 +156,7 @@ public class Game extends AbstractController implements Initializable {
 
             List<ValidatorMessageElement> consoleOut = new ArrayList<>();
 
-            for(Object o : Docteur.Paroles) {
+            for(Object o : Docteur.paroles) {
                 ValidatorMessageElement vme = new ValidatorMessageElement("Console : " + o.toString(), ValidatorConstants.INFO);
                 consoleOut.add(vme);
             }

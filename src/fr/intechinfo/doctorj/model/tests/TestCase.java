@@ -28,8 +28,8 @@ public abstract class TestCase {
     }
 
     protected static final void setStepToTest(String storyName, String stepName) {
-        Docteur.Vider();
-        Patient.Vider();
+        Docteur.vider();
+        Patient.vider();
 
         File file = new File("./stories/" + storyName);
 

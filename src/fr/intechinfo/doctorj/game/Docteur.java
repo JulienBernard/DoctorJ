@@ -7,13 +7,13 @@ import java.util.List;
  * Created by Alexandre on 08/07/2014.
  */
 public class Docteur {
-    public static List<Object> Paroles = new ArrayList<>();
+    public static List<Object> paroles = new ArrayList<>();
 
-    public static void Parler(Object o) {
-        Paroles.add(o);
+    public static void parler(Object o) {
+        paroles.add(o);
     }
 
-    public static void Vider() {
-        Paroles.clear();
+    public static void vider() {
+        paroles.clear();
     }
 }
